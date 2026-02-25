@@ -814,6 +814,7 @@
             if (isCorrect) {
                 feedback.classList.add('correct');
                 feedbackTitle.textContent = '✓ Correct!';
+                feedbackExplanation.innerHTML = ''; // Clear first
             } else {
                 feedback.classList.add('incorrect');
                 feedbackTitle.textContent = '✗ Incorrect';
@@ -828,7 +829,11 @@
             }
 
             if (question.explanation) {
-                feedbackExplanation.innerHTML += `<strong>Explanation:</strong> ${question.explanation}`;
+                if (isCorrect) {
+                    feedbackExplanation.innerHTML = `<strong>Explanation:</strong> ${question.explanation}`;
+                } else {
+                    feedbackExplanation.innerHTML += `<strong>Explanation:</strong> ${question.explanation}`;
+                }
             }
 
             submitBtn.textContent = currentQuestion < quizData.questions.length - 1 ? 'Next Question' : 'See Results';
