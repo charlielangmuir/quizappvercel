@@ -1,0 +1,345 @@
+{
+  "title": "iOS Development Quiz - Part 2 (Segues, UIKit & Sensors)",
+  "questions": [
+    {
+      "id": 28,
+      "type": "multiple-choice",
+      "question": "A segue is ______________",
+      "options": [
+        "a one-way connection between source and destination view controllers",
+        "a two-way connection between source and destination view controllers",
+        "a multidirectional connection between multiple view controllers",
+        "this name does not have a meaning in iOS"
+      ],
+      "correctAnswer": 0,
+      "explanation": "A segue represents a one-way transition from a source view controller to a destination view controller. To go back, you use unwind segues."
+    },
+    {
+      "id": 29,
+      "type": "multiple-choice",
+      "question": "Which of the following methods allows you to pass data from source view controller to the destination view controller?",
+      "options": [
+        "prepare(for segue: sender:)",
+        "shouldPerformSegue(with identifier: sender:)",
+        "viewDidLoad()",
+        "unwind(_ seg:)"
+      ],
+      "correctAnswer": 0,
+      "explanation": "prepare(for segue:) is called before the segue executes, allowing you to access the destination view controller and pass data to it."
+    },
+    {
+      "id": 30,
+      "type": "multiple-choice",
+      "question": "This segue displays the view controller modally using the specified presentation and transition styles.",
+      "options": [
+        "show",
+        "show details",
+        "present modally",
+        "present as popover"
+      ],
+      "correctAnswer": 2,
+      "explanation": "The 'present modally' segue presents the destination view controller on top of the source, typically covering the entire screen."
+    },
+    {
+      "id": 31,
+      "type": "multiple-choice",
+      "question": "A ___________ defines a transition between two view controllers in your app's storyboard file.",
+      "options": [
+        "segue",
+        "transition",
+        "passage",
+        "link"
+      ],
+      "correctAnswer": 0,
+      "explanation": "A segue is the iOS term for a transition defined in storyboard that connects two view controllers."
+    },
+    {
+      "id": 32,
+      "type": "multiple-choice",
+      "question": "What does the following function call do? performSegueWithIdentifier(\"SomeIdentifier\", sender: self)",
+      "options": [
+        "triggers transition defined by the segue with id SomeIdentifier",
+        "trigger transition to the view controller with id SomeIdentifier",
+        "trigger transition from the view controller with id SomeIdentifier",
+        "this call is incorrect, function does not exist"
+      ],
+      "correctAnswer": 0,
+      "explanation": "performSegueWithIdentifier programmatically triggers the segue that has the specified identifier string in storyboard."
+    },
+    {
+      "id": 33,
+      "type": "true-false",
+      "question": "If the segue looks like: source → destination. You define an unwind action method (that allows you to go back to source) in the destination view controller.",
+      "correctAnswer": false,
+      "explanation": "Unwind segues are defined in the SOURCE (destination of the unwind), not the destination of the original segue. The @IBAction unwind method goes in the controller you want to return to."
+    },
+    {
+      "id": 34,
+      "type": "multiple-choice",
+      "question": "How can segues be executed in iOS application?",
+      "options": [
+        "only automatically",
+        "only programmatically",
+        "either automatically or programmatically",
+        "segues are not executed, they are symbolic"
+      ],
+      "correctAnswer": 2,
+      "explanation": "Segues can be triggered automatically (by UI events like button taps) or programmatically using performSegue methods."
+    },
+    {
+      "id": 35,
+      "type": "multiple-choice",
+      "question": "This segue displays the new content using the showDetailViewController:sender: method of the target view controller.",
+      "options": [
+        "show",
+        "show details",
+        "present modally",
+        "present as popover"
+      ],
+      "correctAnswer": 1,
+      "explanation": "The 'show detail' segue uses showDetailViewController:sender: and is often used in split view controllers to show detail content."
+    },
+    {
+      "id": 36,
+      "type": "multiple-choice",
+      "question": "Which of the following can be used to display long lists of elements of the same type? (Select all that apply)",
+      "options": [
+        "UITableView and UICollectionView",
+        "UIListView",
+        "UITextView",
+        "Only UITableView"
+      ],
+      "correctAnswer": 0,
+      "explanation": "Both UITableView (single column lists) and UICollectionView (flexible grid layouts) are designed for displaying scrollable lists of data."
+    },
+    {
+      "id": 37,
+      "type": "multiple-choice",
+      "question": "Which setting changes the way in which slider sends the updates to the controller (either continuously or when the user is done changing)?",
+      "options": [
+        "isContinuous",
+        "sentWhenDone",
+        "isDoneEditing",
+        "isFinished"
+      ],
+      "correctAnswer": 0,
+      "explanation": "The isContinuous property determines if UISlider sends value change events continuously while dragging or only when the user releases."
+    },
+    {
+      "id": 38,
+      "type": "multiple-choice",
+      "question": "Select all types of gesture recognizers from the following list.",
+      "options": [
+        "discrete and continuous",
+        "single-touch and multi-touch",
+        "finite and infinite",
+        "temporary and permanent"
+      ],
+      "correctAnswer": 0,
+      "explanation": "Gesture recognizers are categorized as discrete (one-time events like tap) or continuous (ongoing events like pan or pinch)."
+    },
+    {
+      "id": 39,
+      "type": "multiple-choice",
+      "question": "What is the correct order of states for a gesture recognizer?",
+      "options": [
+        "began → changed → ended",
+        "ended → changed → began",
+        "changed → began → ended",
+        "began → ended → changed"
+      ],
+      "correctAnswer": 0,
+      "explanation": "Continuous gesture recognizers follow the state flow: began (gesture starts) → changed (gesture updates) → ended (gesture completes)."
+    },
+    {
+      "id": 40,
+      "type": "multiple-choice",
+      "question": "What happens when a text field becomes a first responder?",
+      "options": [
+        "the system automatically shows the keyboard and binds the input to the text field",
+        "the system automatically hides the keyboard and binds the input to the text field",
+        "the system automatically hides the keyboard and unbinds the input to the text field",
+        "the system automatically shows the keyboard and unbinds the input to the text field"
+      ],
+      "correctAnswer": 0,
+      "explanation": "When a text field becomes first responder (gains focus), iOS automatically displays the keyboard and directs input to that field."
+    },
+    {
+      "id": 41,
+      "type": "multiple-choice",
+      "question": "Can you set the current value of the slider beyond the range min–max?",
+      "options": [
+        "Yes, but only in the storyboard/interface builder (it will update one of the ends of the range)",
+        "Yes, but only programmatically (it will update one of the ends of the range)",
+        "No, it is not possible",
+        "Yes, but it will cause a runtime error"
+      ],
+      "correctAnswer": 1,
+      "explanation": "Programmatically setting a slider value outside its range will automatically adjust (clamp) the min or max to accommodate the new value."
+    },
+    {
+      "id": 42,
+      "type": "true-false",
+      "question": "You cannot customize the UISwitch component.",
+      "correctAnswer": false,
+      "explanation": "UISwitch can be customized with properties like onTintColor, thumbTintColor, and you can change its appearance programmatically."
+    },
+    {
+      "id": 43,
+      "type": "multiple-choice",
+      "question": "Which of the following displays an editable text area in the interface?",
+      "options": [
+        "UITextField",
+        "UILabel",
+        "UITextView",
+        "UITextObject"
+      ],
+      "correctAnswer": 2,
+      "explanation": "UITextView displays multi-line editable text. UITextField is single-line, and UILabel is non-editable."
+    },
+    {
+      "id": 44,
+      "type": "multiple-choice",
+      "question": "Which of the following functions hides the keyboard?",
+      "options": [
+        "resignFirstResponder",
+        "resetFirstResponder",
+        "resignKeyboard",
+        "hideKeyboard"
+      ],
+      "correctAnswer": 0,
+      "explanation": "Calling resignFirstResponder() on a text field or text view dismisses the keyboard by making it give up first responder status."
+    },
+    {
+      "id": 45,
+      "type": "multiple-choice",
+      "question": "What does it mean that a table view is a data driven view?",
+      "options": [
+        "it generates the content based on the data from data source",
+        "it generates the content based on the user input",
+        "it is controlled by a data source",
+        "it is controlled by data entry"
+      ],
+      "correctAnswer": 2,
+      "explanation": "Table views are data driven because they rely on a data source object that provides the number of rows and the content for each cell."
+    },
+    {
+      "id": 46,
+      "type": "multiple-choice",
+      "question": "Which package (module) is used to access the sensor data about motion and environment?",
+      "options": [
+        "CoreMotion",
+        "CoreSensors",
+        "SensorManager",
+        "SensorCore"
+      ],
+      "correctAnswer": 0,
+      "explanation": "CoreMotion is the iOS framework that provides access to accelerometer, gyroscope, magnetometer, and motion data."
+    },
+    {
+      "id": 47,
+      "type": "true-false",
+      "question": "Permission to use location data has to be given each time the application tries to access the data.",
+      "correctAnswer": false,
+      "explanation": "Once permission is granted, it persists until the user changes it in settings or the app is uninstalled. Permission doesn't need to be given every time."
+    },
+    {
+      "id": 48,
+      "type": "multiple-choice",
+      "question": "When is the permission to access the location requested?",
+      "options": [
+        "Only on app installation",
+        "When application starts",
+        "Each time application wants to use location data",
+        "When the program requests it on runtime if not permanently given before"
+      ],
+      "correctAnswer": 3,
+      "explanation": "Location permission is requested when your code first calls location services, if permission hasn't been permanently granted or denied before."
+    },
+    {
+      "id": 49,
+      "type": "multiple-choice",
+      "question": "How can energy consumption be minimized when using location services?",
+      "options": [
+        "By using significant-change service and lowering the frequency of updates",
+        "By quietly disabling other services",
+        "By turning off the device",
+        "By using only GPS"
+      ],
+      "correctAnswer": 0,
+      "explanation": "Using significant-change service (only updates on major location changes) and reducing update frequency significantly reduces battery consumption."
+    },
+    {
+      "id": 50,
+      "type": "multiple-choice",
+      "question": "Which sensor is used to measure the rate at which the device rotates around a specific axis?",
+      "options": [
+        "Gyroscope",
+        "Accelerometer",
+        "Rotationmeter",
+        "Spinometer"
+      ],
+      "correctAnswer": 0,
+      "explanation": "The gyroscope measures rotational velocity (rate of rotation) around the device's three axes."
+    },
+    {
+      "id": 51,
+      "type": "true-false",
+      "question": "Permission to use location data has to be checked each time the application tries to access the data.",
+      "correctAnswer": true,
+      "explanation": "While permission doesn't need to be requested each time, you should check the authorization status before accessing location data in case the user changed permissions."
+    },
+    {
+      "id": 52,
+      "type": "multiple-choice",
+      "question": "In what format is the acceleration data returned?",
+      "options": [
+        "vector with 3 values",
+        "vector with 4 values",
+        "vector with 1 values",
+        "single number"
+      ],
+      "correctAnswer": 0,
+      "explanation": "Acceleration data is returned as a 3D vector with x, y, and z components representing acceleration along each axis."
+    },
+    {
+      "id": 53,
+      "type": "multiple-choice",
+      "question": "The values reported by the accelerometer are presented in increments of the gravitational acceleration. What does it mean?",
+      "options": [
+        "1.0 represents 9.8 m/s²",
+        "1.0 represents 1.0 m/s²",
+        "10 represents 9.8 m/s²",
+        "10 represents 1.0 m/s²"
+      ],
+      "correctAnswer": 0,
+      "explanation": "Accelerometer values are in units of g (Earth's gravity). A value of 1.0 equals 9.8 m/s², making the values easier to interpret relative to gravity."
+    },
+    {
+      "id": 54,
+      "type": "multiple-choice",
+      "question": "What is the unit of rotation used by sensors?",
+      "options": [
+        "radian/second",
+        "degree/second",
+        "radian/hour",
+        "degree/minute"
+      ],
+      "correctAnswer": 0,
+      "explanation": "Gyroscope data is returned in radians per second (rad/s), measuring the rate of rotation around each axis."
+    },
+    {
+      "id": 55,
+      "type": "multiple-choice",
+      "question": "What does accelerometer measure?",
+      "options": [
+        "Change in velocity along axis",
+        "Gravitation",
+        "Change in position of the device",
+        "Change in orientation of the device"
+      ],
+      "correctAnswer": 0,
+      "explanation": "The accelerometer measures acceleration - the rate of change in velocity along each axis (x, y, z)."
+    }
+  ]
+}

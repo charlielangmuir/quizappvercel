@@ -1,0 +1,308 @@
+{
+  "title": "iOS Development Quiz - Part 1 (Swift Basics & Functions)",
+  "questions": [
+    {
+      "id": 1,
+      "type": "multiple-choice",
+      "question": "How is the optional type denoted in Swift?",
+      "options": [
+        "by adding a question mark (?) after the name of the type",
+        "by adding an exclamation mark (!) after the name of the type",
+        "by adding a question mark (?) infront of the name of the type",
+        "by adding an exclamation mark (!) infront of the name of the type"
+      ],
+      "correctAnswer": 0,
+      "explanation": "In Swift, optional types are denoted by adding a question mark (?) after the type name. Example: var name: String?"
+    },
+    {
+      "id": 2,
+      "type": "true-false",
+      "question": "In Swift, all types contain a nil as a possible value.",
+      "correctAnswer": false,
+      "explanation": "Only optional types can contain nil. Regular types cannot be nil in Swift - you must explicitly make them optional with ? to allow nil values."
+    },
+    {
+      "id": 3,
+      "type": "multiple-choice",
+      "question": "Which of the following expressions allows us to declare an array?",
+      "options": [
+        "var shoppingList = [\"catfish\", \"water\", \"tulips\", \"blue paint\"]",
+        "var shoppingList = {\"catfish\", \"water\", \"tulips\", \"blue paint\"}",
+        "array shoppingList = [\"catfish\", \"water\", \"tulips\", \"blue paint\"]",
+        "var shoppingList = array[\"catfish\", \"water\", \"tulips\", \"blue paint\"]"
+      ],
+      "correctAnswer": 0,
+      "explanation": "Arrays in Swift are declared using square brackets [] with comma-separated values. The var keyword is used for variables."
+    },
+    {
+      "id": 4,
+      "type": "true-false",
+      "question": "In Swift, functions can be passed as parameters to other functions and they can be returned from functions.",
+      "correctAnswer": true,
+      "explanation": "Swift treats functions as first-class citizens, meaning they can be assigned to variables, passed as parameters, and returned from other functions."
+    },
+    {
+      "id": 5,
+      "type": "multiple-choice",
+      "question": "Which of the following is true?",
+      "options": [
+        "In Swift, values are never converted (cast operation) automatically to another type",
+        "In Swift, values are always converted (cast operation) automatically to another type if needed",
+        "In Swift, conversion (cast operation) is not possible at all",
+        "There is no such thing as a cast operation in programming languages"
+      ],
+      "correctAnswer": 0,
+      "explanation": "Swift requires explicit type conversion - it never automatically casts values to another type. You must use explicit conversion like String(x) or Int(y)."
+    },
+    {
+      "id": 6,
+      "type": "multiple-choice",
+      "question": "Which of the following expressions can be used to declare a function that takes an integer as a parameter and returns string?",
+      "options": [
+        "func foo(a:Int)->String",
+        "function foo(a:Int)->String",
+        "func foo(a:Int):String",
+        "function foo(a:Int):String"
+      ],
+      "correctAnswer": 0,
+      "explanation": "Swift uses the 'func' keyword to declare functions, with parameter types in parentheses and return type after -> arrow."
+    },
+    {
+      "id": 7,
+      "type": "multiple-choice",
+      "question": "Which of the following expressions would you use to print a variable x?",
+      "options": [
+        "print(\"Value of x is: \\(x)\")",
+        "print(\"Value of x is: \"+String(x))",
+        "print(\"Value of x is: \", x)",
+        "All of the above"
+      ],
+      "correctAnswer": 3,
+      "explanation": "Swift offers multiple ways to print: string interpolation \\(x), string concatenation with conversion, or comma-separated values in print()."
+    },
+    {
+      "id": 8,
+      "type": "true-false",
+      "question": "Swift requires each line to be terminated by a semicolon \";\"",
+      "correctAnswer": false,
+      "explanation": "Unlike many languages, Swift does not require semicolons at the end of statements. They are optional."
+    },
+    {
+      "id": 9,
+      "type": "multiple-choice",
+      "question": "Which of the following statement(s) can be used to declare an integer constant of value 5 in Swift?",
+      "options": [
+        "let x = 5",
+        "let Int x = 5",
+        "const x:Int x=5",
+        "const x = 5"
+      ],
+      "correctAnswer": 0,
+      "explanation": "Swift uses 'let' keyword to declare constants (immutable values). The type can be inferred or explicitly specified with a colon."
+    },
+    {
+      "id": 10,
+      "type": "multiple-choice",
+      "question": "Select the statement that is correct and the most complete describing Swift",
+      "options": [
+        "Swift is a strongly typed language that allows for the type inference",
+        "Swift is a weakly typed language that allows for the type inference",
+        "Swift is a strongly typed language that does not allow for the type inference",
+        "Swift is a weakly typed language that does not allow for the type inference"
+      ],
+      "correctAnswer": 0,
+      "explanation": "Swift is strongly typed (types are enforced) but supports type inference (the compiler can deduce types automatically)."
+    },
+    {
+      "id": 11,
+      "type": "multiple-choice",
+      "question": "In the function declaration: func swapTwoInts(_ a: inout Int, _ b: inout Int), what does 'inout' mean?",
+      "options": [
+        "_ means that when calling the function param labels has to be used",
+        "inout means that params are appearing and disappearing",
+        "inout means that params are input and output parameters",
+        "_ means that parameters are optional"
+      ],
+      "correctAnswer": 2,
+      "explanation": "The 'inout' keyword means parameters can be modified inside the function and those changes persist outside the function (pass by reference)."
+    },
+    {
+      "id": 12,
+      "type": "true-false",
+      "question": "The following two functions have the same type: func addTwoInts(_ a: Int, _ b: Double) -> Int and func multiplyTwoInts(_ a: Double, _ b: Int) -> Int",
+      "correctAnswer": false,
+      "explanation": "Function types are determined by parameter types and return type. These functions have different parameter order (Int, Double vs Double, Int), so they have different types."
+    },
+    {
+      "id": 13,
+      "type": "multiple-choice",
+      "question": "In Swift, a function is identified by which keyword?",
+      "options": [
+        "keyword func",
+        "keyword function",
+        "returned type with ->",
+        "at least one parameter"
+      ],
+      "correctAnswer": 0,
+      "explanation": "Functions in Swift are declared using the 'func' keyword, followed by the function name and parameters."
+    },
+    {
+      "id": 14,
+      "type": "multiple-choice",
+      "question": "Consider the following declaration: func add(no1:Int, no2:Int)->Int",
+      "options": [
+        "it declares a function that takes two Int values as parameters and returns an Int value",
+        "it declares a function that takes two Int values as parameters",
+        "it declares a function that returns an Int value",
+        "this declaration is incorrect"
+      ],
+      "correctAnswer": 0,
+      "explanation": "This function declaration shows two Int parameters (no1 and no2) and returns an Int value (indicated by ->Int)."
+    },
+    {
+      "id": 15,
+      "type": "multiple-choice",
+      "question": "In the function declaration: func swapTwoInts(_ a: inout Int, _ b: inout Int), what does the underscore '_' mean?",
+      "options": [
+        "_ means that when calling the function param labels should not be used",
+        "inout means that params are appearing and disappearing",
+        "_ means that params are output parameters",
+        "_ means that parameters are optional"
+      ],
+      "correctAnswer": 0,
+      "explanation": "The underscore _ as an external parameter name means no label is needed when calling the function. You call it as swapTwoInts(x, y) instead of swapTwoInts(a: x, b: y)."
+    },
+    {
+      "id": 16,
+      "type": "multiple-choice",
+      "question": "Consider the following declaration: func minMax(array:[Int])->(a:Int, b:Int)?",
+      "options": [
+        "the function takes an array of Ints as a parameter and returns a tuple with two Int values or a nil value",
+        "the function takes an array of Ints as a parameter and returns a tuple with two Int values",
+        "the function returns a tuple with two Int values or a nil value",
+        "the function returns a Int value or a nil value"
+      ],
+      "correctAnswer": 0,
+      "explanation": "The ? after the tuple makes the return type optional. The function can return either a tuple (a:Int, b:Int) or nil."
+    },
+    {
+      "id": 17,
+      "type": "multiple-choice",
+      "question": "How many times will the following loop execute? for i in 1...10 { ... }",
+      "options": [
+        "5",
+        "9",
+        "10",
+        "11"
+      ],
+      "correctAnswer": 2,
+      "explanation": "The closed range operator ... includes both endpoints, so 1...10 includes 1, 2, 3, 4, 5, 6, 7, 8, 9, 10 (10 iterations)."
+    },
+    {
+      "id": 18,
+      "type": "multiple-choice",
+      "question": "In Swift a class...",
+      "options": [
+        "can inherit from one class but conform to multiple protocols",
+        "can inherit from multiple classes and conform to multiple protocols",
+        "can inherit from multiple classes but conform to only one protocol",
+        "can inherit from one class and conform to a single protocol"
+      ],
+      "correctAnswer": 0,
+      "explanation": "Swift supports single inheritance (one parent class) but allows a class to conform to multiple protocols (interfaces)."
+    },
+    {
+      "id": 19,
+      "type": "true-false",
+      "question": "Swift allows for functions to be nested (declare function in a body of another function).",
+      "correctAnswer": true,
+      "explanation": "Swift supports nested functions, where you can define a function inside another function's body. The nested function is only accessible within its parent function."
+    },
+    {
+      "id": 20,
+      "type": "multiple-choice",
+      "question": "In the following declaration: func pow(firstArg a:Int)->Int",
+      "options": [
+        "firstArg is the name used in the function call and a is used in the body",
+        "a is the name used in the function call and firstArg is used in the body",
+        "firstArg is the name used in the function call and both firstArg and a can be used in the body",
+        "both firstArg and a is the name used in the function call and both firstArg is used in the body"
+      ],
+      "correctAnswer": 0,
+      "explanation": "When you have two names for a parameter, the first (firstArg) is the external name used when calling, and the second (a) is the internal name used inside the function body."
+    },
+    {
+      "id": 21,
+      "type": "true-false",
+      "question": "SwiftUI uses a declarative approach.",
+      "correctAnswer": true,
+      "explanation": "SwiftUI is declarative - you declare what the UI should look like and SwiftUI handles the how. This is different from imperative UIKit where you manually update the UI."
+    },
+    {
+      "id": 22,
+      "type": "multiple-choice",
+      "question": "What is the name of the visual tool that is used to build layouts for the iOS application as well as to define navigation and transitions between screens?",
+      "options": [
+        "storyboard",
+        "SwiftUI",
+        "Layout editor",
+        "UI inspector"
+      ],
+      "correctAnswer": 0,
+      "explanation": "Storyboard is the visual interface builder in Xcode used to design UI layouts and define navigation flow between view controllers."
+    },
+    {
+      "id": 23,
+      "type": "multiple-choice",
+      "question": "What is SwiftUI?",
+      "options": [
+        "It is an innovative way to build user interfaces using Swift",
+        "It is a UI component defined in Swift",
+        "It is a UI component allowing user to code in Swift",
+        "It is a scripting language that supports Storyboard"
+      ],
+      "correctAnswer": 0,
+      "explanation": "SwiftUI is Apple's modern, declarative framework for building user interfaces across all Apple platforms using Swift."
+    },
+    {
+      "id": 24,
+      "type": "true-false",
+      "question": "The origin of the UI element in iOS app is the upper-left corner.",
+      "correctAnswer": true,
+      "explanation": "In iOS coordinate system, the origin (0,0) is at the top-left corner, with x increasing to the right and y increasing downward."
+    },
+    {
+      "id": 25,
+      "type": "true-false",
+      "question": "SwiftUI can only be used to define UI for simple applications.",
+      "correctAnswer": false,
+      "explanation": "SwiftUI is a full-featured framework capable of building complex, production-ready applications across all Apple platforms."
+    },
+    {
+      "id": 26,
+      "type": "multiple-choice",
+      "question": "Which of the following methods allows you to prevent segue execution?",
+      "options": [
+        "prepare(for segue: sender:)",
+        "shouldPerformSegue(with identifier: sender:)",
+        "viewDidLoad()",
+        "unwind(_ seg:)"
+      ],
+      "correctAnswer": 1,
+      "explanation": "shouldPerformSegue returns a boolean - returning false prevents the segue from executing, allowing conditional navigation."
+    },
+    {
+      "id": 27,
+      "type": "multiple-choice",
+      "question": "This segue displays the new content using the showViewController:sender: method of the target view controller.",
+      "options": [
+        "show",
+        "show details",
+        "present modally",
+        "present as popover"
+      ],
+      "correctAnswer": 0,
+      "explanation": "The 'show' segue (also called push) uses showViewController:sender: and typically pushes onto a navigation stack."
+    }
+  ]
+}
