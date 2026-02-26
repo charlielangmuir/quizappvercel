@@ -1,0 +1,584 @@
+{
+  "title": "Deep Learning & Neural Networks Quiz",
+  "questions": [
+    {
+      "id": 1,
+      "type": "multiple-choice",
+      "question": "What is a Tensor in ML?",
+      "options": [
+        "A multi-dimensional array in python",
+        "The API for TensorFlow",
+        "Used to represent something that tests an object's resistance to stress and strain",
+        "The API for Keras"
+      ],
+      "correctAnswer": 0,
+      "explanation": "A tensor is a multi-dimensional array, the fundamental data structure in ML frameworks like TensorFlow and PyTorch."
+    },
+    {
+      "id": 2,
+      "type": "multiple-choice",
+      "question": "0D represented by ..., 1D represented by ..., 2D represented by ..., 3D and over represented by ...",
+      "options": [
+        "Matrix, Vector, Scalar, Tensor",
+        "Vector, Matrix, Scalar, Tensor",
+        "Scalar, Vector, Matrix, Tensor",
+        "Vector, Scalar, Matrix, Tensor"
+      ],
+      "correctAnswer": 2,
+      "explanation": "0D = Scalar (single number), 1D = Vector (array), 2D = Matrix (2D array), 3D+ = Tensor (multi-dimensional array)."
+    },
+    {
+      "id": 3,
+      "type": "multiple-choice",
+      "question": "The weights in a Deep Neural Network are improved by...",
+      "options": [
+        "increasing of the weight value based on the direction that increases the Loss",
+        "increasing the weight value based on the direction that decreases the Loss",
+        "decreasing of the weight value based on the direction that decreases the Loss",
+        "increasing or decreasing of the weight value based on the direction that decreases the Loss"
+      ],
+      "correctAnswer": 3,
+      "explanation": "Weights can be adjusted up or down depending on the gradient direction, always with the goal of decreasing the loss function."
+    },
+    {
+      "id": 4,
+      "type": "multiple-choice",
+      "question": "A Logistic Regression Model usually has ___ layer(s) with ___ neuron(s). A Deep Neural Network Model usually has ___ layer(s) with ___ neuron(s).",
+      "options": [
+        "1 layer, Many neurons / 1 layer, Many neurons",
+        "1 layer, 1 neuron / Many layers, Many neurons",
+        "Many layers, Many neurons / 1 layer, 1 neuron",
+        "Many layers, 1 neuron / Many layers, 1 neuron"
+      ],
+      "correctAnswer": 1,
+      "explanation": "Logistic Regression is simple with 1 layer and typically 1 neuron. Deep Neural Networks have many layers with many neurons per layer."
+    },
+    {
+      "id": 5,
+      "type": "multiple-choice",
+      "question": "What is a logit?",
+      "options": [
+        "Normalized output data after activation function",
+        "Unnormalized output data before activation function",
+        "Input data before processing",
+        "The activation function itself"
+      ],
+      "correctAnswer": 1,
+      "explanation": "Logits are the raw, unnormalized output scores from a layer before being passed through an activation function like softmax or sigmoid."
+    },
+    {
+      "id": 6,
+      "type": "multiple-choice",
+      "question": "What is the back-propagation step needed for?",
+      "options": [
+        "To go forward through the neural network",
+        "To minimize the loss and update the weights by going backward through the NN",
+        "Only to improve metrics reporting",
+        "To initialize the weights"
+      ],
+      "correctAnswer": 1,
+      "explanation": "Back-propagation calculates gradients by going backward through layers, allowing the model to update weights and minimize loss."
+    },
+    {
+      "id": 7,
+      "type": "multiple-choice",
+      "question": "What does the word gradient refer to in gradient descent?",
+      "options": [
+        "The global minimum point",
+        "The slope/derivative/steepness of the loss function",
+        "The learning rate value",
+        "The activation function output"
+      ],
+      "correctAnswer": 1,
+      "explanation": "Gradient refers to the slope, derivative, or steepness of the loss function - indicating the direction and magnitude of change."
+    },
+    {
+      "id": 8,
+      "type": "multiple-choice",
+      "question": "What is the learning rate of a Deep NN?",
+      "options": [
+        "Step size as you go down the loss function toward minimum",
+        "The number of hidden layers",
+        "The weight value that gets updated",
+        "The activation function parameter"
+      ],
+      "correctAnswer": 0,
+      "explanation": "Learning rate controls the step size when moving down the loss function 'mountain' during gradient descent toward the minimum."
+    },
+    {
+      "id": 9,
+      "type": "multiple-choice",
+      "question": "What does a 'more stable' learning Deep NN algorithm look like?",
+      "options": [
+        "Steep fluctuations with high gradient",
+        "Very little variation in the weight to reach the optimal weight",
+        "Lot of variation in the weight values",
+        "Rapid oscillations during training"
+      ],
+      "correctAnswer": 1,
+      "explanation": "A stable learning process shows smooth, consistent convergence with minimal variation in weight updates."
+    },
+    {
+      "id": 10,
+      "type": "multiple-choice",
+      "question": "What is a mini-batch?",
+      "options": [
+        "The entire training dataset processed at once",
+        "A small subset of training data, more efficient and enables parallel GPU processing",
+        "Only used for testing data",
+        "Can only be processed on a single CPU core"
+      ],
+      "correctAnswer": 1,
+      "explanation": "A mini-batch is a small portion of training data that enables efficient, parallelizable training on GPUs."
+    },
+    {
+      "id": 11,
+      "type": "multiple-choice",
+      "question": "Translation is the ______ operation on tensors",
+      "options": [
+        "multiplication",
+        "addition",
+        "division",
+        "exponent"
+      ],
+      "correctAnswer": 1,
+      "explanation": "Translation (shifting/sliding a tensor) is performed by addition operations."
+    },
+    {
+      "id": 12,
+      "type": "multiple-choice",
+      "question": "One Dense layer contains:",
+      "options": [
+        "Only an activation function",
+        "Affine transformation (rotation/scaling + translation) and activation function",
+        "Only a transformation operation",
+        "Only rotation or scaling"
+      ],
+      "correctAnswer": 1,
+      "explanation": "A Dense layer performs an affine transformation (Wx + b) combining linear operations and translation, followed by an activation function."
+    },
+    {
+      "id": 13,
+      "type": "multiple-choice",
+      "question": "Stochastic is a fancy word for...",
+      "options": [
+        "gradient",
+        "random",
+        "batch",
+        "weight"
+      ],
+      "correctAnswer": 1,
+      "explanation": "Stochastic means involving randomness or random selection, as in Stochastic Gradient Descent which uses random mini-batches."
+    },
+    {
+      "id": 14,
+      "type": "true-false",
+      "question": "If the learning rate you choose is too large, you can end up increasing the loss.",
+      "correctAnswer": true,
+      "explanation": "Too large a learning rate can cause overshooting the minimum, leading to oscillations or divergence that increases loss."
+    },
+    {
+      "id": 15,
+      "type": "multiple-choice",
+      "question": "Which of the situations below could use broadcasting in a Deep NN?",
+      "options": [
+        "When applying the softmax function to the logits",
+        "When applying the linear activation function",
+        "When adding bias terms to layer outputs",
+        "When multiplying intermediate nodes by weights"
+      ],
+      "correctAnswer": 2,
+      "explanation": "Broadcasting typically occurs when adding bias vectors to batched matrix multiplications, where shapes need to be automatically adjusted."
+    },
+    {
+      "id": 16,
+      "type": "multiple-choice",
+      "question": "Where does the loss function come from?",
+      "options": [
+        "It is automatically generated by the neural network",
+        "It is given to the model to minimize loss and update weights",
+        "It is only computed during testing",
+        "It is the same as the activation function"
+      ],
+      "correctAnswer": 1,
+      "explanation": "The loss function is chosen and specified by the user (like MSE, cross-entropy) to measure model error and guide weight updates."
+    },
+    {
+      "id": 17,
+      "type": "multiple-choice",
+      "question": "Why is the linear activation function used between the logits layer and loss computation?",
+      "options": [
+        "Softmax or sigmoid are used instead of linear activation",
+        "Because it classifies values into groups",
+        "Because it doesn't change logit values, resulting in more stable learning",
+        "Because it normalizes the output"
+      ],
+      "correctAnswer": 2,
+      "explanation": "Linear activation (identity function f(x)=x) passes logits unchanged, providing numerical stability when computing loss directly from raw scores."
+    },
+    {
+      "id": 18,
+      "type": "multiple-choice",
+      "question": "Which are types of activation functions?",
+      "options": [
+        "SoftMax, Sigmoid, and ReLU functions",
+        "Reshaping, Flattening, and z functions",
+        "Only linear functions",
+        "Broadcasting and element-wise functions"
+      ],
+      "correctAnswer": 0,
+      "explanation": "SoftMax, Sigmoid, and ReLU (Rectified Linear Unit) are all activation functions. Reshaping, flattening, and z (weighted sum) are not."
+    },
+    {
+      "id": 19,
+      "type": "multiple-choice",
+      "question": "How many data items and images are in a dataset with: 1000 rows, 6 columns, 3 basic colors?",
+      "options": [
+        "6000 data items, 6000 images",
+        "18000 data items, 1000 images",
+        "6000 data items, 1000 images",
+        "18000 data items, 6000 images"
+      ],
+      "correctAnswer": 1,
+      "explanation": "1000 rows = 1000 images. Total data items = 1000 × 6 × 3 = 18,000 values."
+    },
+    {
+      "id": 20,
+      "type": "multiple-choice",
+      "question": "Flattening is the process of...",
+      "options": [
+        "reducing the number of dimensions",
+        "splitting into train and test sets",
+        "reducing the number of rows",
+        "reducing the number of data samples"
+      ],
+      "correctAnswer": 0,
+      "explanation": "Flattening converts multi-dimensional arrays into 1D vectors, reducing dimensions but keeping all data."
+    },
+    {
+      "id": 21,
+      "type": "multiple-choice",
+      "question": "What type of operation has automatic reshaping applied?",
+      "options": [
+        "Only element-wise addition",
+        "broadcasting",
+        "Only matrix multiplication",
+        "element-wise operations"
+      ],
+      "correctAnswer": 1,
+      "explanation": "Broadcasting automatically reshapes tensors to compatible shapes. Element-wise operations require matching shapes without auto-reshape."
+    },
+    {
+      "id": 22,
+      "type": "multiple-choice",
+      "question": "The expand_dims() function is used to:",
+      "options": [
+        "expand the larger tensor with null values",
+        "copy values of the smaller tensor to match the larger tensor's size",
+        "reduce tensor dimensions",
+        "compress tensor data"
+      ],
+      "correctAnswer": 1,
+      "explanation": "expand_dims adds dimensions and duplicates values to make tensors compatible for operations."
+    },
+    {
+      "id": 23,
+      "type": "multiple-choice",
+      "question": "What is the purpose of an activation function?",
+      "options": [
+        "To introduce non-linearity into the network",
+        "To calculate the loss",
+        "To update the weights",
+        "To reshape the input data"
+      ],
+      "correctAnswer": 0,
+      "explanation": "Activation functions introduce non-linearity, allowing neural networks to learn complex patterns. Without them, multiple layers would just be linear combinations."
+    },
+    {
+      "id": 24,
+      "type": "multiple-choice",
+      "question": "What does ReLU stand for?",
+      "options": [
+        "Rectified Linear Unit",
+        "Repeated Linear Update",
+        "Rotational Element Layer Unit",
+        "Random Element Logic Unit"
+      ],
+      "correctAnswer": 0,
+      "explanation": "ReLU stands for Rectified Linear Unit, an activation function that outputs max(0, x)."
+    },
+    {
+      "id": 25,
+      "type": "multiple-choice",
+      "question": "What is the output range of the Sigmoid activation function?",
+      "options": [
+        "(-∞, +∞)",
+        "(0, 1)",
+        "(-1, 1)",
+        "[0, ∞)"
+      ],
+      "correctAnswer": 1,
+      "explanation": "Sigmoid squashes input values into the range (0, 1), making it useful for binary classification."
+    },
+    {
+      "id": 26,
+      "type": "multiple-choice",
+      "question": "What is the output of the ReLU function for negative inputs?",
+      "options": [
+        "The negative value itself",
+        "Zero",
+        "One",
+        "The absolute value"
+      ],
+      "correctAnswer": 1,
+      "explanation": "ReLU(x) = max(0, x), so any negative input becomes 0."
+    },
+    {
+      "id": 27,
+      "type": "multiple-choice",
+      "question": "What is the SoftMax function primarily used for?",
+      "options": [
+        "Binary classification",
+        "Multi-class classification",
+        "Regression problems",
+        "Data normalization"
+      ],
+      "correctAnswer": 1,
+      "explanation": "SoftMax converts logits into probability distributions for multi-class classification, ensuring outputs sum to 1."
+    },
+    {
+      "id": 28,
+      "type": "multiple-choice",
+      "question": "What is an epoch in neural network training?",
+      "options": [
+        "One forward pass through the network",
+        "One complete pass through the entire training dataset",
+        "One mini-batch processed",
+        "One weight update"
+      ],
+      "correctAnswer": 1,
+      "explanation": "An epoch is one complete pass through all training data. Multiple epochs are typically needed for training."
+    },
+    {
+      "id": 29,
+      "type": "multiple-choice",
+      "question": "What problem does the vanishing gradient problem cause?",
+      "options": [
+        "Weights become too large",
+        "Early layers learn very slowly or not at all",
+        "Training happens too quickly",
+        "The model overfits immediately"
+      ],
+      "correctAnswer": 1,
+      "explanation": "Vanishing gradients occur when gradients become extremely small in early layers, making those layers unable to learn effectively."
+    },
+    {
+      "id": 30,
+      "type": "multiple-choice",
+      "question": "What is overfitting?",
+      "options": [
+        "Model performs well on training data but poorly on new data",
+        "Model performs poorly on all data",
+        "Model trains too slowly",
+        "Model has too few parameters"
+      ],
+      "correctAnswer": 0,
+      "explanation": "Overfitting occurs when a model learns training data too well, including noise, and fails to generalize to new data."
+    },
+    {
+      "id": 31,
+      "type": "multiple-choice",
+      "question": "What is the purpose of dropout in neural networks?",
+      "options": [
+        "To increase training speed",
+        "To prevent overfitting by randomly disabling neurons during training",
+        "To reduce the number of layers",
+        "To normalize inputs"
+      ],
+      "correctAnswer": 1,
+      "explanation": "Dropout randomly drops neurons during training to prevent overfitting and improve generalization."
+    },
+    {
+      "id": 32,
+      "type": "multiple-choice",
+      "question": "What does batch normalization do?",
+      "options": [
+        "Normalizes layer outputs to stabilize and speed up training",
+        "Creates mini-batches from data",
+        "Normalizes only the input data",
+        "Removes outliers from batches"
+      ],
+      "correctAnswer": 0,
+      "explanation": "Batch normalization normalizes the outputs of layers, stabilizing learning and allowing higher learning rates."
+    },
+    {
+      "id": 33,
+      "type": "multiple-choice",
+      "question": "What is the difference between parameters and hyperparameters?",
+      "options": [
+        "No difference, they're the same thing",
+        "Parameters are learned during training; hyperparameters are set before training",
+        "Hyperparameters are learned; parameters are set manually",
+        "Parameters are only for deep networks"
+      ],
+      "correctAnswer": 1,
+      "explanation": "Parameters (weights, biases) are learned during training. Hyperparameters (learning rate, layers, neurons) are configured before training."
+    },
+    {
+      "id": 34,
+      "type": "multiple-choice",
+      "question": "What is the purpose of the bias term in a neural network layer?",
+      "options": [
+        "To prevent overfitting",
+        "To allow the activation function to shift left or right",
+        "To normalize the inputs",
+        "To calculate the loss"
+      ],
+      "correctAnswer": 1,
+      "explanation": "Bias allows the activation function to shift, providing more flexibility in fitting the data. Without bias, the function must pass through the origin."
+    },
+    {
+      "id": 35,
+      "type": "multiple-choice",
+      "question": "What is forward propagation?",
+      "options": [
+        "Updating weights based on errors",
+        "Passing input data through the network to get output",
+        "Calculating gradients",
+        "Splitting data into batches"
+      ],
+      "correctAnswer": 1,
+      "explanation": "Forward propagation is the process of passing input through all layers to generate an output prediction."
+    },
+    {
+      "id": 36,
+      "type": "multiple-choice",
+      "question": "Why is the ReLU activation function popular in deep learning?",
+      "options": [
+        "It's computationally expensive but accurate",
+        "It's simple, fast, and helps avoid vanishing gradients",
+        "It always produces outputs between 0 and 1",
+        "It's only used in output layers"
+      ],
+      "correctAnswer": 1,
+      "explanation": "ReLU is simple to compute (max(0,x)), doesn't saturate for positive values, and helps mitigate the vanishing gradient problem."
+    },
+    {
+      "id": 37,
+      "type": "multiple-choice",
+      "question": "What is a neural network layer that has no connection to the output called?",
+      "options": [
+        "Output layer",
+        "Input layer",
+        "Hidden layer",
+        "Dense layer"
+      ],
+      "correctAnswer": 2,
+      "explanation": "Hidden layers are intermediate layers between input and output, processing features internally without direct connection to the final output."
+    },
+    {
+      "id": 38,
+      "type": "multiple-choice",
+      "question": "What does 'deep' refer to in Deep Learning?",
+      "options": [
+        "The complexity of the mathematics",
+        "The number of hidden layers in the network",
+        "The size of the dataset",
+        "The training time required"
+      ],
+      "correctAnswer": 1,
+      "explanation": "Deep Learning refers to neural networks with many hidden layers (depth), as opposed to shallow networks with few layers."
+    },
+    {
+      "id": 39,
+      "type": "multiple-choice",
+      "question": "What is the purpose of shuffling training data?",
+      "options": [
+        "To make training slower",
+        "To prevent the model from learning the order of examples",
+        "To reduce the dataset size",
+        "To normalize the data"
+      ],
+      "correctAnswer": 1,
+      "explanation": "Shuffling prevents the model from learning patterns based on the order of training examples, improving generalization."
+    },
+    {
+      "id": 40,
+      "type": "multiple-choice",
+      "question": "What is the typical shape transformation when flattening a 28x28x3 image tensor?",
+      "options": [
+        "(28, 28, 3) → (84,)",
+        "(28, 28, 3) → (2352,)",
+        "(28, 28, 3) → (28, 84)",
+        "(28, 28, 3) → (3, 784)"
+      ],
+      "correctAnswer": 1,
+      "explanation": "Flattening (28, 28, 3) multiplies all dimensions: 28 × 28 × 3 = 2352, resulting in a 1D vector of shape (2352,)."
+    },
+    {
+      "id": 41,
+      "type": "multiple-choice",
+      "question": "What is gradient descent trying to find?",
+      "options": [
+        "The maximum of the loss function",
+        "The minimum of the loss function",
+        "The average of all weights",
+        "The learning rate"
+      ],
+      "correctAnswer": 1,
+      "explanation": "Gradient descent iteratively adjusts weights to find the minimum of the loss function, where the model performs best."
+    },
+    {
+      "id": 42,
+      "type": "multiple-choice",
+      "question": "What happens during one training iteration (step)?",
+      "options": [
+        "The entire dataset is processed once",
+        "One mini-batch is processed: forward pass, loss calculation, backprop, weight update",
+        "Only forward propagation occurs",
+        "The model is evaluated on test data"
+      ],
+      "correctAnswer": 1,
+      "explanation": "Each training iteration processes one mini-batch through the complete cycle: forward pass → loss → backpropagation → weight update."
+    },
+    {
+      "id": 43,
+      "type": "multiple-choice",
+      "question": "Why do we split data into training, validation, and test sets?",
+      "options": [
+        "To make training faster",
+        "To tune hyperparameters (validation) and evaluate final performance (test) without bias",
+        "To reduce memory usage",
+        "To create mini-batches"
+      ],
+      "correctAnswer": 1,
+      "explanation": "Training set trains the model, validation set tunes hyperparameters, and test set provides unbiased final performance evaluation."
+    },
+    {
+      "id": 44,
+      "type": "multiple-choice",
+      "question": "What is the main advantage of using mini-batch gradient descent over batch gradient descent?",
+      "options": [
+        "It's less accurate",
+        "It enables faster training and better hardware utilization",
+        "It always finds the global minimum",
+        "It requires less memory per batch"
+      ],
+      "correctAnswer": 1,
+      "explanation": "Mini-batch gradient descent enables parallel processing, faster iterations, and often converges faster than processing the entire dataset at once."
+    },
+    {
+      "id": 45,
+      "type": "multiple-choice",
+      "question": "What is a common technique to prevent overfitting?",
+      "options": [
+        "Increase the number of parameters",
+        "Use regularization, dropout, or early stopping",
+        "Train for more epochs",
+        "Use a higher learning rate"
+      ],
+      "correctAnswer": 1,
+      "explanation": "Regularization (L1/L2), dropout, early stopping, and data augmentation are common techniques to prevent overfitting."
+    }
+  ]
+}
