@@ -1,0 +1,499 @@
+{
+  "title": "Full Stack Development II - Part 1 (Weeks 1-3)",
+  "questions": [
+    {
+      "id": 1,
+      "type": "multiple-choice",
+      "question": "Which of the following correctly exposes a module in Node.js?",
+      "options": [
+        "export.module",
+        "module.exports",
+        "expose.module",
+        "require.exports"
+      ],
+      "correctAnswer": 1,
+      "explanation": "module.exports is the standard way to expose functionality from a Node.js module so it can be imported elsewhere."
+    },
+    {
+      "id": 2,
+      "type": "multiple-choice",
+      "question": "Which variable type is block-scoped?",
+      "options": [
+        "var",
+        "let",
+        "function",
+        "require"
+      ],
+      "correctAnswer": 1,
+      "explanation": "let (and const) are block-scoped, meaning they only exist within the nearest set of curly braces {}. var is function-scoped."
+    },
+    {
+      "id": 3,
+      "type": "multiple-choice",
+      "question": "What does npm primarily manage?",
+      "options": [
+        "Network ports",
+        "Node runtime",
+        "Packages and dependencies",
+        "MongoDB schemas"
+      ],
+      "correctAnswer": 2,
+      "explanation": "npm (Node Package Manager) is used to install, manage, and track JavaScript packages and their dependencies."
+    },
+    {
+      "id": 4,
+      "type": "multiple-choice",
+      "question": "Which of the following is NOT an ES6 array method?",
+      "options": [
+        "Array.of()",
+        "Array.from()",
+        "Array.filter()",
+        "Array.remove()"
+      ],
+      "correctAnswer": 3,
+      "explanation": "Array.remove() does not exist in JavaScript. The others (Array.of, Array.from, Array.filter) are all valid ES6 methods."
+    },
+    {
+      "id": 5,
+      "type": "multiple-choice",
+      "question": "A Promise in JavaScript represents:",
+      "options": [
+        "A synchronous function",
+        "An immediately executed task",
+        "A future completion of an operation",
+        "A database transaction"
+      ],
+      "correctAnswer": 2,
+      "explanation": "A Promise represents an asynchronous operation that will complete in the future, either resolving with a value or rejecting with an error."
+    },
+    {
+      "id": 6,
+      "type": "multiple-choice",
+      "question": "Which method reads file asynchronously?",
+      "options": [
+        "fs.readFileSync()",
+        "fs.readFile()",
+        "fs.readNow()",
+        "fs.readImmediate()"
+      ],
+      "correctAnswer": 1,
+      "explanation": "fs.readFile() is the asynchronous method that reads a file without blocking the event loop. fs.readFileSync() is the blocking, synchronous version."
+    },
+    {
+      "id": 7,
+      "type": "multiple-choice",
+      "question": "Which flag in fs.open() opens a file for writing and overwrites it?",
+      "options": [
+        "r",
+        "a",
+        "w",
+        "x"
+      ],
+      "correctAnswer": 2,
+      "explanation": "'w' flag opens for writing and truncates (overwrites) the file. 'r' is read, 'a' is append, 'x' creates new file (fails if exists)."
+    },
+    {
+      "id": 8,
+      "type": "multiple-choice",
+      "question": "What does stream.pipe() do?",
+      "options": [
+        "Deletes file",
+        "Connects readable to writable stream",
+        "Compresses file",
+        "Converts encoding"
+      ],
+      "correctAnswer": 1,
+      "explanation": "pipe() connects a readable stream to a writable stream, automatically handling data flow and backpressure."
+    },
+    {
+      "id": 9,
+      "type": "multiple-choice",
+      "question": "Streams are instances of:",
+      "options": [
+        "Array",
+        "Class",
+        "Object",
+        "String"
+      ],
+      "correctAnswer": 2,
+      "explanation": "Streams are JavaScript objects (specifically EventEmitter instances) that handle streaming data."
+    },
+    {
+      "id": 10,
+      "type": "multiple-choice",
+      "question": "Which encoding is default in Node.js file operations?",
+      "options": [
+        "utf16",
+        "utf32",
+        "utf8",
+        "ascii"
+      ],
+      "correctAnswer": 2,
+      "explanation": "UTF-8 is the default encoding for file operations in Node.js, supporting all Unicode characters efficiently."
+    },
+    {
+      "id": 11,
+      "type": "multiple-choice",
+      "question": "Which Socket.IO event fires when a client disconnects?",
+      "options": [
+        "leave",
+        "disconnect",
+        "close",
+        "exit"
+      ],
+      "correctAnswer": 1,
+      "explanation": "The 'disconnect' event is emitted when a client disconnects from the Socket.IO server."
+    },
+    {
+      "id": 12,
+      "type": "multiple-choice",
+      "question": "Rooms in Socket.IO are joined:",
+      "options": [
+        "Client side only",
+        "Server side only",
+        "Both sides",
+        "Browser console"
+      ],
+      "correctAnswer": 1,
+      "explanation": "Rooms can only be joined on the server side using socket.join(). Clients cannot directly join rooms for security reasons."
+    },
+    {
+      "id": 13,
+      "type": "multiple-choice",
+      "question": "Which method creates a namespace in Socket.IO?",
+      "options": [
+        "io.create()",
+        "io.namespace()",
+        "io.of()",
+        "socket.namespace()"
+      ],
+      "correctAnswer": 2,
+      "explanation": "io.of() creates a namespace in Socket.IO, allowing separate communication channels on the same connection."
+    },
+    {
+      "id": 14,
+      "type": "multiple-choice",
+      "question": "Mocha is primarily used for:",
+      "options": [
+        "Database management",
+        "Unit testing",
+        "Authentication",
+        "Real-time communication"
+      ],
+      "correctAnswer": 1,
+      "explanation": "Mocha is a JavaScript test framework for Node.js, used to write and run unit and integration tests."
+    },
+    {
+      "id": 15,
+      "type": "multiple-choice",
+      "question": "Chai is a:",
+      "options": [
+        "Web server",
+        "Query builder",
+        "Assertion library",
+        "GraphQL client"
+      ],
+      "correctAnswer": 2,
+      "explanation": "Chai is an assertion library that provides functions to verify test expectations (expect, should, assert)."
+    },
+    {
+      "id": 16,
+      "type": "multiple-choice",
+      "question": "Which function groups tests in Mocha?",
+      "options": [
+        "it()",
+        "assert()",
+        "describe()",
+        "test()"
+      ],
+      "correctAnswer": 2,
+      "explanation": "describe() groups related tests together in Mocha. it() defines individual test cases within a describe block."
+    },
+    {
+      "id": 17,
+      "type": "multiple-choice",
+      "question": "MongoDB stores data as:",
+      "options": [
+        "Rows",
+        "Tables",
+        "Documents",
+        "Columns"
+      ],
+      "correctAnswer": 2,
+      "explanation": "MongoDB stores data as JSON-like documents (BSON format), not as rows and columns like relational databases."
+    },
+    {
+      "id": 18,
+      "type": "multiple-choice",
+      "question": "A MongoDB collection is equivalent to a SQL:",
+      "options": [
+        "Column",
+        "Table",
+        "Row",
+        "Index"
+      ],
+      "correctAnswer": 1,
+      "explanation": "A collection in MongoDB is analogous to a table in SQL - it holds multiple documents (similar to rows)."
+    },
+    {
+      "id": 19,
+      "type": "multiple-choice",
+      "question": "The default primary key in MongoDB is:",
+      "options": [
+        "id",
+        "pk",
+        "_id",
+        "key"
+      ],
+      "correctAnswer": 2,
+      "explanation": "MongoDB automatically creates an _id field as the primary key for each document if not specified."
+    },
+    {
+      "id": 20,
+      "type": "multiple-choice",
+      "question": "Mongoose is an:",
+      "options": [
+        "ORM",
+        "ODM",
+        "RDBMS",
+        "NoSQL engine"
+      ],
+      "correctAnswer": 1,
+      "explanation": "Mongoose is an ODM (Object Document Mapper) for MongoDB, providing schema-based modeling for application data."
+    },
+    {
+      "id": 21,
+      "type": "multiple-choice",
+      "question": "Which method returns all matching documents?",
+      "options": [
+        "findOne()",
+        "findById()",
+        "find()",
+        "fetch()"
+      ],
+      "correctAnswer": 2,
+      "explanation": "find() returns all documents that match the query. findOne() returns only the first match, findById() finds by _id."
+    },
+    {
+      "id": 22,
+      "type": "multiple-choice",
+      "question": "Which method updates multiple documents?",
+      "options": [
+        "updateOne()",
+        "updateAll()",
+        "updateMany()",
+        "replace()"
+      ],
+      "correctAnswer": 2,
+      "explanation": "updateMany() updates all documents that match the filter. updateOne() only updates the first matching document."
+    },
+    {
+      "id": 23,
+      "type": "multiple-choice",
+      "question": "Validators in Mongoose run automatically before:",
+      "options": [
+        "find()",
+        "delete()",
+        "save()",
+        "updateMany()"
+      ],
+      "correctAnswer": 2,
+      "explanation": "Validators run before save() operations to ensure data meets schema requirements before being written to the database."
+    },
+    {
+      "id": 24,
+      "type": "multiple-choice",
+      "question": "Which is NOT a built-in Mongoose validator?",
+      "options": [
+        "required",
+        "min",
+        "unique",
+        "match"
+      ],
+      "correctAnswer": 2,
+      "explanation": "unique is not a validator - it's a MongoDB index helper. required, min, max, and match are built-in validators."
+    },
+    {
+      "id": 25,
+      "type": "multiple-choice",
+      "question": "match validator is used with:",
+      "options": [
+        "Numbers",
+        "Boolean",
+        "Regular expressions",
+        "Dates"
+      ],
+      "correctAnswer": 2,
+      "explanation": "The match validator checks if a string value matches a given regular expression pattern."
+    },
+    {
+      "id": 26,
+      "type": "multiple-choice",
+      "question": "Which of the following statements about var is TRUE?",
+      "options": [
+        "It is block scoped",
+        "It is function scoped",
+        "It cannot be redeclared",
+        "It is hoisted but not initialized"
+      ],
+      "correctAnswer": 1,
+      "explanation": "var is function-scoped (not block-scoped), can be redeclared, and is hoisted with initialization to undefined."
+    },
+    {
+      "id": 27,
+      "type": "multiple-choice",
+      "question": "What will fs.readFileSync() do in a high-traffic Node server?",
+      "options": [
+        "Improve concurrency",
+        "Block the event loop",
+        "Automatically become async",
+        "Use worker threads"
+      ],
+      "correctAnswer": 1,
+      "explanation": "fs.readFileSync() is synchronous and blocks the event loop, preventing other operations from running until the file read completes - bad for high-traffic servers."
+    },
+    {
+      "id": 28,
+      "type": "multiple-choice",
+      "question": "Which of the following is NOT true about streams?",
+      "options": [
+        "They are EventEmitter instances",
+        "They reduce memory usage",
+        "They load entire file into memory",
+        "They support piping"
+      ],
+      "correctAnswer": 2,
+      "explanation": "Streams process data in chunks, NOT loading the entire file into memory - that's their main advantage for large files."
+    },
+    {
+      "id": 29,
+      "type": "multiple-choice",
+      "question": "In Socket.IO, namespaces:",
+      "options": [
+        "Create new TCP connections",
+        "Share the same WebSocket connection",
+        "Require separate ports",
+        "Are only client-side"
+      ],
+      "correctAnswer": 1,
+      "explanation": "Namespaces allow multiple communication channels over the same WebSocket connection, improving efficiency."
+    },
+    {
+      "id": 30,
+      "type": "multiple-choice",
+      "question": "Rooms in Socket.IO can:",
+      "options": [
+        "Be joined from browser console",
+        "Be joined on client side only",
+        "Only be joined from server side",
+        "Automatically create namespace"
+      ],
+      "correctAnswer": 2,
+      "explanation": "For security, rooms can only be joined server-side using socket.join(). Clients request to join but the server controls access."
+    },
+    {
+      "id": 31,
+      "type": "multiple-choice",
+      "question": "In Mocha, if no assertion is written inside it(), the test:",
+      "options": [
+        "Fails",
+        "Throws error",
+        "Passes",
+        "Skips"
+      ],
+      "correctAnswer": 2,
+      "explanation": "A test with no assertions will pass by default - always include assertions to actually validate behavior!"
+    },
+    {
+      "id": 32,
+      "type": "multiple-choice",
+      "question": "Which of the following about MongoDB schema is TRUE?",
+      "options": [
+        "It enforces static schema",
+        "It requires table definitions",
+        "Documents can have different structures",
+        "All documents must have same fields"
+      ],
+      "correctAnswer": 2,
+      "explanation": "MongoDB is schema-flexible - documents in the same collection can have different fields and structures."
+    },
+    {
+      "id": 33,
+      "type": "multiple-choice",
+      "question": "Which Mongoose method replaces an entire document?",
+      "options": [
+        "updateMany()",
+        "updateOne()",
+        "replaceOne()",
+        "save()"
+      ],
+      "correctAnswer": 2,
+      "explanation": "replaceOne() replaces the entire document. updateOne() and updateMany() modify specific fields without replacing the whole document."
+    },
+    {
+      "id": 34,
+      "type": "multiple-choice",
+      "question": "In Mongoose, unique: true is:",
+      "options": [
+        "A validator",
+        "A middleware",
+        "A MongoDB index helper",
+        "A schema type"
+      ],
+      "correctAnswer": 2,
+      "explanation": "unique: true creates a MongoDB index to ensure uniqueness - it's not a validator and won't catch duplicates in validation."
+    },
+    {
+      "id": 35,
+      "type": "multiple-choice",
+      "question": "Validators in Mongoose do NOT run on:",
+      "options": [
+        "null",
+        "undefined",
+        "empty string",
+        "numbers"
+      ],
+      "correctAnswer": 1,
+      "explanation": "Validators (except 'required') skip undefined values. They do run on null, empty strings, and numbers."
+    },
+    {
+      "id": 36,
+      "type": "multiple-choice",
+      "question": "Which is NOT a Mongoose middleware type?",
+      "options": [
+        "document middleware",
+        "model middleware",
+        "aggregate middleware",
+        "route middleware"
+      ],
+      "correctAnswer": 3,
+      "explanation": "Mongoose has document, model, aggregate, and query middleware. Route middleware is an Express concept, not Mongoose."
+    },
+    {
+      "id": 37,
+      "type": "multiple-choice",
+      "question": "validateSync() in Mongoose:",
+      "options": [
+        "Returns Promise",
+        "Returns error immediately if invalid",
+        "Saves document",
+        "Skips validation"
+      ],
+      "correctAnswer": 1,
+      "explanation": "validateSync() is the synchronous version of validate(), immediately returning a validation error object if the document is invalid."
+    },
+    {
+      "id": 38,
+      "type": "multiple-choice",
+      "question": "Which method deletes multiple documents in Mongoose?",
+      "options": [
+        "delete()",
+        "removeMany()",
+        "deleteMany()",
+        "deleteAll()"
+      ],
+      "correctAnswer": 2,
+      "explanation": "deleteMany() removes all documents matching the filter. deleteOne() removes only the first match."
+    }
+  ]
+}

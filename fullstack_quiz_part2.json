@@ -1,0 +1,486 @@
+{
+  "title": "Full Stack Development II - Part 2 (Weeks 4-6)",
+  "questions": [
+    {
+      "id": 39,
+      "type": "multiple-choice",
+      "question": "GraphQL was developed by:",
+      "options": [
+        "Google",
+        "Facebook",
+        "Netflix",
+        "Amazon"
+      ],
+      "correctAnswer": 1,
+      "explanation": "GraphQL was developed by Facebook in 2012 and open-sourced in 2015 as an alternative to REST APIs."
+    },
+    {
+      "id": 40,
+      "type": "multiple-choice",
+      "question": "GraphQL responses are typically returned in:",
+      "options": [
+        "XML",
+        "JSON",
+        "HTML",
+        "YAML"
+      ],
+      "correctAnswer": 1,
+      "explanation": "GraphQL returns data in JSON format, making it easy to work with in JavaScript and other languages."
+    },
+    {
+      "id": 41,
+      "type": "multiple-choice",
+      "question": "A GraphQL service must have:",
+      "options": [
+        "Mutation type",
+        "Subscription type",
+        "Query type",
+        "REST endpoint"
+      ],
+      "correctAnswer": 2,
+      "explanation": "Every GraphQL service must define at least one Query type. Mutations and Subscriptions are optional."
+    },
+    {
+      "id": 42,
+      "type": "multiple-choice",
+      "question": "Which GraphQL operation modifies data?",
+      "options": [
+        "Query",
+        "Mutation",
+        "Subscription",
+        "Resolver"
+      ],
+      "correctAnswer": 1,
+      "explanation": "Mutations are used to modify data (create, update, delete). Queries are read-only, Subscriptions are for real-time updates."
+    },
+    {
+      "id": 43,
+      "type": "multiple-choice",
+      "question": "SDL stands for:",
+      "options": [
+        "Schema Data Logic",
+        "Schema Definition Language",
+        "Structured Data Language",
+        "Schema Description Layer"
+      ],
+      "correctAnswer": 1,
+      "explanation": "SDL (Schema Definition Language) is the syntax used to define GraphQL schemas, types, queries, and mutations."
+    },
+    {
+      "id": 44,
+      "type": "multiple-choice",
+      "question": "GraphiQL is:",
+      "options": [
+        "Database",
+        "Server",
+        "IDE for testing GraphQL",
+        "REST client"
+      ],
+      "correctAnswer": 2,
+      "explanation": "GraphiQL is an in-browser IDE for testing and exploring GraphQL queries with autocomplete and documentation."
+    },
+    {
+      "id": 45,
+      "type": "multiple-choice",
+      "question": "GraphQL avoids:",
+      "options": [
+        "Caching",
+        "Over-fetching",
+        "JSON",
+        "Resolvers"
+      ],
+      "correctAnswer": 1,
+      "explanation": "GraphQL avoids over-fetching by letting clients request only the exact fields they need, unlike REST which returns fixed response structures."
+    },
+    {
+      "id": 46,
+      "type": "multiple-choice",
+      "question": "REST APIs expose:",
+      "options": [
+        "Schemas",
+        "Endpoints",
+        "Graphs",
+        "Mutations"
+      ],
+      "correctAnswer": 1,
+      "explanation": "REST APIs expose multiple endpoints (URLs) for different resources, whereas GraphQL typically uses a single endpoint."
+    },
+    {
+      "id": 47,
+      "type": "multiple-choice",
+      "question": "GraphQL typically uses:",
+      "options": [
+        "Multiple URLs",
+        "Single endpoint",
+        "FTP",
+        "SMTP"
+      ],
+      "correctAnswer": 1,
+      "explanation": "GraphQL uses a single endpoint (usually /graphql) and routes requests based on the query structure, not URL paths."
+    },
+    {
+      "id": 48,
+      "type": "multiple-choice",
+      "question": "Which GraphQL component converts query into data?",
+      "options": [
+        "Schema",
+        "Resolver",
+        "Mutation",
+        "Type"
+      ],
+      "correctAnswer": 1,
+      "explanation": "Resolvers are functions that fetch the actual data for each field in a GraphQL query."
+    },
+    {
+      "id": 49,
+      "type": "multiple-choice",
+      "question": "Authentication refers to:",
+      "options": [
+        "What you can access",
+        "Claiming identity",
+        "Encrypting data",
+        "Database join"
+      ],
+      "correctAnswer": 1,
+      "explanation": "Authentication is about verifying identity (who you are), while authorization is about permissions (what you can access)."
+    },
+    {
+      "id": 50,
+      "type": "multiple-choice",
+      "question": "Authorization refers to:",
+      "options": [
+        "Claiming identity",
+        "Verifying schema",
+        "Permission to access resources",
+        "Mutation"
+      ],
+      "correctAnswer": 2,
+      "explanation": "Authorization determines what resources an authenticated user is allowed to access."
+    },
+    {
+      "id": 51,
+      "type": "multiple-choice",
+      "question": "Which is stateless?",
+      "options": [
+        "TCP",
+        "HTTP",
+        "WebSocket",
+        "Socket.IO"
+      ],
+      "correctAnswer": 1,
+      "explanation": "HTTP is stateless - each request is independent and doesn't maintain connection state. WebSocket and Socket.IO maintain persistent connections."
+    },
+    {
+      "id": 52,
+      "type": "multiple-choice",
+      "question": "Which creates a GraphQL Express server?",
+      "options": [
+        "express-graphql",
+        "express-mongo",
+        "graphql-client",
+        "apollo-html"
+      ],
+      "correctAnswer": 0,
+      "explanation": "express-graphql is middleware that creates a GraphQL HTTP server with Express. Apollo Server is another popular option."
+    },
+    {
+      "id": 53,
+      "type": "multiple-choice",
+      "question": "In GraphQL, fields are defined inside:",
+      "options": [
+        "Endpoint",
+        "Resolver",
+        "Type",
+        "Route"
+      ],
+      "correctAnswer": 2,
+      "explanation": "Fields are defined within Types in the GraphQL schema. Resolvers then implement how to fetch data for those fields."
+    },
+    {
+      "id": 54,
+      "type": "multiple-choice",
+      "question": "MongoDB uses:",
+      "options": [
+        "Joins",
+        "Embedded documents",
+        "Foreign keys",
+        "SQL syntax"
+      ],
+      "correctAnswer": 1,
+      "explanation": "MongoDB typically uses embedded documents and denormalization instead of SQL-style joins and foreign keys."
+    },
+    {
+      "id": 55,
+      "type": "multiple-choice",
+      "question": "MongoDB is:",
+      "options": [
+        "Relational database",
+        "NoSQL document database",
+        "Graph database",
+        "Key-value store only"
+      ],
+      "correctAnswer": 1,
+      "explanation": "MongoDB is a NoSQL document database that stores data in flexible, JSON-like documents."
+    },
+    {
+      "id": 56,
+      "type": "multiple-choice",
+      "question": "In Mongoose, pre middleware runs:",
+      "options": [
+        "After save",
+        "Before save",
+        "During query",
+        "After delete"
+      ],
+      "correctAnswer": 1,
+      "explanation": "Pre middleware runs before the specified operation (like save, validate, remove), allowing you to modify data or run checks."
+    },
+    {
+      "id": 57,
+      "type": "multiple-choice",
+      "question": "Virtual fields in Mongoose are:",
+      "options": [
+        "Stored in DB",
+        "Computed properties",
+        "Primary keys",
+        "Indexes"
+      ],
+      "correctAnswer": 1,
+      "explanation": "Virtual fields are computed properties that are not stored in the database but can be accessed like regular fields."
+    },
+    {
+      "id": 58,
+      "type": "multiple-choice",
+      "question": "updateOne() updates:",
+      "options": [
+        "All documents",
+        "First matching document",
+        "None",
+        "Collection"
+      ],
+      "correctAnswer": 1,
+      "explanation": "updateOne() updates only the first document that matches the filter. Use updateMany() to update all matching documents."
+    },
+    {
+      "id": 59,
+      "type": "multiple-choice",
+      "question": "GraphQL mutation naming should start with:",
+      "options": [
+        "Noun",
+        "Verb",
+        "Number",
+        "ID"
+      ],
+      "correctAnswer": 1,
+      "explanation": "Mutations should start with verbs (createUser, updatePost, deleteComment) as they represent actions, while queries use nouns."
+    },
+    {
+      "id": 60,
+      "type": "multiple-choice",
+      "question": "GraphQL helps with:",
+      "options": [
+        "Under-fetching problem",
+        "File uploads natively",
+        "SQL joins",
+        "Multiple endpoints"
+      ],
+      "correctAnswer": 0,
+      "explanation": "GraphQL solves both over-fetching (getting too much data) and under-fetching (needing multiple requests) by letting clients specify exact needs."
+    },
+    {
+      "id": 61,
+      "type": "multiple-choice",
+      "question": "A successful GraphQL response contains root field:",
+      "options": [
+        "result",
+        "success",
+        "data",
+        "response"
+      ],
+      "correctAnswer": 2,
+      "explanation": "Successful GraphQL responses contain a 'data' field with the requested information."
+    },
+    {
+      "id": 62,
+      "type": "multiple-choice",
+      "question": "If GraphQL fails, root field added is:",
+      "options": [
+        "err",
+        "errors",
+        "fail",
+        "exception"
+      ],
+      "correctAnswer": 1,
+      "explanation": "GraphQL responses include an 'errors' array when queries fail or partially fail, alongside any partial 'data' that was successful."
+    },
+    {
+      "id": 63,
+      "type": "multiple-choice",
+      "question": "MongoDB scales primarily:",
+      "options": [
+        "Vertically",
+        "Horizontally",
+        "Centrally",
+        "Relationally"
+      ],
+      "correctAnswer": 1,
+      "explanation": "MongoDB is designed for horizontal scaling (sharding across multiple servers) rather than vertical scaling (upgrading a single server)."
+    },
+    {
+      "id": 64,
+      "type": "multiple-choice",
+      "question": "Which GraphQL component actually fetches the data?",
+      "options": [
+        "Schema",
+        "Query",
+        "Resolver",
+        "Type"
+      ],
+      "correctAnswer": 2,
+      "explanation": "Resolvers are the functions that actually fetch data from databases, APIs, or other sources to fulfill GraphQL queries."
+    },
+    {
+      "id": 65,
+      "type": "multiple-choice",
+      "question": "GraphQL avoids over-fetching because:",
+      "options": [
+        "Server limits response",
+        "Client specifies exact fields",
+        "It uses REST",
+        "It batches endpoints"
+      ],
+      "correctAnswer": 1,
+      "explanation": "Clients request only the specific fields they need, so the server returns exactly that - no more, no less."
+    },
+    {
+      "id": 66,
+      "type": "multiple-choice",
+      "question": "Which statement about GraphQL queries is TRUE?",
+      "options": [
+        "Queries are defined on server only",
+        "Queries are encoded in client",
+        "Queries must use GET",
+        "Queries require multiple endpoints"
+      ],
+      "correctAnswer": 1,
+      "explanation": "GraphQL queries are written and sent by the client, specifying exactly what data structure and fields are needed."
+    },
+    {
+      "id": 67,
+      "type": "multiple-choice",
+      "question": "Which GraphQL feature allows real-time updates?",
+      "options": [
+        "Query",
+        "Resolver",
+        "Subscription",
+        "Schema"
+      ],
+      "correctAnswer": 2,
+      "explanation": "Subscriptions enable real-time updates by maintaining a persistent connection and pushing data when events occur."
+    },
+    {
+      "id": 68,
+      "type": "multiple-choice",
+      "question": "In REST, the endpoint represents:",
+      "options": [
+        "Schema type",
+        "Identity of resource",
+        "Resolver",
+        "Subscription"
+      ],
+      "correctAnswer": 1,
+      "explanation": "REST endpoints represent specific resources (e.g., /users/123 identifies user 123). GraphQL uses a single endpoint with flexible queries."
+    },
+    {
+      "id": 69,
+      "type": "multiple-choice",
+      "question": "Which is TRUE about GraphQL mutations?",
+      "options": [
+        "They must return Boolean",
+        "They must start with noun",
+        "They modify server-side data",
+        "They are optional in schema"
+      ],
+      "correctAnswer": 2,
+      "explanation": "Mutations modify data on the server (create, update, delete). They can return any type, should start with verbs, and are optional in the schema."
+    },
+    {
+      "id": 70,
+      "type": "multiple-choice",
+      "question": "Which is TRUE about GraphQL endpoint design?",
+      "options": [
+        "Multiple URLs required",
+        "Single endpoint is common",
+        "Requires different port for mutation",
+        "Cannot work over HTTP"
+      ],
+      "correctAnswer": 1,
+      "explanation": "GraphQL typically uses a single endpoint (e.g., /graphql) for all operations, unlike REST which uses multiple resource-specific endpoints."
+    },
+    {
+      "id": 71,
+      "type": "multiple-choice",
+      "question": "If a GraphQL query partially fails, response contains:",
+      "options": [
+        "Only errors",
+        "Only data",
+        "data and errors",
+        "failure field"
+      ],
+      "correctAnswer": 2,
+      "explanation": "GraphQL can return partial results - the response includes both 'data' (with whatever succeeded) and 'errors' array (describing what failed)."
+    },
+    {
+      "id": 72,
+      "type": "multiple-choice",
+      "question": "Which of the following is strongly typed?",
+      "options": [
+        "REST",
+        "HTTP",
+        "GraphQL",
+        "MongoDB"
+      ],
+      "correctAnswer": 2,
+      "explanation": "GraphQL has a strongly-typed schema that defines exact types for all data, enabling validation and documentation. REST has no built-in type system."
+    },
+    {
+      "id": 73,
+      "type": "multiple-choice",
+      "question": "In MongoDB, joins are typically replaced with:",
+      "options": [
+        "Primary keys",
+        "Embedded documents",
+        "Constraints",
+        "SQL operators"
+      ],
+      "correctAnswer": 1,
+      "explanation": "MongoDB uses embedded documents (denormalization) instead of joins, storing related data together in a single document."
+    },
+    {
+      "id": 74,
+      "type": "multiple-choice",
+      "question": "Which of the following is TRUE about Apollo Client?",
+      "options": [
+        "It runs on database",
+        "It is a GraphQL server",
+        "It helps build GraphQL client applications",
+        "It replaces resolvers"
+      ],
+      "correctAnswer": 2,
+      "explanation": "Apollo Client is a comprehensive state management library for JavaScript that helps build client applications using GraphQL."
+    },
+    {
+      "id": 75,
+      "type": "multiple-choice",
+      "question": "Which is a disadvantage of GraphQL?",
+      "options": [
+        "Cannot fetch nested data",
+        "Requires versioning",
+        "Complex queries may impact performance",
+        "No schema support"
+      ],
+      "correctAnswer": 2,
+      "explanation": "Complex nested queries in GraphQL can impact performance if not optimized (N+1 problem, deep nesting). Proper resolver design and tools like DataLoader help mitigate this."
+    }
+  ]
+}
