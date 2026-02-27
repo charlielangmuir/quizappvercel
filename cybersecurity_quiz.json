@@ -1,0 +1,590 @@
+{
+  "title": "Introduction to Cyber Security Quiz",
+  "questions": [
+    {
+      "id": 1,
+      "type": "multiple-choice",
+      "question": "What is Packet Sender?",
+      "options": [
+        "A packet encryption tool",
+        "An open source utility to send and receive TCP, UDP, and SSL packets",
+        "A firewall configuration tool",
+        "A network monitoring tool only"
+      ],
+      "correctAnswer": 1,
+      "explanation": "Packet Sender is an open source utility that allows sending and receiving TCP, UDP, and SSL (encrypted TCP) packets. It's free and licensed under GPL v2 or later."
+    },
+    {
+      "id": 2,
+      "type": "multiple-choice",
+      "question": "Which protocols does Packet Sender officially support?",
+      "options": [
+        "HTTP, HTTPS, FTP",
+        "TCP, UDP, SSL",
+        "ICMP, IGMP, ARP",
+        "SMTP, POP3, IMAP"
+      ],
+      "correctAnswer": 1,
+      "explanation": "Packet Sender supports TCP, UDP, and SSL (encrypted TCP) protocols for sending and receiving packets."
+    },
+    {
+      "id": 3,
+      "type": "multiple-choice",
+      "question": "What is the purpose of a firewall?",
+      "options": [
+        "To increase network speed",
+        "To reduce or eliminate unwanted network communications while allowing legitimate traffic",
+        "To encrypt all network traffic",
+        "To monitor CPU usage"
+      ],
+      "correctAnswer": 1,
+      "explanation": "A firewall provides network security by filtering incoming and outgoing traffic based on user-defined rules, reducing unwanted communications while allowing legitimate traffic."
+    },
+    {
+      "id": 4,
+      "type": "multiple-choice",
+      "question": "What does UFW stand for?",
+      "options": [
+        "Universal Firewall Wrapper",
+        "Unified Filter Wall",
+        "Uncomplicated Fire Wall",
+        "Universal Filter Wrapper"
+      ],
+      "correctAnswer": 2,
+      "explanation": "UFW stands for Uncomplicated Fire Wall, a simplified firewall tool that makes iptables easier to configure for common scenarios."
+    },
+    {
+      "id": 5,
+      "type": "multiple-choice",
+      "question": "In iptables, what does the ACCEPT target do?",
+      "options": [
+        "Blocks the packet",
+        "Allows the packet to pass through",
+        "Logs the packet",
+        "Returns the packet to sender"
+      ],
+      "correctAnswer": 1,
+      "explanation": "The ACCEPT target in iptables allows the packet to pass through the firewall."
+    },
+    {
+      "id": 6,
+      "type": "multiple-choice",
+      "question": "In iptables, what does the DROP target do?",
+      "options": [
+        "Allows the packet through",
+        "Logs the packet details",
+        "Does not let the packet pass through",
+        "Forwards the packet to another chain"
+      ],
+      "correctAnswer": 2,
+      "explanation": "The DROP target in iptables blocks the packet from passing through, essentially discarding it without notification."
+    },
+    {
+      "id": 7,
+      "type": "multiple-choice",
+      "question": "Which iptables chain controls incoming packets to the server?",
+      "options": [
+        "OUTPUT",
+        "FORWARD",
+        "INPUT",
+        "RECEIVE"
+      ],
+      "correctAnswer": 2,
+      "explanation": "The INPUT chain controls and filters incoming packets that are destined for the server."
+    },
+    {
+      "id": 8,
+      "type": "multiple-choice",
+      "question": "Which iptables chain filters packets going out from your server?",
+      "options": [
+        "OUTPUT",
+        "FORWARD",
+        "INPUT",
+        "SEND"
+      ],
+      "correctAnswer": 0,
+      "explanation": "The OUTPUT chain filters packets that are being sent out from your server."
+    },
+    {
+      "id": 9,
+      "type": "multiple-choice",
+      "question": "What is the default SSH port number?",
+      "options": [
+        "21",
+        "22",
+        "80",
+        "443"
+      ],
+      "correctAnswer": 1,
+      "explanation": "The default SSH (Secure Shell) port is 22, though it can be changed for security purposes."
+    },
+    {
+      "id": 10,
+      "type": "multiple-choice",
+      "question": "What is network sniffing?",
+      "options": [
+        "Encrypting network packets",
+        "Process of monitoring and capturing data packets of a network",
+        "Blocking malicious traffic",
+        "Increasing network bandwidth"
+      ],
+      "correctAnswer": 1,
+      "explanation": "Network sniffing is the process of monitoring and capturing all data packets passing through a network using sniffing tools."
+    },
+    {
+      "id": 11,
+      "type": "multiple-choice",
+      "question": "What is promiscuous mode?",
+      "options": [
+        "A firewall configuration",
+        "Allows device to intercept and read each network packet in its entirety",
+        "A type of encryption",
+        "A network topology"
+      ],
+      "correctAnswer": 1,
+      "explanation": "Promiscuous mode allows a network device to intercept and read every network packet that arrives, even if not addressed to it."
+    },
+    {
+      "id": 12,
+      "type": "multiple-choice",
+      "question": "What is the main difference between a Hub and a Switch?",
+      "options": [
+        "Hubs are wireless, switches are wired",
+        "Hubs broadcast to all ports, switches send to specific hosts",
+        "Hubs are faster than switches",
+        "There is no difference"
+      ],
+      "correctAnswer": 1,
+      "explanation": "Hubs broadcast all data to all ports, while switches intelligently send data only to the specific destination host, making switches more efficient."
+    },
+    {
+      "id": 13,
+      "type": "multiple-choice",
+      "question": "Which OSI layer does a Hub operate on?",
+      "options": [
+        "Layer 1 (Physical)",
+        "Layer 2 (Data Link)",
+        "Layer 3 (Network)",
+        "Layer 4 (Transport)"
+      ],
+      "correctAnswer": 0,
+      "explanation": "A hub operates at Layer 1 (Physical layer) of the OSI model, simply repeating signals to all ports."
+    },
+    {
+      "id": 14,
+      "type": "multiple-choice",
+      "question": "Which OSI layer does a Switch operate on?",
+      "options": [
+        "Layer 1 (Physical)",
+        "Layer 2 (Data Link)",
+        "Layer 3 (Network)",
+        "Layer 4 (Transport)"
+      ],
+      "correctAnswer": 1,
+      "explanation": "A switch operates at Layer 2 (Data Link layer) of the OSI model, using MAC addresses to forward packets to specific destinations."
+    },
+    {
+      "id": 15,
+      "type": "multiple-choice",
+      "question": "What does WireShark do?",
+      "options": [
+        "Encrypts network traffic",
+        "Monitors and captures network packets for analysis",
+        "Blocks malicious traffic",
+        "Speeds up network connections"
+      ],
+      "correctAnswer": 1,
+      "explanation": "WireShark is a network protocol analyzer that captures and displays network packets for analysis and troubleshooting."
+    },
+    {
+      "id": 16,
+      "type": "multiple-choice",
+      "question": "What does DoS stand for?",
+      "options": [
+        "Disk Operating System",
+        "Denial of Service",
+        "Department of Security",
+        "Distribution of Services"
+      ],
+      "correctAnswer": 1,
+      "explanation": "DoS stands for Denial of Service, an attack that aims to make a service unavailable by overwhelming it with traffic or requests."
+    },
+    {
+      "id": 17,
+      "type": "multiple-choice",
+      "question": "What does DDoS stand for?",
+      "options": [
+        "Direct Denial of Service",
+        "Distributed Denial of Service",
+        "Double Disk Operating System",
+        "Digital Department of Security"
+      ],
+      "correctAnswer": 1,
+      "explanation": "DDoS stands for Distributed Denial of Service, where multiple compromised systems are used to launch a coordinated attack."
+    },
+    {
+      "id": 18,
+      "type": "multiple-choice",
+      "question": "What is ARP?",
+      "options": [
+        "Advanced Router Protocol",
+        "Address Resolution Protocol",
+        "Automatic Routing Process",
+        "Application Response Protocol"
+      ],
+      "correctAnswer": 1,
+      "explanation": "ARP (Address Resolution Protocol) maps IP addresses to physical MAC addresses on a local network."
+    },
+    {
+      "id": 19,
+      "type": "multiple-choice",
+      "question": "What is ARP poisoning?",
+      "options": [
+        "Corrupting network cables",
+        "An attack that sends fake ARP messages to link attacker's MAC with legitimate IP",
+        "Overloading a router with requests",
+        "Installing malware on network devices"
+      ],
+      "correctAnswer": 1,
+      "explanation": "ARP poisoning (or ARP spoofing) is an attack where fake ARP messages are sent to associate the attacker's MAC address with a legitimate IP address."
+    },
+    {
+      "id": 20,
+      "type": "multiple-choice",
+      "question": "What is MAC address flooding?",
+      "options": [
+        "Sending data to multiple MAC addresses simultaneously",
+        "Overwhelming a switch's MAC address table to make it act like a hub",
+        "Broadcasting MAC addresses over the internet",
+        "Encrypting MAC addresses"
+      ],
+      "correctAnswer": 1,
+      "explanation": "MAC flooding overwhelms a switch's MAC address table with fake entries, causing it to fail open and broadcast to all ports like a hub."
+    },
+    {
+      "id": 21,
+      "type": "multiple-choice",
+      "question": "What does NIC stand for?",
+      "options": [
+        "Network Interface Card",
+        "Network Internet Connection",
+        "Node Interface Controller",
+        "Network Integrated Chip"
+      ],
+      "correctAnswer": 0,
+      "explanation": "NIC stands for Network Interface Card, the hardware component that connects a computer to a network."
+    },
+    {
+      "id": 22,
+      "type": "multiple-choice",
+      "question": "What is tcpdump?",
+      "options": [
+        "A file compression tool",
+        "A command-line packet analyzer for Unix-like systems",
+        "A disk backup utility",
+        "A text editor"
+      ],
+      "correctAnswer": 1,
+      "explanation": "tcpdump is a command-line packet analyzer that captures and displays network packets, similar to WireShark but text-based."
+    },
+    {
+      "id": 23,
+      "type": "multiple-choice",
+      "question": "Which command shows UFW firewall rules?",
+      "options": [
+        "ufw list",
+        "ufw show",
+        "ufw status",
+        "ufw rules"
+      ],
+      "correctAnswer": 2,
+      "explanation": "The command 'ufw status' displays the current firewall rules and status."
+    },
+    {
+      "id": 24,
+      "type": "multiple-choice",
+      "question": "What file contains SSH server configuration on Linux?",
+      "options": [
+        "/etc/ssh/ssh_config",
+        "/etc/ssh/sshd_config",
+        "/etc/sshd.conf",
+        "/var/ssh/config"
+      ],
+      "correctAnswer": 1,
+      "explanation": "/etc/ssh/sshd_config is the configuration file for the SSH daemon (server), where settings like port number can be changed."
+    },
+    {
+      "id": 25,
+      "type": "multiple-choice",
+      "question": "In Packet Sender, what does clicking 'Save' do?",
+      "options": [
+        "Saves the log file",
+        "Saves the packet to send later without immediately sending it",
+        "Saves captured network traffic",
+        "Saves the application settings"
+      ],
+      "correctAnswer": 1,
+      "explanation": "Clicking 'Save' in Packet Sender saves the packet for later use without sending it immediately, while 'Send' transmits it right away."
+    },
+    {
+      "id": 26,
+      "type": "multiple-choice",
+      "question": "What is passive sniffing?",
+      "options": [
+        "Actively injecting packets into the network",
+        "Monitoring network traffic without sending any packets",
+        "Blocking suspicious traffic",
+        "Encrypting network communications"
+      ],
+      "correctAnswer": 1,
+      "explanation": "Passive sniffing involves only listening and capturing network traffic without actively transmitting or modifying packets."
+    },
+    {
+      "id": 27,
+      "type": "multiple-choice",
+      "question": "What is active sniffing?",
+      "options": [
+        "Only monitoring traffic passively",
+        "Actively injecting packets or manipulating network traffic to intercept data",
+        "Blocking all network traffic",
+        "Installing antivirus software"
+      ],
+      "correctAnswer": 1,
+      "explanation": "Active sniffing involves sending packets or manipulating network traffic (like ARP poisoning) to intercept communications."
+    },
+    {
+      "id": 28,
+      "type": "multiple-choice",
+      "question": "What is the purpose of changing the default SSH port?",
+      "options": [
+        "To make connections faster",
+        "To improve security by avoiding automated attacks on default port",
+        "To allow more simultaneous connections",
+        "To enable encryption"
+      ],
+      "correctAnswer": 1,
+      "explanation": "Changing the default SSH port (22) to another port helps avoid automated attacks and port scans targeting the well-known default port."
+    },
+    {
+      "id": 29,
+      "type": "multiple-choice",
+      "question": "What does the FORWARD chain in iptables do?",
+      "options": [
+        "Controls incoming packets",
+        "Filters outgoing packets",
+        "Filters incoming packets that will be forwarded elsewhere",
+        "Logs all traffic"
+      ],
+      "correctAnswer": 2,
+      "explanation": "The FORWARD chain filters packets that arrive at the server but are destined to be forwarded to another destination."
+    },
+    {
+      "id": 30,
+      "type": "multiple-choice",
+      "question": "What does the RETURN target do in iptables?",
+      "options": [
+        "Accepts the packet",
+        "Drops the packet",
+        "Stops packet traversing through chain and returns to previous chain",
+        "Forwards to next chain"
+      ],
+      "correctAnswer": 2,
+      "explanation": "RETURN stops the packet from continuing through the current chain and sends it back to the chain that called it."
+    },
+    {
+      "id": 31,
+      "type": "multiple-choice",
+      "question": "Which layer of the OSI model handles logical addressing and routing?",
+      "options": [
+        "Layer 1 (Physical)",
+        "Layer 2 (Data Link)",
+        "Layer 3 (Network)",
+        "Layer 4 (Transport)"
+      ],
+      "correctAnswer": 2,
+      "explanation": "Layer 3 (Network layer) handles logical addressing (IP addresses) and routing of packets between networks."
+    },
+    {
+      "id": 32,
+      "type": "multiple-choice",
+      "question": "Which layer of the OSI model ensures reliable data transfer with TCP?",
+      "options": [
+        "Layer 2 (Data Link)",
+        "Layer 3 (Network)",
+        "Layer 4 (Transport)",
+        "Layer 5 (Session)"
+      ],
+      "correctAnswer": 2,
+      "explanation": "Layer 4 (Transport layer) provides reliable data transfer through protocols like TCP, handling segmentation, flow control, and error correction."
+    },
+    {
+      "id": 33,
+      "type": "multiple-choice",
+      "question": "What information does a TCP packet header contain?",
+      "options": [
+        "Only source and destination IP addresses",
+        "Source/destination ports, sequence number, acknowledgment number, flags",
+        "Only MAC addresses",
+        "Only the data payload"
+      ],
+      "correctAnswer": 1,
+      "explanation": "TCP headers contain source/destination ports, sequence numbers, acknowledgment numbers, control flags, window size, and checksums."
+    },
+    {
+      "id": 34,
+      "type": "multiple-choice",
+      "question": "What is the main difference between TCP and UDP?",
+      "options": [
+        "TCP is connectionless, UDP is connection-oriented",
+        "TCP is reliable and connection-oriented, UDP is unreliable and connectionless",
+        "TCP is faster than UDP",
+        "UDP provides error correction, TCP does not"
+      ],
+      "correctAnswer": 1,
+      "explanation": "TCP is connection-oriented and reliable (guarantees delivery), while UDP is connectionless and does not guarantee delivery but is faster."
+    },
+    {
+      "id": 35,
+      "type": "multiple-choice",
+      "question": "What does a sequence number in TCP represent?",
+      "options": [
+        "The port number",
+        "The position of the first byte of data in the segment",
+        "The number of packets sent",
+        "The connection ID"
+      ],
+      "correctAnswer": 1,
+      "explanation": "The sequence number indicates the position of the first byte of data in the TCP segment, used for ordering and reassembly."
+    },
+    {
+      "id": 36,
+      "type": "multiple-choice",
+      "question": "What does an acknowledgment number in TCP represent?",
+      "options": [
+        "The number of errors detected",
+        "The next sequence number the receiver expects",
+        "The total packets sent",
+        "The connection timeout value"
+      ],
+      "correctAnswer": 1,
+      "explanation": "The acknowledgment number specifies the next sequence number the receiver expects, confirming receipt of previous data."
+    },
+    {
+      "id": 37,
+      "type": "multiple-choice",
+      "question": "What does the RST flag in TCP indicate?",
+      "options": [
+        "Request to send data",
+        "Reset the connection",
+        "Retransmit segment",
+        "Ready to send"
+      ],
+      "correctAnswer": 1,
+      "explanation": "The RST (Reset) flag is used to abruptly terminate a TCP connection, often due to errors or rejected connections."
+    },
+    {
+      "id": 38,
+      "type": "multiple-choice",
+      "question": "What is the purpose of the SYN flag in TCP?",
+      "options": [
+        "Synchronize sequence numbers to establish a connection",
+        "Send data",
+        "Terminate connection",
+        "Acknowledge receipt"
+      ],
+      "correctAnswer": 0,
+      "explanation": "The SYN flag is used during the TCP three-way handshake to synchronize sequence numbers and establish a connection."
+    },
+    {
+      "id": 39,
+      "type": "multiple-choice",
+      "question": "What is the three-way handshake in TCP?",
+      "options": [
+        "Sending three packets to the same destination",
+        "SYN, SYN-ACK, ACK sequence to establish a connection",
+        "Three attempts to send a packet",
+        "Three layers of encryption"
+      ],
+      "correctAnswer": 1,
+      "explanation": "The three-way handshake (SYN, SYN-ACK, ACK) is the process TCP uses to establish a reliable connection between client and server."
+    },
+    {
+      "id": 40,
+      "type": "multiple-choice",
+      "question": "What port does HTTP typically use?",
+      "options": [
+        "21",
+        "22",
+        "80",
+        "443"
+      ],
+      "correctAnswer": 2,
+      "explanation": "HTTP (Hypertext Transfer Protocol) typically uses port 80 for unencrypted web traffic."
+    },
+    {
+      "id": 41,
+      "type": "multiple-choice",
+      "question": "What port does HTTPS typically use?",
+      "options": [
+        "80",
+        "443",
+        "8080",
+        "3389"
+      ],
+      "correctAnswer": 1,
+      "explanation": "HTTPS (HTTP Secure) uses port 443 for encrypted web traffic using SSL/TLS."
+    },
+    {
+      "id": 42,
+      "type": "multiple-choice",
+      "question": "Why would an attacker want to capture network packets?",
+      "options": [
+        "To improve network performance",
+        "To intercept sensitive data like passwords or confidential information",
+        "To speed up connections",
+        "To reduce network congestion"
+      ],
+      "correctAnswer": 1,
+      "explanation": "Attackers capture packets to intercept sensitive information like passwords, credit card numbers, or confidential data transmitted over the network."
+    },
+    {
+      "id": 43,
+      "type": "multiple-choice",
+      "question": "What is a common use case for Packet Sender in testing?",
+      "options": [
+        "Encrypting files",
+        "Testing network APIs and automation by sending custom TCP/UDP/SSL packets",
+        "Installing software updates",
+        "Managing user accounts"
+      ],
+      "correctAnswer": 1,
+      "explanation": "Packet Sender is commonly used for testing network APIs, test automation, and troubleshooting by sending custom packets."
+    },
+    {
+      "id": 44,
+      "type": "multiple-choice",
+      "question": "What is baseline network traffic?",
+      "options": [
+        "The minimum acceptable network speed",
+        "Normal network behavior used as a reference to identify anomalies",
+        "The maximum bandwidth capacity",
+        "The average packet size"
+      ],
+      "correctAnswer": 1,
+      "explanation": "Baseline network traffic refers to the normal, expected network behavior that serves as a reference point to detect unusual or malicious activity."
+    },
+    {
+      "id": 45,
+      "type": "multiple-choice",
+      "question": "What is the primary goal of a DoS attack?",
+      "options": [
+        "To steal data",
+        "To make a service unavailable to legitimate users",
+        "To encrypt files for ransom",
+        "To improve network performance"
+      ],
+      "correctAnswer": 1,
+      "explanation": "A Denial of Service attack aims to overwhelm a service or network, making it unavailable to legitimate users through resource exhaustion."
+    }
+  ]
+}
