@@ -1,0 +1,973 @@
+{
+  "title": "iOS Development - Comprehensive Quiz (Swift, UIKit & Sensors)",
+  "questions": [
+    {
+      "id": 1,
+      "type": "multiple-choice",
+      "question": "How is the optional type denoted in Swift?",
+      "options": [
+        "by adding a question mark (?) after the name of the type",
+        "by adding an exclamation mark (!) after the name of the type",
+        "by adding a question mark (?) in front of the name of the type",
+        "by adding an exclamation mark (!) in front of the name of the type"
+      ],
+      "correctAnswer": 0,
+      "explanation": "In Swift, optional types are denoted by adding a question mark (?) after the type name. Example: var name: String?"
+    },
+    {
+      "id": 2,
+      "type": "true-false",
+      "question": "In Swift, all types contain a nil as a possible value.",
+      "correctAnswer": false,
+      "explanation": "Only optional types can contain nil. Regular types cannot be nil in Swift - you must explicitly make them optional with ? to allow nil values."
+    },
+    {
+      "id": 3,
+      "type": "multiple-choice",
+      "question": "Which of the following expressions allows us to declare an array?",
+      "options": [
+        "var shoppingList = [\"catfish\", \"water\", \"tulips\", \"blue paint\"]",
+        "var shoppingList = {\"catfish\", \"water\", \"tulips\", \"blue paint\"}",
+        "array shoppingList = [\"catfish\", \"water\", \"tulips\", \"blue paint\"]",
+        "var shoppingList = array[\"catfish\", \"water\", \"tulips\", \"blue paint\"]"
+      ],
+      "correctAnswer": 0,
+      "explanation": "Arrays in Swift are declared using square brackets [] with comma-separated values. The var keyword is used for variables."
+    },
+    {
+      "id": 4,
+      "type": "true-false",
+      "question": "In Swift, functions can be passed as parameters to other functions and they can be returned from functions.",
+      "correctAnswer": true,
+      "explanation": "Swift treats functions as first-class citizens, meaning they can be assigned to variables, passed as parameters, and returned from other functions."
+    },
+    {
+      "id": 5,
+      "type": "multiple-choice",
+      "question": "Which of the following is true about type conversion in Swift?",
+      "options": [
+        "In Swift, values are never converted (cast operation) automatically to another type",
+        "In Swift, values are always converted automatically to another type if needed",
+        "In Swift, conversion (cast operation) is not possible at all",
+        "There is no such thing as a cast operation in programming languages"
+      ],
+      "correctAnswer": 0,
+      "explanation": "Swift requires explicit type conversion - it never automatically casts values to another type. You must use explicit conversion like String(x) or Int(y)."
+    },
+    {
+      "id": 6,
+      "type": "multiple-choice",
+      "question": "Which expression can be used to declare a function that takes an integer as a parameter and returns string?",
+      "options": [
+        "func foo(a:Int)->String",
+        "function foo(a:Int)->String",
+        "func foo(a:Int):String",
+        "function foo(a:Int):String"
+      ],
+      "correctAnswer": 0,
+      "explanation": "Swift uses the 'func' keyword to declare functions, with parameter types in parentheses and return type after -> arrow."
+    },
+    {
+      "id": 7,
+      "type": "multiple-choice",
+      "question": "Which of the following expressions would you use to print a variable x?",
+      "options": [
+        "print(\"Value of x is: \\(x)\")",
+        "print(\"Value of x is: \"+String(x))",
+        "print(\"Value of x is: \", x)",
+        "All of the above"
+      ],
+      "correctAnswer": 3,
+      "explanation": "Swift offers multiple ways to print: string interpolation \\(x), string concatenation with conversion, or comma-separated values in print()."
+    },
+    {
+      "id": 8,
+      "type": "true-false",
+      "question": "Swift requires each line to be terminated by a semicolon \";\"",
+      "correctAnswer": false,
+      "explanation": "Unlike many languages, Swift does not require semicolons at the end of statements. They are optional."
+    },
+    {
+      "id": 9,
+      "type": "multiple-choice",
+      "question": "Which statement can be used to declare an integer constant of value 5 in Swift?",
+      "options": [
+        "let x = 5",
+        "let Int x = 5",
+        "const x:Int x=5",
+        "const x = 5"
+      ],
+      "correctAnswer": 0,
+      "explanation": "Swift uses 'let' keyword to declare constants (immutable values). The type can be inferred or explicitly specified with a colon."
+    },
+    {
+      "id": 10,
+      "type": "multiple-choice",
+      "question": "Select the statement that is correct and most complete describing Swift",
+      "options": [
+        "Swift is a strongly typed language that allows for type inference",
+        "Swift is a weakly typed language that allows for type inference",
+        "Swift is a strongly typed language that does not allow for type inference",
+        "Swift is a weakly typed language that does not allow for type inference"
+      ],
+      "correctAnswer": 0,
+      "explanation": "Swift is strongly typed (types are enforced) but supports type inference (the compiler can deduce types automatically)."
+    },
+    {
+      "id": 11,
+      "type": "multiple-choice",
+      "question": "In the function declaration: func swapTwoInts(_ a: inout Int, _ b: inout Int), what does 'inout' mean?",
+      "options": [
+        "_ means that when calling the function param labels has to be used",
+        "inout means that params are appearing and disappearing",
+        "inout means that params are input and output parameters",
+        "_ means that parameters are optional"
+      ],
+      "correctAnswer": 2,
+      "explanation": "The 'inout' keyword means parameters can be modified inside the function and those changes persist outside the function (pass by reference)."
+    },
+    {
+      "id": 12,
+      "type": "true-false",
+      "question": "The following two functions have the same type: func addTwoInts(_ a: Int, _ b: Double) -> Int and func multiplyTwoInts(_ a: Double, _ b: Int) -> Int",
+      "correctAnswer": false,
+      "explanation": "Function types are determined by parameter types and return type. These functions have different parameter order (Int, Double vs Double, Int), so they have different types."
+    },
+    {
+      "id": 13,
+      "type": "multiple-choice",
+      "question": "In Swift, a function is identified by which keyword?",
+      "options": [
+        "keyword func",
+        "keyword function",
+        "returned type with ->",
+        "at least one parameter"
+      ],
+      "correctAnswer": 0,
+      "explanation": "Functions in Swift are declared using the 'func' keyword, followed by the function name and parameters."
+    },
+    {
+      "id": 14,
+      "type": "multiple-choice",
+      "question": "Consider the declaration: func add(no1:Int, no2:Int)->Int",
+      "options": [
+        "it declares a function that takes two Int values as parameters and returns an Int value",
+        "it declares a function that takes two Int values as parameters",
+        "it declares a function that returns an Int value",
+        "this declaration is incorrect"
+      ],
+      "correctAnswer": 0,
+      "explanation": "This function declaration shows two Int parameters (no1 and no2) and returns an Int value (indicated by ->Int)."
+    },
+    {
+      "id": 15,
+      "type": "multiple-choice",
+      "question": "In func swapTwoInts(_ a: inout Int, _ b: inout Int), what does the underscore '_' mean?",
+      "options": [
+        "_ means that when calling the function param labels should not be used",
+        "inout means that params are appearing and disappearing",
+        "_ means that params are output parameters",
+        "_ means that parameters are optional"
+      ],
+      "correctAnswer": 0,
+      "explanation": "The underscore _ as an external parameter name means no label is needed when calling the function. You call it as swapTwoInts(x, y) instead of swapTwoInts(a: x, b: y)."
+    },
+    {
+      "id": 16,
+      "type": "multiple-choice",
+      "question": "Consider the declaration: func minMax(array:[Int])->(a:Int, b:Int)?",
+      "options": [
+        "the function takes an array of Ints as a parameter and returns a tuple with two Int values or a nil value",
+        "the function takes an array of Ints as a parameter and returns a tuple with two Int values",
+        "the function returns a tuple with two Int values or a nil value",
+        "the function returns a Int value or a nil value"
+      ],
+      "correctAnswer": 0,
+      "explanation": "The ? after the tuple makes the return type optional. The function can return either a tuple (a:Int, b:Int) or nil."
+    },
+    {
+      "id": 17,
+      "type": "multiple-choice",
+      "question": "How many times will the following loop execute? for i in 1...10 { ... }",
+      "options": [
+        "5",
+        "9",
+        "10",
+        "11"
+      ],
+      "correctAnswer": 2,
+      "explanation": "The closed range operator ... includes both endpoints, so 1...10 includes 1, 2, 3, 4, 5, 6, 7, 8, 9, 10 (10 iterations)."
+    },
+    {
+      "id": 18,
+      "type": "multiple-choice",
+      "question": "In Swift a class...",
+      "options": [
+        "can inherit from one class but conform to multiple protocols",
+        "can inherit from multiple classes and conform to multiple protocols",
+        "can inherit from multiple classes but conform to only one protocol",
+        "can inherit from one class and conform to a single protocol"
+      ],
+      "correctAnswer": 0,
+      "explanation": "Swift supports single inheritance (one parent class) but allows a class to conform to multiple protocols (interfaces)."
+    },
+    {
+      "id": 19,
+      "type": "true-false",
+      "question": "Swift allows for functions to be nested (declare function in a body of another function).",
+      "correctAnswer": true,
+      "explanation": "Swift supports nested functions, where you can define a function inside another function's body. The nested function is only accessible within its parent function."
+    },
+    {
+      "id": 20,
+      "type": "multiple-choice",
+      "question": "In the declaration: func pow(firstArg a:Int)->Int",
+      "options": [
+        "firstArg is the name used in the function call and a is used in the body",
+        "a is the name used in the function call and firstArg is used in the body",
+        "firstArg is the name used in the function call and both can be used in the body",
+        "both are used in the function call and firstArg is used in the body"
+      ],
+      "correctAnswer": 0,
+      "explanation": "When you have two names for a parameter, the first (firstArg) is the external name used when calling, and the second (a) is the internal name used inside the function body."
+    },
+    {
+      "id": 21,
+      "type": "true-false",
+      "question": "SwiftUI uses a declarative approach.",
+      "correctAnswer": true,
+      "explanation": "SwiftUI is declarative - you declare what the UI should look like and SwiftUI handles the how. This is different from imperative UIKit where you manually update the UI."
+    },
+    {
+      "id": 22,
+      "type": "multiple-choice",
+      "question": "What is the name of the visual tool used to build layouts and define navigation in iOS applications?",
+      "options": [
+        "storyboard",
+        "SwiftUI",
+        "Layout editor",
+        "UI inspector"
+      ],
+      "correctAnswer": 0,
+      "explanation": "Storyboard is the visual interface builder in Xcode used to design UI layouts and define navigation flow between view controllers."
+    },
+    {
+      "id": 23,
+      "type": "multiple-choice",
+      "question": "What is SwiftUI?",
+      "options": [
+        "It is an innovative way to build user interfaces using Swift",
+        "It is a UI component defined in Swift",
+        "It is a UI component allowing user to code in Swift",
+        "It is a scripting language that supports Storyboard"
+      ],
+      "correctAnswer": 0,
+      "explanation": "SwiftUI is Apple's modern, declarative framework for building user interfaces across all Apple platforms using Swift."
+    },
+    {
+      "id": 24,
+      "type": "true-false",
+      "question": "The origin of the UI element in iOS app is the upper-left corner.",
+      "correctAnswer": true,
+      "explanation": "In iOS coordinate system, the origin (0,0) is at the top-left corner, with x increasing to the right and y increasing downward."
+    },
+    {
+      "id": 25,
+      "type": "true-false",
+      "question": "SwiftUI can only be used to define UI for simple applications.",
+      "correctAnswer": false,
+      "explanation": "SwiftUI is a full-featured framework capable of building complex, production-ready applications across all Apple platforms."
+    },
+    {
+      "id": 26,
+      "type": "multiple-choice",
+      "question": "Which method allows you to prevent segue execution?",
+      "options": [
+        "prepare(for segue: sender:)",
+        "shouldPerformSegue(with identifier: sender:)",
+        "viewDidLoad()",
+        "unwind(_ seg:)"
+      ],
+      "correctAnswer": 1,
+      "explanation": "shouldPerformSegue returns a boolean - returning false prevents the segue from executing, allowing conditional navigation."
+    },
+    {
+      "id": 27,
+      "type": "multiple-choice",
+      "question": "This segue displays the new content using the showViewController:sender: method.",
+      "options": [
+        "show",
+        "show details",
+        "present modally",
+        "present as popover"
+      ],
+      "correctAnswer": 0,
+      "explanation": "The 'show' segue (also called push) uses showViewController:sender: and typically pushes onto a navigation stack."
+    },
+    {
+      "id": 28,
+      "type": "multiple-choice",
+      "question": "A segue is ______________",
+      "options": [
+        "a one-way connection between source and destination view controllers",
+        "a two-way connection between source and destination view controllers",
+        "a multidirectional connection between multiple view controllers",
+        "this name does not have a meaning in iOS"
+      ],
+      "correctAnswer": 0,
+      "explanation": "A segue represents a one-way transition from a source view controller to a destination view controller. To go back, you use unwind segues."
+    },
+    {
+      "id": 29,
+      "type": "multiple-choice",
+      "question": "Which method allows you to pass data from source to destination view controller?",
+      "options": [
+        "prepare(for segue: sender:)",
+        "shouldPerformSegue(with identifier: sender:)",
+        "viewDidLoad()",
+        "unwind(_ seg:)"
+      ],
+      "correctAnswer": 0,
+      "explanation": "prepare(for segue:) is called before the segue executes, allowing you to access the destination view controller and pass data to it."
+    },
+    {
+      "id": 30,
+      "type": "multiple-choice",
+      "question": "This segue displays the view controller modally using specified presentation and transition styles.",
+      "options": [
+        "show",
+        "show details",
+        "present modally",
+        "present as popover"
+      ],
+      "correctAnswer": 2,
+      "explanation": "The 'present modally' segue presents the destination view controller on top of the source, typically covering the entire screen."
+    },
+    {
+      "id": 31,
+      "type": "multiple-choice",
+      "question": "A ___________ defines a transition between two view controllers in your storyboard.",
+      "options": [
+        "segue",
+        "transition",
+        "passage",
+        "link"
+      ],
+      "correctAnswer": 0,
+      "explanation": "A segue is the iOS term for a transition defined in storyboard that connects two view controllers."
+    },
+    {
+      "id": 32,
+      "type": "multiple-choice",
+      "question": "What does performSegueWithIdentifier(\"SomeIdentifier\", sender: self) do?",
+      "options": [
+        "triggers transition defined by the segue with id SomeIdentifier",
+        "trigger transition to the view controller with id SomeIdentifier",
+        "trigger transition from the view controller with id SomeIdentifier",
+        "this call is incorrect, function does not exist"
+      ],
+      "correctAnswer": 0,
+      "explanation": "performSegueWithIdentifier programmatically triggers the segue that has the specified identifier string in storyboard."
+    },
+    {
+      "id": 33,
+      "type": "true-false",
+      "question": "If the segue is: source → destination, you define an unwind action method in the destination view controller.",
+      "correctAnswer": false,
+      "explanation": "Unwind segues are defined in the SOURCE (destination of the unwind), not the destination of the original segue. The @IBAction unwind method goes in the controller you want to return to."
+    },
+    {
+      "id": 34,
+      "type": "multiple-choice",
+      "question": "How can segues be executed in iOS application?",
+      "options": [
+        "only automatically",
+        "only programmatically",
+        "either automatically or programmatically",
+        "segues are not executed, they are symbolic"
+      ],
+      "correctAnswer": 2,
+      "explanation": "Segues can be triggered automatically (by UI events like button taps) or programmatically using performSegue methods."
+    },
+    {
+      "id": 35,
+      "type": "multiple-choice",
+      "question": "This segue displays content using the showDetailViewController:sender: method.",
+      "options": [
+        "show",
+        "show details",
+        "present modally",
+        "present as popover"
+      ],
+      "correctAnswer": 1,
+      "explanation": "The 'show detail' segue uses showDetailViewController:sender: and is often used in split view controllers to show detail content."
+    },
+    {
+      "id": 36,
+      "type": "multiple-choice",
+      "question": "Which can be used to display long lists of elements of the same type?",
+      "options": [
+        "UITableView and UICollectionView",
+        "UIListView",
+        "UITextView",
+        "Only UITableView"
+      ],
+      "correctAnswer": 0,
+      "explanation": "Both UITableView (single column lists) and UICollectionView (flexible grid layouts) are designed for displaying scrollable lists of data."
+    },
+    {
+      "id": 37,
+      "type": "multiple-choice",
+      "question": "Which setting changes how slider sends updates to the controller?",
+      "options": [
+        "isContinuous",
+        "sentWhenDone",
+        "isDoneEditing",
+        "isFinished"
+      ],
+      "correctAnswer": 0,
+      "explanation": "The isContinuous property determines if UISlider sends value change events continuously while dragging or only when the user releases."
+    },
+    {
+      "id": 38,
+      "type": "multiple-choice",
+      "question": "What are the types of gesture recognizers?",
+      "options": [
+        "discrete and continuous",
+        "single-touch and multi-touch",
+        "finite and infinite",
+        "temporary and permanent"
+      ],
+      "correctAnswer": 0,
+      "explanation": "Gesture recognizers are categorized as discrete (one-time events like tap) or continuous (ongoing events like pan or pinch)."
+    },
+    {
+      "id": 39,
+      "type": "multiple-choice",
+      "question": "What is the correct order of states for a gesture recognizer?",
+      "options": [
+        "began → changed → ended",
+        "ended → changed → began",
+        "changed → began → ended",
+        "began → ended → changed"
+      ],
+      "correctAnswer": 0,
+      "explanation": "Continuous gesture recognizers follow the state flow: began (gesture starts) → changed (gesture updates) → ended (gesture completes)."
+    },
+    {
+      "id": 40,
+      "type": "multiple-choice",
+      "question": "What happens when a text field becomes a first responder?",
+      "options": [
+        "the system automatically shows the keyboard and binds the input to the text field",
+        "the system automatically hides the keyboard and binds the input to the text field",
+        "the system automatically hides the keyboard and unbinds the input",
+        "the system automatically shows the keyboard and unbinds the input"
+      ],
+      "correctAnswer": 0,
+      "explanation": "When a text field becomes first responder (gains focus), iOS automatically displays the keyboard and directs input to that field."
+    },
+    {
+      "id": 41,
+      "type": "multiple-choice",
+      "question": "Can you set the current value of the slider beyond the range min–max?",
+      "options": [
+        "Yes, but only in storyboard (it will update one of the ends of the range)",
+        "Yes, but only programmatically (it will update one of the ends of the range)",
+        "No, it is not possible",
+        "Yes, but it will cause a runtime error"
+      ],
+      "correctAnswer": 1,
+      "explanation": "Programmatically setting a slider value outside its range will automatically adjust (clamp) the min or max to accommodate the new value."
+    },
+    {
+      "id": 42,
+      "type": "true-false",
+      "question": "You cannot customize the UISwitch component.",
+      "correctAnswer": false,
+      "explanation": "UISwitch can be customized with properties like onTintColor, thumbTintColor, and you can change its appearance programmatically."
+    },
+    {
+      "id": 43,
+      "type": "multiple-choice",
+      "question": "Which displays an editable text area in the interface?",
+      "options": [
+        "UITextField",
+        "UILabel",
+        "UITextView",
+        "UITextObject"
+      ],
+      "correctAnswer": 2,
+      "explanation": "UITextView displays multi-line editable text. UITextField is single-line, and UILabel is non-editable."
+    },
+    {
+      "id": 44,
+      "type": "multiple-choice",
+      "question": "Which function hides the keyboard?",
+      "options": [
+        "resignFirstResponder",
+        "resetFirstResponder",
+        "resignKeyboard",
+        "hideKeyboard"
+      ],
+      "correctAnswer": 0,
+      "explanation": "Calling resignFirstResponder() on a text field or text view dismisses the keyboard by making it give up first responder status."
+    },
+    {
+      "id": 45,
+      "type": "multiple-choice",
+      "question": "What does it mean that a table view is a data driven view?",
+      "options": [
+        "it generates content based on data from data source",
+        "it generates content based on user input",
+        "it is controlled by a data source",
+        "it is controlled by data entry"
+      ],
+      "correctAnswer": 2,
+      "explanation": "Table views are data driven because they rely on a data source object that provides the number of rows and the content for each cell."
+    },
+    {
+      "id": 46,
+      "type": "multiple-choice",
+      "question": "Which module is used to access sensor data about motion and environment?",
+      "options": [
+        "CoreMotion",
+        "CoreSensors",
+        "SensorManager",
+        "SensorCore"
+      ],
+      "correctAnswer": 0,
+      "explanation": "CoreMotion is the iOS framework that provides access to accelerometer, gyroscope, magnetometer, and motion data."
+    },
+    {
+      "id": 47,
+      "type": "true-false",
+      "question": "Permission to use location data has to be given each time the application tries to access it.",
+      "correctAnswer": false,
+      "explanation": "Once permission is granted, it persists until the user changes it in settings or the app is uninstalled. Permission doesn't need to be given every time."
+    },
+    {
+      "id": 48,
+      "type": "multiple-choice",
+      "question": "When is permission to access location requested?",
+      "options": [
+        "Only on app installation",
+        "When application starts",
+        "Each time application wants to use location data",
+        "When the program requests it on runtime if not permanently given before"
+      ],
+      "correctAnswer": 3,
+      "explanation": "Location permission is requested when your code first calls location services, if permission hasn't been permanently granted or denied before."
+    },
+    {
+      "id": 49,
+      "type": "multiple-choice",
+      "question": "How can energy consumption be minimized when using location services?",
+      "options": [
+        "By using significant-change service and lowering update frequency",
+        "By quietly disabling other services",
+        "By turning off the device",
+        "By using only GPS"
+      ],
+      "correctAnswer": 0,
+      "explanation": "Using significant-change service (only updates on major location changes) and reducing update frequency significantly reduces battery consumption."
+    },
+    {
+      "id": 50,
+      "type": "multiple-choice",
+      "question": "Which sensor measures the rate at which the device rotates around a specific axis?",
+      "options": [
+        "Gyroscope",
+        "Accelerometer",
+        "Rotationmeter",
+        "Spinometer"
+      ],
+      "correctAnswer": 0,
+      "explanation": "The gyroscope measures rotational velocity (rate of rotation) around the device's three axes."
+    },
+    {
+      "id": 51,
+      "type": "true-false",
+      "question": "Permission to use location data has to be checked each time the application tries to access it.",
+      "correctAnswer": true,
+      "explanation": "While permission doesn't need to be requested each time, you should check the authorization status before accessing location data in case the user changed permissions."
+    },
+    {
+      "id": 52,
+      "type": "multiple-choice",
+      "question": "In what format is acceleration data returned?",
+      "options": [
+        "vector with 3 values",
+        "vector with 4 values",
+        "vector with 1 value",
+        "single number"
+      ],
+      "correctAnswer": 0,
+      "explanation": "Acceleration data is returned as a 3D vector with x, y, and z components representing acceleration along each axis."
+    },
+    {
+      "id": 53,
+      "type": "multiple-choice",
+      "question": "Accelerometer values are in increments of gravitational acceleration. What does 1.0 represent?",
+      "options": [
+        "1.0 represents 9.8 m/s²",
+        "1.0 represents 1.0 m/s²",
+        "10 represents 9.8 m/s²",
+        "10 represents 1.0 m/s²"
+      ],
+      "correctAnswer": 0,
+      "explanation": "Accelerometer values are in units of g (Earth's gravity). A value of 1.0 equals 9.8 m/s², making values easier to interpret relative to gravity."
+    },
+    {
+      "id": 54,
+      "type": "multiple-choice",
+      "question": "What is the unit of rotation used by sensors?",
+      "options": [
+        "radian/second",
+        "degree/second",
+        "radian/hour",
+        "degree/minute"
+      ],
+      "correctAnswer": 0,
+      "explanation": "Gyroscope data is returned in radians per second (rad/s), measuring the rate of rotation around each axis."
+    },
+    {
+      "id": 55,
+      "type": "multiple-choice",
+      "question": "What does accelerometer measure?",
+      "options": [
+        "Change in velocity along axis",
+        "Gravitation",
+        "Change in position of the device",
+        "Change in orientation of the device"
+      ],
+      "correctAnswer": 0,
+      "explanation": "The accelerometer measures acceleration - the rate of change in velocity along each axis (x, y, z)."
+    },
+    {
+      "id": 56,
+      "type": "multiple-choice",
+      "question": "What does the exclamation mark (!) mean when used with optionals in Swift?",
+      "options": [
+        "It declares an optional type",
+        "It force-unwraps an optional value",
+        "It makes a value non-optional",
+        "It checks if a value is nil"
+      ],
+      "correctAnswer": 1,
+      "explanation": "The exclamation mark (!) force-unwraps an optional, accessing its value directly. This will crash if the optional is nil, so use with caution."
+    },
+    {
+      "id": 57,
+      "type": "multiple-choice",
+      "question": "What is optional binding in Swift?",
+      "options": [
+        "A way to safely unwrap optionals using if let or guard let",
+        "A way to force unwrap optionals",
+        "A way to declare optional variables",
+        "A way to bind two variables together"
+      ],
+      "correctAnswer": 0,
+      "explanation": "Optional binding (if let, guard let) safely unwraps optionals, only executing code if the optional contains a value."
+    },
+    {
+      "id": 58,
+      "type": "multiple-choice",
+      "question": "What is the difference between 'let' and 'var' in Swift?",
+      "options": [
+        "let declares constants (immutable), var declares variables (mutable)",
+        "let declares variables, var declares constants",
+        "They are the same",
+        "let is for integers, var is for strings"
+      ],
+      "correctAnswer": 0,
+      "explanation": "let declares constants that cannot be changed after initialization. var declares variables that can be modified."
+    },
+    {
+      "id": 59,
+      "type": "multiple-choice",
+      "question": "What is a tuple in Swift?",
+      "options": [
+        "A group of multiple values combined into a single compound value",
+        "An array of the same type",
+        "A dictionary",
+        "A class instance"
+      ],
+      "correctAnswer": 0,
+      "explanation": "Tuples group multiple values into a single compound value. The values can be of different types, e.g., (Int, String)."
+    },
+    {
+      "id": 60,
+      "type": "multiple-choice",
+      "question": "What is the closed range operator in Swift?",
+      "options": [
+        "... (includes both start and end values)",
+        "..< (excludes the end value)",
+        "-> (return type indicator)",
+        "?? (nil coalescing)"
+      ],
+      "correctAnswer": 0,
+      "explanation": "The ... operator creates a closed range that includes both endpoints. For example, 1...5 includes 1, 2, 3, 4, 5."
+    },
+    {
+      "id": 61,
+      "type": "multiple-choice",
+      "question": "What is the half-open range operator in Swift?",
+      "options": [
+        "..< (excludes the end value)",
+        "... (includes both values)",
+        "<.. (excludes start value)",
+        ">.. (greater than range)"
+      ],
+      "correctAnswer": 0,
+      "explanation": "The ..< operator creates a half-open range that excludes the end value. For example, 1..<5 includes 1, 2, 3, 4 (not 5)."
+    },
+    {
+      "id": 62,
+      "type": "multiple-choice",
+      "question": "What is a protocol in Swift?",
+      "options": [
+        "A blueprint of methods and properties that types can adopt",
+        "A type of class",
+        "A built-in data structure",
+        "A way to handle errors"
+      ],
+      "correctAnswer": 0,
+      "explanation": "Protocols define a blueprint of methods, properties, and requirements that conforming types must implement, similar to interfaces in other languages."
+    },
+    {
+      "id": 63,
+      "type": "multiple-choice",
+      "question": "What is the purpose of guard statements in Swift?",
+      "options": [
+        "To exit early from a function if conditions aren't met",
+        "To create loops",
+        "To declare variables",
+        "To handle exceptions"
+      ],
+      "correctAnswer": 0,
+      "explanation": "guard statements check conditions and exit early (return, break, continue, throw) if conditions fail, improving code readability."
+    },
+    {
+      "id": 64,
+      "type": "multiple-choice",
+      "question": "What is the nil coalescing operator (??) in Swift?",
+      "options": [
+        "Provides a default value if an optional is nil",
+        "Checks if a value is nil",
+        "Force unwraps an optional",
+        "Creates an optional"
+      ],
+      "correctAnswer": 0,
+      "explanation": "The ?? operator unwraps an optional if it contains a value, otherwise returns a default value: optionalValue ?? defaultValue"
+    },
+    {
+      "id": 65,
+      "type": "multiple-choice",
+      "question": "What is Auto Layout in iOS?",
+      "options": [
+        "A constraint-based system for creating adaptive UIs",
+        "Automatic code generation",
+        "Automatic segue creation",
+        "Automatic memory management"
+      ],
+      "correctAnswer": 0,
+      "explanation": "Auto Layout is a constraint-based layout system that allows you to create adaptive interfaces that respond to different screen sizes and orientations."
+    },
+    {
+      "id": 66,
+      "type": "multiple-choice",
+      "question": "What is the purpose of @IBOutlet in iOS development?",
+      "options": [
+        "Connects UI elements from storyboard to code",
+        "Creates new UI elements",
+        "Handles user actions",
+        "Defines view controller transitions"
+      ],
+      "correctAnswer": 0,
+      "explanation": "@IBOutlet creates a connection from storyboard UI elements to code properties, allowing programmatic access to interface objects."
+    },
+    {
+      "id": 67,
+      "type": "multiple-choice",
+      "question": "What is the purpose of @IBAction in iOS development?",
+      "options": [
+        "Connects UI events to code methods",
+        "Creates UI elements",
+        "Defines properties",
+        "Manages memory"
+      ],
+      "correctAnswer": 0,
+      "explanation": "@IBAction connects UI events (like button taps) to methods in code, allowing you to respond to user interactions."
+    },
+    {
+      "id": 68,
+      "type": "multiple-choice",
+      "question": "What is the View Controller lifecycle method that's called when the view is first loaded?",
+      "options": [
+        "viewDidLoad()",
+        "viewWillAppear()",
+        "viewDidAppear()",
+        "loadView()"
+      ],
+      "correctAnswer": 0,
+      "explanation": "viewDidLoad() is called once when the view controller's view is loaded into memory, making it ideal for initial setup."
+    },
+    {
+      "id": 69,
+      "type": "multiple-choice",
+      "question": "What is the difference between viewWillAppear() and viewDidAppear()?",
+      "options": [
+        "viewWillAppear() is called before the view appears, viewDidAppear() after",
+        "They are the same",
+        "viewWillAppear() is for segues only",
+        "viewDidAppear() is called before viewWillAppear()"
+      ],
+      "correctAnswer": 0,
+      "explanation": "viewWillAppear() is called just before the view becomes visible, while viewDidAppear() is called after the view is fully displayed."
+    },
+    {
+      "id": 70,
+      "type": "multiple-choice",
+      "question": "What does UITableViewDataSource protocol provide?",
+      "options": [
+        "Methods to manage table data like number of rows and cell content",
+        "Methods to handle user interactions",
+        "Methods to create custom cells",
+        "Methods to style the table"
+      ],
+      "correctAnswer": 0,
+      "explanation": "UITableViewDataSource provides methods to supply the table with data: numberOfRowsInSection and cellForRowAt are required."
+    },
+    {
+      "id": 71,
+      "type": "multiple-choice",
+      "question": "What does UITableViewDelegate protocol handle?",
+      "options": [
+        "User interactions like row selection and editing",
+        "Providing data to the table",
+        "Creating the table view",
+        "Memory management"
+      ],
+      "correctAnswer": 0,
+      "explanation": "UITableViewDelegate handles user interactions, row selection, editing, and customization of row appearance and behavior."
+    },
+    {
+      "id": 72,
+      "type": "multiple-choice",
+      "question": "What is the purpose of a UINavigationController?",
+      "options": [
+        "Manages a stack of view controllers with push/pop navigation",
+        "Displays alerts",
+        "Handles network requests",
+        "Manages table views"
+      ],
+      "correctAnswer": 0,
+      "explanation": "UINavigationController manages a hierarchical stack of view controllers, providing push/pop navigation with a navigation bar."
+    },
+    {
+      "id": 73,
+      "type": "multiple-choice",
+      "question": "What is delegation pattern in iOS?",
+      "options": [
+        "A design pattern where one object acts on behalf of another",
+        "A way to create classes",
+        "A method to handle errors",
+        "A type of loop"
+      ],
+      "correctAnswer": 0,
+      "explanation": "Delegation is a design pattern where one object (delegate) responds to events or provides data for another object, used extensively in iOS."
+    },
+    {
+      "id": 74,
+      "type": "multiple-choice",
+      "question": "What is the magnetometer sensor used for?",
+      "options": [
+        "Detecting magnetic fields and determining device heading/compass direction",
+        "Measuring acceleration",
+        "Measuring rotation",
+        "Detecting light levels"
+      ],
+      "correctAnswer": 0,
+      "explanation": "The magnetometer detects magnetic fields and is used for compass functionality and determining device orientation relative to magnetic north."
+    },
+    {
+      "id": 75,
+      "type": "multiple-choice",
+      "question": "What is CLLocationManager used for?",
+      "options": [
+        "Managing location services and receiving location updates",
+        "Managing sensors",
+        "Managing network connections",
+        "Managing file system"
+      ],
+      "correctAnswer": 0,
+      "explanation": "CLLocationManager is the class used to configure, start, and stop location services, and to receive location and heading updates."
+    },
+    {
+      "id": 76,
+      "type": "multiple-choice",
+      "question": "What are the main location accuracy levels in iOS?",
+      "options": [
+        "Best, NearestTenMeters, HundredMeters, Kilometer, ThreeKilometers",
+        "High, Medium, Low",
+        "Precise, Approximate",
+        "GPS, WiFi, Cellular"
+      ],
+      "correctAnswer": 0,
+      "explanation": "iOS provides various accuracy levels from kCLLocationAccuracyBest (most accurate, highest power) to kCLLocationAccuracyThreeKilometers (least accurate, lowest power)."
+    },
+    {
+      "id": 77,
+      "type": "multiple-choice",
+      "question": "What is the difference between UIButton and UIBarButtonItem?",
+      "options": [
+        "UIButton is for general use, UIBarButtonItem is specifically for navigation/tool bars",
+        "They are the same",
+        "UIButton is deprecated",
+        "UIBarButtonItem is for alerts only"
+      ],
+      "correctAnswer": 0,
+      "explanation": "UIButton is a general-purpose button control, while UIBarButtonItem is specifically designed for use in UINavigationBar and UIToolbar."
+    },
+    {
+      "id": 78,
+      "type": "multiple-choice",
+      "question": "What is the purpose of device motion updates in CoreMotion?",
+      "options": [
+        "Provides combined sensor data (accelerometer, gyroscope) with device attitude",
+        "Only provides accelerometer data",
+        "Only provides gyroscope data",
+        "Manages battery optimization"
+      ],
+      "correctAnswer": 0,
+      "explanation": "Device motion combines data from multiple sensors to provide comprehensive motion information including attitude, rotation rate, and user acceleration."
+    },
+    {
+      "id": 79,
+      "type": "multiple-choice",
+      "question": "What is the difference between user acceleration and raw acceleration?",
+      "options": [
+        "User acceleration excludes gravity, raw acceleration includes it",
+        "They are the same",
+        "User acceleration is slower",
+        "Raw acceleration is filtered"
+      ],
+      "correctAnswer": 0,
+      "explanation": "User acceleration has gravity removed, showing only movement caused by user actions. Raw acceleration includes gravitational force."
+    },
+    {
+      "id": 80,
+      "type": "multiple-choice",
+      "question": "What is pitch, roll, and yaw in device attitude?",
+      "options": [
+        "Three rotational axes: pitch (tilting forward/back), roll (tilting left/right), yaw (rotating horizontally)",
+        "Three types of sensors",
+        "Three levels of accuracy",
+        "Three permission types"
+      ],
+      "correctAnswer": 0,
+      "explanation": "Pitch is rotation around the x-axis (forward/backward tilt), roll is around the y-axis (left/right tilt), and yaw is around the z-axis (compass direction)."
+    }
+  ]
+}
