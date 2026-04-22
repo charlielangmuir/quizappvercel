@@ -1,0 +1,542 @@
+{
+  "title": "CNN, Transfer Learning & Regularization Quiz",
+  "questions": [
+    {
+      "id": 1,
+      "type": "true-false",
+      "question": "Fine-tuning process involves freezing rows just like Feature Extraction does, but it only freezes the last (newest) few layers.",
+      "correctAnswer": false,
+      "explanation": "Fine-tuning freezes the EARLY layers (not the last few). It keeps the learned features from the pre-trained model's early layers and allows later layers to adapt to the new task."
+    },
+    {
+      "id": 2,
+      "type": "multiple-choice",
+      "question": "Although fine-tuning uses a pre-trained model for the first multiple layers of the model, it also needs a different/new...",
+      "options": [
+        "set of kernels for the first few layers (that detects simple shapes) in the Feature Extraction step",
+        "dataset",
+        "architecture for the final dense layers",
+        "optimizer and loss function"
+      ],
+      "correctAnswer": 1,
+      "explanation": "Fine-tuning requires a new dataset for the specific task you're adapting the model to, while reusing the learned features from the pre-trained model."
+    },
+    {
+      "id": 3,
+      "type": "multiple-choice",
+      "question": "Why don't we fine-tune the earlier layers that perform Feature Extraction?",
+      "options": [
+        "Because it is mathematically impossible to fine-tune the earlier layers",
+        "Fine-tuning is a process that cannot be mixed with Feature Extraction",
+        "Because simple shapes can be learned generally from any dataset AND to prevent overparameterization and overfitting",
+        "To ensure that we don't end up with too many layers in the model"
+      ],
+      "correctAnswer": 2,
+      "explanation": "Early layers learn general features (edges, shapes) applicable across datasets. Fine-tuning them risks overfitting and overparameterization since they already capture useful general patterns."
+    },
+    {
+      "id": 4,
+      "type": "multiple-choice",
+      "question": "Visualizing intermediate convnet intermediate activations is synonymous to...",
+      "options": [
+        "Visualizing the kernels themselves, overlain on top of the original data",
+        "Visualizing the heat map",
+        "Visualizing the Feature Map",
+        "Visualizing the filters themselves, overlain on top of the original data"
+      ],
+      "correctAnswer": 2,
+      "explanation": "Visualizing intermediate activations shows the Feature Maps - the output of convolutional layers showing which patterns/features were detected at each stage."
+    },
+    {
+      "id": 5,
+      "type": "multiple-choice",
+      "question": "What technique of visualization is especially helpful when trying to fix a model's incorrect classification of images?",
+      "options": [
+        "Filters",
+        "Feature Maps",
+        "Heatmaps",
+        "Plot of x-y comparing 2 features"
+      ],
+      "correctAnswer": 2,
+      "explanation": "Heatmaps show which parts of an image the model focused on when making predictions, helping identify why it misclassified (e.g., focusing on background instead of the object)."
+    },
+    {
+      "id": 6,
+      "type": "multiple-choice",
+      "question": "What aspect of the convnet is multiplied with the data of the previous layer to emphasize certain features in the image?",
+      "options": [
+        "Conv base",
+        "Activation function",
+        "Feature Map",
+        "Kernel (or a set of kernels - a filter)"
+      ],
+      "correctAnswer": 3,
+      "explanation": "Kernels (or filters composed of multiple kernels) are convolved with the previous layer's output to detect and emphasize specific features like edges or patterns."
+    },
+    {
+      "id": 7,
+      "type": "true-false",
+      "question": "It is hard to understand the significance/meaning of a heat map that is not overlaid on the original image.",
+      "correctAnswer": true,
+      "explanation": "Heat maps show activation intensity but need the original image context to understand WHAT the model was focusing on (object, background, specific features)."
+    },
+    {
+      "id": 8,
+      "type": "true-false",
+      "question": "Data augmentation is a technique used to generate new training data by applying random transformations to existing samples.",
+      "correctAnswer": true,
+      "explanation": "Data augmentation creates variations of training images through transformations (rotation, flipping, cropping) to increase dataset diversity and reduce overfitting."
+    },
+    {
+      "id": 9,
+      "type": "true-false",
+      "question": "When using a pretrained convolutional neural network, you should always use all layers of the original model, including the final classification layer.",
+      "correctAnswer": false,
+      "explanation": "The final classification layer is specific to the original task and should be replaced. You typically keep the convolutional base and add new dense layers for your specific task."
+    },
+    {
+      "id": 10,
+      "type": "multiple-choice",
+      "question": "What is the primary purpose of data augmentation?",
+      "options": [
+        "To increase computational speed",
+        "To reduce model complexity",
+        "To create entirely new images",
+        "To prevent overfitting and improve generalization"
+      ],
+      "correctAnswer": 3,
+      "explanation": "Data augmentation artificially expands the training set with transformed versions of existing images, helping the model generalize better and reducing overfitting."
+    },
+    {
+      "id": 11,
+      "type": "multiple-choice",
+      "question": "Which of the following is NOT a common data augmentation technique?",
+      "options": [
+        "Rotation",
+        "Deleting pixels",
+        "Flipping",
+        "Color jittering"
+      ],
+      "correctAnswer": 1,
+      "explanation": "Deleting pixels is not a standard augmentation technique. Common methods include rotation, flipping, cropping, scaling, and color jittering."
+    },
+    {
+      "id": 12,
+      "type": "multiple-choice",
+      "question": "When using feature extraction with a pretrained model, what part of the original model is typically used?",
+      "options": [
+        "Only the densely connected layers",
+        "The convolutional base (early layers)",
+        "Random layers from the middle of the network",
+        "Only the final classification layer"
+      ],
+      "correctAnswer": 1,
+      "explanation": "Feature extraction uses the convolutional base (early/middle layers) which learned general features, and replaces the final dense layers with new ones for your specific task."
+    },
+    {
+      "id": 13,
+      "type": "multiple-choice",
+      "question": "When deciding how many layers to use from a pretrained model, what should you consider?",
+      "options": [
+        "Only use layers that have been fine-tuned previously",
+        "Never use any layers from the original model",
+        "Use only early layers if the new dataset is very different from the original",
+        "Always use all layers regardless of dataset similarity"
+      ],
+      "correctAnswer": 2,
+      "explanation": "If your dataset differs significantly from the pre-trained model's original dataset, use fewer layers (only early ones) since later layers learn task-specific features."
+    },
+    {
+      "id": 14,
+      "type": "true-false",
+      "question": "In convolutional neural networks, the depth (number of channels/filters) typically decreases as you progress through deeper layers.",
+      "correctAnswer": false,
+      "explanation": "Depth (number of filters) typically INCREASES in deeper layers as the network learns increasingly complex features, while spatial dimensions decrease through pooling."
+    },
+    {
+      "id": 15,
+      "type": "true-false",
+      "question": "Convolutional layers are translation-invariant, meaning they can recognize a pattern regardless of where it appears in an image.",
+      "correctAnswer": true,
+      "explanation": "CNNs learn patterns that can be detected anywhere in the image due to weight sharing and sliding convolution operations, making them translation-invariant."
+    },
+    {
+      "id": 16,
+      "type": "multiple-choice",
+      "question": "What is the main difference between densely connected layers and convolutional layers?",
+      "options": [
+        "Dense layers are faster to compute than convolutional layers",
+        "Dense layers learn local patterns while convolutional layers learn global",
+        "Dense layers produce feature maps while convolutional layers produce weight matrices",
+        "Dense layers learn global patterns while convolutional layers learn local patterns"
+      ],
+      "correctAnswer": 3,
+      "explanation": "Convolutional layers learn local spatial patterns through small receptive fields, while dense layers connect to all inputs learning global patterns across the entire feature space."
+    },
+    {
+      "id": 17,
+      "type": "multiple-choice",
+      "question": "In a CNN architecture, what is the purpose of max pooling?",
+      "options": [
+        "To introduce more trainable parameters",
+        "To downsample feature maps and reduce their size",
+        "To increase the size of feature maps",
+        "To apply a learned linear transformation to the input"
+      ],
+      "correctAnswer": 1,
+      "explanation": "Max pooling downsamples feature maps by taking the maximum value in each pooling window, reducing spatial dimensions while retaining important features."
+    },
+    {
+      "id": 18,
+      "type": "multiple-choice",
+      "question": "Which of the following best describes a 'feature map' in the context of CNNs?",
+      "options": [
+        "The combined output of all layers in a CNN",
+        "The input tensor before applying convolution",
+        "A 2D spatial map showing how strongly a filter detected patterns across the input",
+        "The set of weights in a convolutional kernel"
+      ],
+      "correctAnswer": 2,
+      "explanation": "A feature map is the output of applying a filter to an input, showing the spatial locations where specific patterns were detected with varying intensities."
+    },
+    {
+      "id": 19,
+      "type": "multiple-choice",
+      "question": "Why are CNNs considered data-efficient for perceptual problems like image recognition?",
+      "options": [
+        "They don't need to be trained on large datasets",
+        "They always require data augmentation",
+        "They learn local, translation-invariant features",
+        "They require more parameters than other neural networks"
+      ],
+      "correctAnswer": 2,
+      "explanation": "CNNs learn local patterns that can be reused across the entire image (translation-invariance) and across different images, requiring fewer parameters and less data than fully connected networks."
+    },
+    {
+      "id": 20,
+      "type": "multiple-choice",
+      "question": "Reinforcement learning...",
+      "options": [
+        "Uses labeled examples to adjust model parameters",
+        "Trains on self-generated labels to learn representations",
+        "Finds structure in data without explicit labels",
+        "Learns by trial and error through environment interaction"
+      ],
+      "correctAnswer": 3,
+      "explanation": "Reinforcement learning learns through trial and error, receiving rewards or penalties for actions in an environment to develop optimal strategies."
+    },
+    {
+      "id": 21,
+      "type": "multiple-choice",
+      "question": "You have a client with a closet full of tools but no dataset. Which model should you use to save time?",
+      "options": [
+        "Reinforcement Learning",
+        "Unsupervised Learning",
+        "Supervised Learning",
+        "Self-Supervised Learning"
+      ],
+      "correctAnswer": 1,
+      "explanation": "Unsupervised Learning finds patterns in unlabeled data, making it ideal when you have data (tools) but no labels, saving time on data labeling."
+    },
+    {
+      "id": 22,
+      "type": "multiple-choice",
+      "question": "You need AI software for a drone to navigate downtown Toronto. What type of model should you use?",
+      "options": [
+        "Supervised Learning",
+        "Self-Supervised Learning",
+        "Unsupervised Learning",
+        "Reinforcement Learning"
+      ],
+      "correctAnswer": 3,
+      "explanation": "Reinforcement Learning is ideal for navigation tasks where the agent (drone) learns optimal actions through interaction with the environment, receiving rewards for good navigation."
+    },
+    {
+      "id": 23,
+      "type": "multiple-choice",
+      "question": "You need software to analyze a customer database and predict their next purchase. Which type of model should you use?",
+      "options": [
+        "Reinforcement Learning",
+        "Self-Supervised Learning",
+        "Unsupervised Learning",
+        "Supervised Learning"
+      ],
+      "correctAnswer": 3,
+      "explanation": "Supervised Learning is best for prediction tasks when you have labeled historical data (past purchases) to train the model to predict future outcomes."
+    },
+    {
+      "id": 24,
+      "type": "multiple-choice",
+      "question": "What is regularization?",
+      "options": [
+        "The weights are subtracted from one another and then the average used",
+        "The weights are multiplied by a constant and/or squared, reducing fluctuations in the loss function",
+        "It increases fluctuations in the loss function graph",
+        "It ensures the weights are between 0-1"
+      ],
+      "correctAnswer": 1,
+      "explanation": "Regularization adds a penalty term (like L1 or L2) based on weight magnitudes to the loss function, discouraging large weights and reducing overfitting by smoothing the loss function."
+    },
+    {
+      "id": 25,
+      "type": "multiple-choice",
+      "question": "If the loss function graph immediately starts to overfit, what will you see?",
+      "options": [
+        "A quick increase in loss of the train set",
+        "A sharp increase in loss in the test set AND a quick decrease in loss of the train set",
+        "A sharp decrease in loss in the test set",
+        "under-parameterization"
+      ],
+      "correctAnswer": 1,
+      "explanation": "Overfitting shows as diverging train/test loss: training loss decreases (model memorizing) while test loss increases (poor generalization), often with over-parameterization."
+    },
+    {
+      "id": 26,
+      "type": "true-false",
+      "question": "You cannot use Cross validation and Regularization at the same time.",
+      "correctAnswer": false,
+      "explanation": "Cross-validation and regularization are complementary techniques. Cross-validation evaluates performance, while regularization prevents overfitting. They're often used together."
+    },
+    {
+      "id": 27,
+      "type": "true-false",
+      "question": "You cannot use both L1 and L2 regularization on the same model.",
+      "correctAnswer": false,
+      "explanation": "You can use both L1 and L2 regularization together (called Elastic Net regularization), combining their benefits: L1 for feature selection and L2 for weight shrinkage."
+    },
+    {
+      "id": 28,
+      "type": "multiple-choice",
+      "question": "What is the main advantage of transfer learning?",
+      "options": [
+        "It eliminates the need for any training data",
+        "It always produces more accurate models than training from scratch",
+        "It leverages pre-learned features, requiring less data and training time",
+        "It only works for image classification tasks"
+      ],
+      "correctAnswer": 2,
+      "explanation": "Transfer learning reuses knowledge from pre-trained models, significantly reducing the amount of data and computation needed to achieve good performance on new tasks."
+    },
+    {
+      "id": 29,
+      "type": "multiple-choice",
+      "question": "What is the difference between feature extraction and fine-tuning in transfer learning?",
+      "options": [
+        "They are the same technique with different names",
+        "Fine-tuning freezes all layers while feature extraction trains all layers",
+        "Feature extraction freezes the convolutional base, fine-tuning allows some layers to train",
+        "Feature extraction is only for CNNs, fine-tuning is for all models"
+      ],
+      "correctAnswer": 2,
+      "explanation": "Feature extraction freezes the pre-trained layers and only trains new layers. Fine-tuning unfreezes some later pre-trained layers to adapt them to the new task."
+    },
+    {
+      "id": 30,
+      "type": "multiple-choice",
+      "question": "Why is a smaller learning rate typically used when fine-tuning?",
+      "options": [
+        "To speed up training",
+        "To increase model accuracy immediately",
+        "To avoid drastically changing the pre-trained weights",
+        "To reduce memory usage"
+      ],
+      "correctAnswer": 2,
+      "explanation": "A smaller learning rate prevents large updates that would destroy the useful features already learned by the pre-trained model, making gradual, careful adjustments."
+    },
+    {
+      "id": 31,
+      "type": "multiple-choice",
+      "question": "What does L1 regularization (Lasso) tend to do to model weights?",
+      "options": [
+        "Increases all weights equally",
+        "Makes weights very large",
+        "Drives some weights exactly to zero (feature selection)",
+        "Only affects the learning rate"
+      ],
+      "correctAnswer": 2,
+      "explanation": "L1 regularization adds the absolute value of weights to the loss, tending to drive some weights exactly to zero, effectively performing feature selection."
+    },
+    {
+      "id": 32,
+      "type": "multiple-choice",
+      "question": "What does L2 regularization (Ridge) tend to do to model weights?",
+      "options": [
+        "Drives weights to zero completely",
+        "Shrinks weights toward zero but rarely exactly to zero",
+        "Only affects bias terms",
+        "Increases weight variance"
+      ],
+      "correctAnswer": 1,
+      "explanation": "L2 regularization adds the squared value of weights to the loss, shrinking all weights toward (but rarely to) zero, preventing any single weight from becoming too large."
+    },
+    {
+      "id": 33,
+      "type": "multiple-choice",
+      "question": "What is dropout in the context of neural networks?",
+      "options": [
+        "Removing entire layers from the network",
+        "Stopping training when validation loss increases",
+        "Randomly setting a fraction of neurons to zero during training",
+        "Deleting training examples with errors"
+      ],
+      "correctAnswer": 2,
+      "explanation": "Dropout randomly deactivates a percentage of neurons during each training iteration, preventing co-adaptation and reducing overfitting."
+    },
+    {
+      "id": 34,
+      "type": "multiple-choice",
+      "question": "When should you consider using data augmentation?",
+      "options": [
+        "Only when you have too much data",
+        "When you have limited training data and want to prevent overfitting",
+        "Only for text data, not images",
+        "When your model is already performing perfectly"
+      ],
+      "correctAnswer": 1,
+      "explanation": "Data augmentation is most beneficial when training data is limited, as it artificially increases dataset diversity and helps the model generalize better."
+    },
+    {
+      "id": 35,
+      "type": "multiple-choice",
+      "question": "What is early stopping?",
+      "options": [
+        "Training for a fixed small number of epochs",
+        "Stopping training when validation performance stops improving",
+        "Ending training when the model reaches 100% training accuracy",
+        "Randomly stopping training at any point"
+      ],
+      "correctAnswer": 1,
+      "explanation": "Early stopping monitors validation performance and halts training when it stops improving, preventing overfitting before it occurs."
+    },
+    {
+      "id": 36,
+      "type": "multiple-choice",
+      "question": "What is batch normalization?",
+      "options": [
+        "Normalizing only the input layer",
+        "Normalizing the outputs of layers to stabilize and speed up training",
+        "Adjusting batch sizes during training",
+        "Normalizing only the final layer's output"
+      ],
+      "correctAnswer": 1,
+      "explanation": "Batch normalization normalizes layer inputs across the mini-batch, reducing internal covariate shift and allowing higher learning rates and faster training."
+    },
+    {
+      "id": 37,
+      "type": "multiple-choice",
+      "question": "What is the vanishing gradient problem?",
+      "options": [
+        "Gradients becoming too large and causing instability",
+        "Gradients becoming extremely small in early layers, slowing learning",
+        "Gradients disappearing completely after one epoch",
+        "Gradients only affecting certain layers"
+      ],
+      "correctAnswer": 1,
+      "explanation": "In deep networks, gradients can become exponentially smaller as they backpropagate through layers, making early layers learn very slowly or not at all."
+    },
+    {
+      "id": 38,
+      "type": "multiple-choice",
+      "question": "What is the purpose of using validation data?",
+      "options": [
+        "To increase the training dataset size",
+        "To tune hyperparameters and detect overfitting during training",
+        "To replace the test dataset",
+        "To train the final model"
+      ],
+      "correctAnswer": 1,
+      "explanation": "Validation data helps tune hyperparameters, select the best model, and monitor for overfitting during training without touching the test set."
+    },
+    {
+      "id": 39,
+      "type": "multiple-choice",
+      "question": "Why do we typically normalize input images before feeding them to a CNN?",
+      "options": [
+        "To make all images the same size",
+        "To ensure pixel values are in a consistent range (e.g., 0-1), helping training converge faster",
+        "To reduce file size",
+        "To convert images to grayscale"
+      ],
+      "correctAnswer": 1,
+      "explanation": "Normalizing inputs (scaling pixel values to 0-1 or standardizing) helps gradients flow better and allows the model to converge faster and more stably."
+    },
+    {
+      "id": 40,
+      "type": "multiple-choice",
+      "question": "What is the receptive field of a neuron in a CNN?",
+      "options": [
+        "The number of parameters in the layer",
+        "The region of the input image that affects that neuron's activation",
+        "The size of the kernel",
+        "The number of filters in the layer"
+      ],
+      "correctAnswer": 1,
+      "explanation": "The receptive field is the area of the original input that influences a particular neuron's output, growing larger in deeper layers through successive convolutions."
+    },
+    {
+      "id": 41,
+      "type": "multiple-choice",
+      "question": "What is the purpose of using padding in convolutional layers?",
+      "options": [
+        "To increase the number of channels",
+        "To preserve spatial dimensions and prevent information loss at borders",
+        "To reduce computational cost",
+        "To apply regularization"
+      ],
+      "correctAnswer": 1,
+      "explanation": "Padding adds zeros around the input border, allowing the output to maintain the same spatial dimensions as the input and preventing loss of edge information."
+    },
+    {
+      "id": 42,
+      "type": "multiple-choice",
+      "question": "What is stride in a convolutional layer?",
+      "options": [
+        "The size of the kernel",
+        "The number of steps the kernel moves across the input",
+        "The depth of the output",
+        "The learning rate"
+      ],
+      "correctAnswer": 1,
+      "explanation": "Stride determines how many pixels the convolutional kernel shifts at each step. Larger strides reduce output dimensions more aggressively than smaller strides."
+    },
+    {
+      "id": 43,
+      "type": "multiple-choice",
+      "question": "What is the difference between same padding and valid padding?",
+      "options": [
+        "Same padding reduces size, valid padding maintains size",
+        "They are the same thing",
+        "Same padding maintains input size, valid padding uses no padding (size reduces)",
+        "Same padding only works with odd kernel sizes"
+      ],
+      "correctAnswer": 2,
+      "explanation": "'Same' padding adds enough zeros to keep output size equal to input size. 'Valid' padding uses no padding, resulting in smaller output dimensions."
+    },
+    {
+      "id": 44,
+      "type": "multiple-choice",
+      "question": "What is global average pooling?",
+      "options": [
+        "Averaging all values in the entire feature map to produce one value per channel",
+        "Taking the average of only the maximum values",
+        "Pooling only specific regions of the feature map",
+        "The same as max pooling"
+      ],
+      "correctAnswer": 0,
+      "explanation": "Global average pooling averages all spatial positions in each feature map, reducing each channel to a single value, often used to replace dense layers at the end of CNNs."
+    },
+    {
+      "id": 45,
+      "type": "multiple-choice",
+      "question": "What is the purpose of using multiple filters in a convolutional layer?",
+      "options": [
+        "To reduce overfitting",
+        "To detect different types of features (edges, textures, patterns) simultaneously",
+        "To increase image resolution",
+        "To reduce computational cost"
+      ],
+      "correctAnswer": 1,
+      "explanation": "Each filter learns to detect different features. Using multiple filters allows the layer to detect various patterns simultaneously, creating multiple feature maps."
+    }
+  ]
+}
