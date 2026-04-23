@@ -4,480 +4,474 @@
     {
       "id": 1,
       "type": "multiple-choice",
-      "question": "In the CIA triad, which property is primarily targeted by a Denial of Service (DoS) attack?",
+      "question": "A Denial of Service (DoS) attack targets which property of the CIA triad?",
       "options": [
-        "Confidentiality",
-        "Integrity",
-        "Availability",
-        "Authenticity"
+        "Confidentiality — it prevents unauthorized disclosure of data",
+        "Integrity — it ensures data has not been tampered with",
+        "Availability — it ensures authorized users can access resources when needed",
+        "Non-repudiation — it prevents parties from denying their actions"
       ],
       "correctAnswer": 2,
-      "explanation": "DoS attacks aim to make a service unavailable, targeting availability."
+      "explanation": "The CIA triad consists of Confidentiality (keeping data private), Integrity (keeping data unaltered), and Availability (keeping services accessible). DoS attacks flood or crash a target so that legitimate users cannot reach it — a direct attack on Availability. Non-repudiation is not part of the CIA triad."
     },
     {
       "id": 2,
       "type": "true-false",
-      "question": "A DoS attack is primarily about disrupting access to a service rather than stealing data.",
-      "correctAnswer": true,
-      "explanation": "The notes emphasize that the goal is often to disrupt (deny service), not necessarily to infiltrate."
+      "question": "The primary goal of a DoS attack is to steal or exfiltrate sensitive data from the target.",
+      "correctAnswer": false,
+      "explanation": "DoS attacks are designed to disrupt or deny access to a service, not to steal data. An attacker launches a DoS to make a resource unavailable — for example, crashing a web server so no one can use it. Data theft is associated with different attack types such as SQL injection or phishing."
     },
     {
       "id": 3,
       "type": "multiple-choice",
-      "question": "Which statement best captures the main impact of a DoS attack?",
+      "question": "What distinguishes a volumetric DoS attack from an application-level DoS attack?",
       "options": [
-        "It permanently encrypts all files on the target",
-        "It disrupts service so legitimate users cannot access it",
-        "It changes domain ownership records",
-        "It modifies database schemas without detection"
+        "Volumetric attacks exploit software bugs; application-level attacks flood bandwidth",
+        "Volumetric attacks saturate network bandwidth with traffic; application-level attacks exploit weaknesses in how an application processes requests",
+        "Volumetric attacks only target HTTPS services; application-level attacks only target HTTP",
+        "Volumetric attacks always use botnets; application-level attacks always use a single machine"
       ],
       "correctAnswer": 1,
-      "explanation": "A DoS denies service to users by overloading or otherwise disrupting the target."
+      "explanation": "Volumetric attacks overwhelm the network link itself by sending enormous amounts of traffic (e.g., UDP floods, ICMP floods), consuming all available bandwidth. Application-level attacks instead exploit the logic of an application — for example, sending carefully crafted requests that are cheap to send but expensive for the server to process, crashing or hanging it without needing to saturate the link."
     },
     {
       "id": 4,
       "type": "multiple-choice",
-      "question": "In the context of DoS, what does searching for the term “booter” typically refer to?",
+      "question": "In the context of DoS, what is a 'booter' service?",
       "options": [
-        "A tool for patching operating systems",
-        "A DoS-for-hire service",
-        "A network firewall configuration standard",
-        "A browser feature that blocks popups"
+        "A legitimate tool used by network administrators to reboot remote servers",
+        "A paid DoS-for-hire service that lets anyone launch an attack against a target",
+        "A type of intrusion detection system that reboots itself after an attack",
+        "A hardware device that boots compromised machines into a clean OS"
       ],
       "correctAnswer": 1,
-      "explanation": "The notes mention “booter” as a term associated with DoS services that can be monetized."
+      "explanation": "Booters (also called stressers) are underground commercial services that sell DoS attack capability. A customer pays a fee and provides a target IP address; the service then floods that target. They are illegal to use against systems you do not own, and are part of the cybercrime-as-a-service ecosystem."
     },
     {
       "id": 5,
       "type": "multiple-choice",
-      "question": "What is the defining characteristic of a volumetric DoS attack?",
+      "question": "During a SYN flood attack, why does the server run out of resources?",
       "options": [
-        "Steals cookies to impersonate a user",
-        "Consumes bandwidth to block communication",
-        "Forces the database to throw errors",
-        "Injects code into a DOM sink"
+        "The server must decrypt each SYN packet, which is computationally expensive",
+        "The server allocates a half-open connection entry for every SYN it receives, and the attacker never completes the handshake, filling up the connection table",
+        "Each SYN packet permanently opens a port, and the operating system only supports 65,535 ports",
+        "The server must send a SYN-ACK and immediately close the connection, doubling its network load"
       ],
       "correctAnswer": 1,
-      "explanation": "Volumetric attacks saturate bandwidth so communication is blocked."
+      "explanation": "TCP requires a 3-way handshake: SYN → SYN-ACK → ACK. When a server receives a SYN, it reserves memory for a 'half-open' connection and sends a SYN-ACK, waiting for the client's ACK. In a SYN flood, the attacker sends thousands of SYNs but never replies with the ACK. The server's connection table fills with these half-open entries waiting to time out, preventing it from accepting legitimate connections."
     },
     {
       "id": 6,
       "type": "multiple-choice",
-      "question": "In a SYN flood attack, which step of the TCP 3-way handshake is typically not completed by the attacker?",
+      "question": "An ICMP-based DoS attack works by:",
       "options": [
-        "The initial SYN",
-        "The SYN-ACK from the server",
-        "The final ACK from the client",
-        "The server closing the connection"
+        "Sending malformed SQL queries via ICMP tunneling to corrupt a database",
+        "Flooding a target with ICMP echo request packets faster than it can respond, consuming CPU and bandwidth",
+        "Using ICMP redirect messages to reroute all traffic through the attacker's machine",
+        "Exploiting the ICMP protocol to decrypt TLS sessions"
       ],
-      "correctAnswer": 2,
-      "explanation": "The attacker sends SYNs but does not complete the handshake (does not send the final ACK), leaving the server waiting."
+      "correctAnswer": 1,
+      "explanation": "ICMP (Internet Control Message Protocol) is used for diagnostics like ping. An ICMP flood sends so many echo request packets that the target is overwhelmed processing them and sending replies, consuming CPU cycles and saturating network bandwidth. This is a volumetric attack that doesn't require exploiting any application vulnerability."
     },
     {
       "id": 7,
       "type": "multiple-choice",
-      "question": "Which DoS technique involves overwhelming a system by sending a large number of ICMP packets?",
+      "question": "What makes a 'permanent DoS' (phlashing) more damaging than a typical DoS attack?",
       "options": [
-        "Volumetric attack",
-        "SYN flood attack",
-        "ICMP attack",
-        "Permanent DoS"
+        "It simultaneously attacks all users' browser sessions rather than just the server",
+        "It causes irreversible hardware damage — for example, by flashing corrupt firmware — that requires physical replacement or repair",
+        "It permanently blocks all IP addresses from reaching the target forever",
+        "It encrypts all the target's data with a key only the attacker holds"
       ],
-      "correctAnswer": 2,
-      "explanation": "ICMP attacks overload a system with ICMP packets so it cannot respond normally."
+      "correctAnswer": 1,
+      "explanation": "Phlashing is a permanent DoS (PDoS) attack that destroys firmware or hardware configuration — for instance, flashing a router or network card with corrupt firmware. Unlike a regular DoS that stops when the attack stops, phlashing can render a device permanently unusable, requiring hardware replacement. The term combines 'phreaking' and 'flashing.'"
     },
     {
       "id": 8,
       "type": "multiple-choice",
-      "question": "Which description best fits an application-level DoS attack?",
+      "question": "Which of the following best explains why DDoS attacks are harder to defend against than single-source DoS attacks?",
       "options": [
-        "Sending crafted traffic to saturate the internet link",
-        "Exploiting a vulnerability by sending unexpected or malformed data",
-        "Making DNS requests from SQL queries",
-        "Hiding a malicious button under a visible UI element"
+        "DDoS attacks use more sophisticated encryption to hide their traffic",
+        "DDoS traffic comes from thousands of different IP addresses simultaneously, making IP-based blocking ineffective and the total traffic volume enormous",
+        "DDoS attacks always target application-layer vulnerabilities, while DoS only targets the network layer",
+        "DDoS attacks are legally permitted in some jurisdictions, limiting the defender's options"
       ],
       "correctAnswer": 1,
-      "explanation": "Application-level attacks exploit program weaknesses by sending unexpected/malformed inputs or excessive data."
+      "explanation": "In a single-source DoS, you can block one IP address. In a DDoS, the attack originates from a botnet of thousands or millions of compromised machines (zombies) spread across the globe. You cannot block them all by IP without also blocking legitimate users, and the combined traffic volume can overwhelm even large networks. This distributed nature is exactly what makes DDoS mitigation require specialized services like scrubbing centers."
     },
     {
       "id": 9,
       "type": "multiple-choice",
-      "question": "A “permanent DoS” is also known as:",
+      "question": "An application-level DoS attack differs from a network-level flood because it:",
       "options": [
-        "Session riding",
-        "Phlashing",
-        "Clickjacking",
-        "Out-of-band extraction"
+        "Requires far more bandwidth to execute",
+        "Can exhaust server resources by sending a small number of expensive, well-crafted requests rather than raw traffic volume",
+        "Only works against servers running on Linux",
+        "Always results in permanent data loss on the target server"
       ],
       "correctAnswer": 1,
-      "explanation": "The notes describe permanent DoS as “phlashing,” making irreversible changes that can render hardware unusable."
+      "explanation": "Application-level DoS attacks are 'low and slow' — an attacker can send a tiny number of requests that trigger extremely expensive operations on the server (such as complex database queries or file parsing). Because the traffic looks like legitimate application use, it can bypass network-level defenses that look for traffic volume. This makes them harder to detect and requires application-aware defenses."
     },
     {
       "id": 10,
-      "type": "multiple-choice",
-      "question": "Which statement best distinguishes DDoS from DoS?",
-      "options": [
-        "DoS uses encryption; DDoS does not",
-        "DoS comes from one source; DDoS comes from many distributed sources",
-        "DoS targets only databases; DDoS targets only web servers",
-        "DoS is always permanent; DDoS is always temporary"
-      ],
-      "correctAnswer": 1,
-      "explanation": "DDoS uses multiple machines/connections (often botnets/zombies) to flood a target, unlike a single-source DoS."
+      "type": "true-false",
+      "question": "In a DDoS attack, the compromised machines in the botnet (called zombies) are typically aware they are participating in an attack.",
+      "correctAnswer": false,
+      "explanation": "Zombie machines are devices that have been silently infected with malware by a botnet operator. The owners of those machines typically have no idea their devices are being used to flood a target. This is why DDoS attacks are so dangerous — they weaponize unwitting victims' computers as part of the infrastructure."
     },
     {
       "id": 11,
       "type": "multiple-choice",
-      "question": "An HTTP proxy primarily:",
+      "question": "What is the key role of an HTTP proxy server?",
       "options": [
-        "Encrypts all web traffic end-to-end by default",
-        "Makes requests to web servers on behalf of other clients",
-        "Replaces DNS with direct IP routing",
-        "Prevents all XSS by filtering <script> tags"
+        "It terminates TLS connections and re-encrypts them using the server's private key",
+        "It sits between clients and web servers, forwarding requests on the client's behalf — enabling features like caching, filtering, and anonymity",
+        "It replaces DNS by mapping hostnames to IP addresses within the browser",
+        "It prevents XSS by stripping script tags from all responses"
       ],
       "correctAnswer": 1,
-      "explanation": "A proxy can act as client or server, forwarding requests on behalf of clients and sometimes caching responses."
+      "explanation": "An HTTP proxy is an intermediary: the client sends its request to the proxy, which forwards it to the actual web server. The server's response returns through the proxy to the client. This architecture enables caching (serving stored responses to avoid re-fetching), content filtering, access control, and anonymity (since the server only sees the proxy's IP). Proxies operate at the application layer."
     },
     {
       "id": 12,
       "type": "true-false",
-      "question": "HTTP proxies can provide support for caching.",
+      "question": "An HTTP proxy can cache responses so that repeated requests for the same resource do not need to reach the origin server.",
       "correctAnswer": true,
-      "explanation": "The notes explicitly list caching as a proxy capability."
+      "explanation": "Caching is one of the primary functions of forward proxies. When a resource is fetched, the proxy stores a copy. Subsequent requests for the same resource can be served from the cache, reducing latency and load on the origin server. This is also why cache poisoning attacks are dangerous — if an attacker can store malicious content in a proxy cache, it gets served to all users."
     },
     {
       "id": 13,
       "type": "multiple-choice",
-      "question": "In web server hacking reconnaissance, what is the attacker trying to determine first?",
+      "question": "During web server hacking reconnaissance, what is the attacker's primary objective?",
       "options": [
-        "Which developer wrote the code",
-        "What is open and potentially vulnerable",
-        "Which encryption algorithm is used in the database",
-        "Which user has the strongest password"
+        "To immediately exploit a remote code execution vulnerability",
+        "To passively gather information about what is exposed and potentially vulnerable before attempting any exploitation",
+        "To modify the server's DNS records to redirect users",
+        "To install a backdoor before any scanning occurs"
       ],
       "correctAnswer": 1,
-      "explanation": "The notes emphasize listening/monitoring/observation to find what’s open and vulnerable."
+      "explanation": "Reconnaissance is the first phase of an attack. The attacker's goal is to understand the target's attack surface — open ports, running services, software versions, misconfigurations — without triggering alarms. This passive (or low-noise active) information gathering informs what exploits to attempt next. Jumping straight to exploitation without recon wastes effort and increases detection risk."
     },
     {
       "id": 14,
       "type": "multiple-choice",
-      "question": "Which tool is specifically mentioned for scanning web servers and finding open ports?",
+      "question": "What type of information does banner grabbing reveal, and why is it useful to an attacker?",
       "options": [
-        "Nmap",
-        "WPScan",
-        "GFI LanGuard",
-        "UTL_HTTP"
+        "It reveals the usernames of logged-in users, letting the attacker target specific accounts",
+        "It reveals the server software name and version (e.g., 'Apache 2.4.51'), letting the attacker look up known CVEs for that specific version",
+        "It reveals the contents of the server's configuration files by triggering an error",
+        "It reveals the private TLS key used by the server"
       ],
-      "correctAnswer": 0,
-      "explanation": "Nmap is listed as the tool used to scan for ports/services."
+      "correctAnswer": 1,
+      "explanation": "Banners are messages sent by services when a connection is opened — for example, an HTTP response header might say 'Server: nginx/1.18.0'. Banner grabbing collects these to fingerprint the target. Knowing the exact software version lets the attacker search vulnerability databases (like CVE or Exploit-DB) for known unpatched flaws against that specific version. Tools like Netcat, Telnet, and whatweb automate this."
     },
     {
       "id": 15,
       "type": "multiple-choice",
-      "question": "Banner grabbing and enumeration is primarily used to:",
+      "question": "Nmap is used during the reconnaissance phase primarily to:",
       "options": [
-        "Identify server distribution and version",
-        "Encrypt cookies so they can’t be modified",
-        "Force a database to delay responses",
-        "Prevent clickjacking by adding headers"
+        "Crack password hashes retrieved from a database dump",
+        "Discover which ports are open on a target and which services are running on those ports",
+        "Inject malicious payloads into web application forms",
+        "Enumerate users within an Active Directory environment"
       ],
-      "correctAnswer": 0,
-      "explanation": "Banner grabbing helps fingerprint a server by identifying its distribution/version."
+      "correctAnswer": 1,
+      "explanation": "Nmap (Network Mapper) is a port scanning tool. It sends probes to a range of ports and analyzes responses to determine whether each port is open, closed, or filtered, and often identifies the service and version running. This is foundational reconnaissance — an attacker uses the port map to identify the target's exposed attack surface before deciding which vulnerability to exploit."
     },
     {
       "id": 16,
       "type": "multiple-choice",
-      "question": "Which tool is mentioned for banner grabbing and enumeration?",
+      "question": "After fingerprinting a web server and identifying it runs Apache 2.2.14, what would an attacker logically do next?",
       "options": [
-        "whatweb",
-        "Nessus",
-        "Acunetix",
-        "Retina CS"
+        "Immediately launch a SYN flood to take it offline",
+        "Search vulnerability databases for known, unpatched CVEs affecting Apache 2.2.14 specifically",
+        "Install a proxy in front of the server to intercept traffic",
+        "Change the server's banner to prevent further fingerprinting"
       ],
-      "correctAnswer": 0,
-      "explanation": "The notes list Telnet, Netcat, and whatweb for banner grabbing and enumeration."
+      "correctAnswer": 1,
+      "explanation": "Once the attacker knows the specific software and version, they search CVE databases or Exploit-DB for vulnerabilities that affect exactly that version. Old software often has publicly documented exploits with available proof-of-concept code. This is why keeping software patched and up-to-date — and suppressing version banners — are both important defensive measures."
     },
     {
       "id": 17,
       "type": "true-false",
-      "question": "Fingerprinting is information collected about a remote computing device for the purpose of identification.",
-      "correctAnswer": true,
-      "explanation": "That’s the definition provided under banner grabbing/enumeration and fingerprinting."
+      "question": "Fingerprinting a web server requires direct network access to the server — it cannot be done passively from public sources.",
+      "correctAnswer": false,
+      "explanation": "Fingerprinting can be partly passive. Public sources like Shodan index server banners and certificates globally. Archive sites like the Wayback Machine may reveal old software versions. WHOIS and DNS records reveal infrastructure details. Active fingerprinting (direct scanning) is also common, but an attacker can learn a great deal without ever sending a packet directly to the target."
     },
     {
       "id": 18,
       "type": "multiple-choice",
-      "question": "Which port is most commonly associated with HTTP?",
+      "question": "HTTP is called a stateless protocol. What does this mean in practice?",
       "options": [
-        "21",
-        "22",
-        "80",
-        "443"
+        "HTTP connections are always encrypted so no state needs to be stored",
+        "Each HTTP request is independent — the server does not inherently remember anything about previous requests from the same client",
+        "HTTP only supports GET requests, which carry no state",
+        "HTTP servers cannot store session data in any form"
       ],
-      "correctAnswer": 2,
-      "explanation": "The notes mention HTTP usually runs on port 80 (and HTTPS on 443)."
+      "correctAnswer": 1,
+      "explanation": "Statelessness means each HTTP request/response cycle is self-contained. The server does not natively remember whether you made a previous request. This is why mechanisms like cookies and session tokens were invented — they artificially add state on top of a stateless protocol. Statelessness simplifies servers (they don't track per-connection history) but requires applications to implement their own session management, which can introduce vulnerabilities."
     },
     {
       "id": 19,
       "type": "multiple-choice",
-      "question": "Which port is most commonly associated with HTTPS?",
+      "question": "Port 443 is associated with HTTPS. Why does HTTPS use a different port than HTTP (port 80)?",
       "options": [
-        "53",
-        "80",
-        "110",
-        "443"
+        "HTTPS uses UDP instead of TCP, which requires a different port range",
+        "Different port numbers allow firewalls and servers to apply different rules to encrypted vs unencrypted web traffic",
+        "Port 443 has a higher bandwidth allocation in networking standards",
+        "HTTPS is a newer protocol and all newer protocols must use ports above 400"
       ],
-      "correctAnswer": 3,
-      "explanation": "The notes mention HTTPS typically runs on port 443."
+      "correctAnswer": 1,
+      "explanation": "Port numbers help network equipment route traffic to the correct service. Running HTTPS on a separate port (443) from HTTP (80) lets firewalls, load balancers, and servers distinguish encrypted from unencrypted web traffic and apply different handling — for example, terminating TLS, enforcing HSTS, or redirecting HTTP to HTTPS. Using separate ports is simply a convention (IANA assignment), not a technical requirement of TCP."
     },
     {
       "id": 20,
       "type": "multiple-choice",
-      "question": "After fingerprinting a web server, a typical next step is to:",
+      "question": "OpenVAS is used for which purpose in the context of web server security assessment?",
       "options": [
-        "Search for known vulnerabilities affecting that server",
-        "Disable root login on the attacker’s machine",
-        "Switch all requests to UDP",
-        "Delete all server logs"
+        "Cracking password hashes by running dictionary attacks",
+        "Automated vulnerability scanning — probing a target for known security weaknesses and misconfigurations",
+        "Capturing and replaying HTTP sessions to test for CSRF vulnerabilities",
+        "Generating wordlists for brute-force attacks against login forms"
       ],
-      "correctAnswer": 0,
-      "explanation": "The notes say after fingerprinting, you search for vulnerabilities (e.g., by looking up known issues)."
+      "correctAnswer": 1,
+      "explanation": "OpenVAS (Open Vulnerability Assessment System) is an open-source vulnerability scanner. It maintains a database of known vulnerabilities (like Nessus's plugins) and automatically tests a target system for misconfigurations, unpatched software, and known exploitable flaws. It produces a report prioritizing findings by severity. It's used both by defenders (to find and fix weaknesses before attackers do) and by attackers during reconnaissance."
     },
     {
       "id": 21,
       "type": "multiple-choice",
-      "question": "Which tool is mentioned for web server vulnerability identification?",
+      "question": "Which statement best explains why 'harden before deploying' is a security best practice rather than hardening after deployment?",
       "options": [
-        "OpenVAS",
-        "Telnet",
-        "Netcat",
-        "CIS Benchmarks"
+        "Post-deployment hardening is technically impossible on Linux systems",
+        "Systems exposed to the internet while not yet hardened can be compromised before defenses are in place; hardening first closes vulnerabilities before the attack window opens",
+        "Hardening after deployment violates most software licensing agreements",
+        "Pre-deployment hardening is required by TCP/IP standards"
       ],
-      "correctAnswer": 0,
-      "explanation": "OpenVAS is explicitly listed under web server vulnerability identification tools."
+      "correctAnswer": 1,
+      "explanation": "Every moment a system is exposed with default or insecure settings is an opportunity for attackers. Default configurations often include unnecessary open ports, default credentials, and disabled security features. If you harden before going live, the system is never exposed in a vulnerable state. Post-deployment hardening risks the system being exploited during the window between deployment and hardening completion."
     },
     {
       "id": 22,
       "type": "true-false",
-      "question": "HTTP is generally considered a stateless protocol.",
+      "question": "CIS Benchmarks provide specific, prescriptive configuration recommendations for hardening operating systems and applications.",
       "correctAnswer": true,
-      "explanation": "“Stateless, stateful” is listed under terms to know for HTTP; HTTP itself is typically stateless."
+      "explanation": "The Center for Internet Security (CIS) publishes benchmarks — detailed documents specifying exact configuration settings for hardening common systems like Linux distributions, Windows, and web servers. For example, a benchmark might specify exactly which services to disable, what permission modes to set on sensitive files, and which sysctl kernel parameters to configure. They are widely used as a baseline for compliance and hardening."
     },
     {
       "id": 23,
       "type": "multiple-choice",
-      "question": "Which of the following is a “harden before deploying” technique from the notes?",
+      "question": "Why is disabling unnecessary services an important hardening step, even if those services are not directly exposed to the internet?",
       "options": [
-        "Disable firewalls",
-        "Enable and use firewalls",
-        "Publish system passwords in comments",
-        "Store sensitive data unencrypted in cookies"
+        "Unnecessary services slow down system boot times significantly",
+        "Every running service is potential attack surface — vulnerabilities in an unused service could still be exploited by an attacker who has already gained some access",
+        "Disabled services still consume memory and CPU, degrading performance",
+        "Internet standards require that unused ports be closed by firewall rules, not service disabling"
       ],
       "correctAnswer": 1,
-      "explanation": "Hardening techniques include enabling firewalls, patching OS, strong passwords, and disabling root login."
+      "explanation": "The security principle of 'least functionality' says a system should only run what it needs. Each running service may have vulnerabilities. Even if a service isn't directly reachable from outside, an attacker who gains limited access (e.g., via a web app vulnerability) may pivot and exploit a vulnerable internal service to escalate privileges. Removing unused services eliminates that risk entirely — a vulnerability in something not installed cannot be exploited."
     },
     {
       "id": 24,
       "type": "multiple-choice",
-      "question": "Which of the following is NOT listed as a hardening technique?",
+      "question": "When locking down the file system, why is it important to run services as non-root users with minimal permissions?",
       "options": [
-        "Apply OS/distribution patches",
-        "Disable root login",
-        "Use strong passwords",
-        "Enable root login"
+        "Root users cannot be authenticated by web servers",
+        "If the service is compromised, the attacker only gains the limited permissions of that service account rather than full system control",
+        "Non-root users have faster file I/O, improving application performance",
+        "Linux requires all web server processes to run as non-root for TCP port binding"
       ],
-      "correctAnswer": 3,
-      "explanation": "The notes explicitly recommend disabling root login, not enabling it."
+      "correctAnswer": 1,
+      "explanation": "The principle of least privilege says processes should have only the permissions they need to function. If a web server process runs as root and an attacker exploits it, they gain root access to the entire system. If it runs as a dedicated low-privilege user (like 'www-data'), an attacker who exploits it is confined to that user's permissions — they cannot read sensitive system files, install software, or modify the OS. The chown command is used to change file and process ownership."
     },
     {
       "id": 25,
-      "type": "true-false",
-      "question": "Following CIS benchmarking guidelines is recommended as part of OS/distribution hardening.",
-      "correctAnswer": true,
-      "explanation": "CIS benchmarking is named as a guideline for hardening before deploying."
+      "type": "multiple-choice",
+      "question": "What is the purpose of logging in a security context, and why should logs be stored separately from the system they monitor?",
+      "options": [
+        "Logs optimize query performance by caching database responses",
+        "Logs create a formal record of access and events used for forensic investigation and detecting attacks; storing them remotely prevents an attacker from deleting evidence after a compromise",
+        "Logs are required by HTTP/2 for maintaining stateful connections",
+        "Logs replace the need for firewalls by recording blocked traffic"
+      ],
+      "correctAnswer": 1,
+      "explanation": "Logs record what happened on a system — who logged in, what commands were run, what files were accessed, what errors occurred. They are essential for detecting attacks in progress and for forensic investigation after an incident. If logs are stored only on the compromised system, an attacker who gains access can delete them to cover their tracks. Centralizing logs to a separate, write-protected system (like a SIEM) preserves the evidence trail."
     },
     {
       "id": 26,
       "type": "multiple-choice",
-      "question": "The phrase “If you’re not using it, lose it” is used in the notes to describe:",
+      "question": "What is the difference between a security log and a security audit?",
       "options": [
-        "Disabling unneeded services",
-        "Using a password manager",
-        "Encrypting all database backups",
-        "Clickjacking prevention"
+        "A log is automated and continuous; an audit is a structured, periodic review validating that security controls meet compliance requirements",
+        "A log is performed by humans; an audit is generated automatically by software",
+        "Logs apply only to databases; audits apply only to web servers",
+        "A log validates policy compliance; an audit records system events"
       ],
       "correctAnswer": 0,
-      "explanation": "It refers to disabling services you don’t need because they can contain vulnerabilities."
+      "explanation": "Logging is the ongoing, automated recording of system events (access attempts, commands, errors). An audit is a structured examination — typically periodic — that reviews logs and system configurations to validate that the system is operating in compliance with policies and regulations. An audit might check whether logging is enabled, whether patches are applied, and whether access controls are correctly set. Logs feed into audits but are not the same thing."
     },
     {
       "id": 27,
       "type": "multiple-choice",
-      "question": "Which action is directly listed as part of disabling unneeded services?",
+      "question": "Defense-in-depth means relying on multiple layers of security. Why is this better than relying on a single strong control?",
       "options": [
-        "Stop service",
-        "Increase cookie lifetime",
-        "Turn off database constraints",
-        "Remove input validation"
+        "Multiple security tools automatically communicate with each other to stop attacks faster",
+        "If one control fails or is bypassed, additional layers still protect the system — no single point of failure exists",
+        "Defense-in-depth reduces the total cost of security because each layer is cheaper than one comprehensive control",
+        "It is required by international law for systems that process financial data"
       ],
-      "correctAnswer": 0,
-      "explanation": "The notes list actions like stopping a service, disabling it, removing service files, and reloading service managers."
+      "correctAnswer": 1,
+      "explanation": "No single security control is perfect. Firewalls can be misconfigured, software has vulnerabilities, and users can be phished. Defense-in-depth (also called layered security) assumes that any individual control may fail, so multiple overlapping controls are deployed: network firewall + host-based firewall + IDS + application input validation + WAF + logging. An attacker must defeat every layer, which greatly increases difficulty and detection likelihood."
     },
     {
       "id": 28,
       "type": "multiple-choice",
-      "question": "“Lock down the file system” primarily means:",
+      "question": "Why are cookies a security risk if they contain sensitive data that is not encrypted or validated server-side?",
       "options": [
-        "Allow all users read/write access",
-        "Limit and/or remove access via permissions",
-        "Disable vulnerability scanning",
-        "Store logs only in memory"
+        "Cookies are always sent over HTTP even on HTTPS sites",
+        "Cookies are stored on the client and can be read, modified, or fabricated by the user or an attacker — so any logic the server executes based on cookie values is untrusted",
+        "Cookies are visible to all other websites the user visits",
+        "Cookies are automatically deleted after each request, making sessions unreliable"
       ],
       "correctAnswer": 1,
-      "explanation": "Locking down the file system is about limiting access through permissions and ownership."
+      "explanation": "Cookies are stored in the user's browser, not on the server. A malicious user can use browser developer tools to read or edit cookie values. If an application stores a value like 'role=user' in a cookie and uses it to make authorization decisions without server-side validation, an attacker can simply change it to 'role=admin'. This is cookie manipulation. Mitigations: sign cookies cryptographically (HMAC), encrypt sensitive values, and always re-validate important state server-side."
     },
     {
       "id": 29,
-      "type": "multiple-choice",
-      "question": "Which command is mentioned in the notes for changing file/process ownership from root to another user?",
-      "options": [
-        "chmod",
-        "chown",
-        "chgrp",
-        "ls"
-      ],
-      "correctAnswer": 1,
-      "explanation": "The notes mention changing process ownership from root to another user using chown."
+      "type": "true-false",
+      "question": "Setting the HttpOnly flag on a cookie prevents the cookie from being accessed by JavaScript, which helps protect against XSS-based cookie theft.",
+      "correctAnswer": true,
+      "explanation": "The HttpOnly cookie attribute instructs the browser not to expose that cookie to JavaScript (document.cookie). Without this flag, an XSS payload can steal session cookies by reading document.cookie and sending them to the attacker. HttpOnly doesn't prevent XSS itself, but it limits what XSS can do — stealing the session cookie to hijack the session is one of the most damaging things an XSS attack can do, and HttpOnly blocks that specific vector."
     },
     {
       "id": 30,
       "type": "multiple-choice",
-      "question": "In the notes, a “log” is best described as:",
+      "question": "Web server password cracking is defined as checking a password against a commonly used password database. How does this differ from brute force?",
       "options": [
-        "A formal record of access and executed commands",
-        "A guarantee that no attacks will happen",
-        "A method for rewriting SQL queries",
-        "A browser feature for blocking scripts"
+        "They are identical — both try every possible password",
+        "Dictionary/credential attacks test passwords from a pre-built list of likely passwords; brute force systematically tries every possible combination of characters",
+        "Dictionary attacks only work on Windows systems; brute force only works on Linux",
+        "Brute force uses stolen databases; dictionary attacks generate passwords mathematically"
       ],
-      "correctAnswer": 0,
-      "explanation": "Logging is keeping a formal record of access and commands executed."
+      "correctAnswer": 1,
+      "explanation": "A brute-force attack tries every possible combination (aaa, aab, aac … zzz) — exhaustive but slow. A dictionary attack uses a wordlist of real, common passwords ('password', '123456', 'letmein') or previously leaked credentials. Dictionary attacks are far faster because they try only likely passwords first. WPScan uses this approach for WordPress sites — trying common WordPress admin passwords against the login form."
     },
     {
       "id": 31,
       "type": "multiple-choice",
-      "question": "In the notes, an “audit” is best described as:",
+      "question": "Why does using an uncommon username (rather than 'admin') help defend against password cracking attacks?",
       "options": [
-        "A cache of HTTP responses",
-        "A documented procedure to validate compliance and conformance",
-        "A way to hide elements in HTML",
-        "A set of SQL statements that combine queries"
+        "Uncommon usernames require stronger encryption algorithms",
+        "Password cracking tools typically assume default usernames like 'admin' or 'root' — an unusual username means the attacker must guess both the username and password, multiplying the search space",
+        "Web servers do not process login requests for usernames shorter than 8 characters",
+        "Uncommon usernames trigger automatic account lockouts after the first failed attempt"
       ],
       "correctAnswer": 1,
-      "explanation": "Audits measure conformance with compliance regulations and define procedures for validation."
+      "explanation": "Credential attacks require knowing both the username and the password. Tools like WPScan default to trying obvious usernames ('admin', 'administrator', 'root'). If the admin account uses the username 'x7j2qm', the attacker cannot simply target 'admin'. The attacker must now also guess or enumerate the username, which significantly expands the attack difficulty. This is paired with strong passwords and account lockout for a layered defense."
     },
     {
       "id": 32,
       "type": "multiple-choice",
-      "question": "Providing ongoing vulnerability scans means:",
+      "question": "Providing ongoing vulnerability scanning means:",
       "options": [
-        "Scanning once and never scanning again",
-        "Performing periodic scans using automated assessment tools",
-        "Only scanning after a breach",
-        "Disabling all third-party software"
+        "Running a scan once during initial deployment and never repeating it",
+        "Scheduling periodic automated scans to detect newly discovered vulnerabilities, misconfigurations, and patch gaps over time",
+        "Only scanning after a known breach has occurred",
+        "Manually reviewing source code once per year for security issues"
       ],
       "correctAnswer": 1,
-      "explanation": "The notes emphasize periodic vulnerability scanning using automated tools."
+      "explanation": "New vulnerabilities (CVEs) are disclosed constantly. A system that was fully hardened and scanned clean last month may be vulnerable today if new flaws are discovered in its software. Ongoing vulnerability scanning — using tools like Nessus, OpenVAS, or Qualys on a scheduled basis — ensures the security posture is continuously validated, not just at a single point in time. It is a core practice of a mature vulnerability management program."
     },
     {
       "id": 33,
       "type": "multiple-choice",
-      "question": "Which tool is explicitly listed as a vulnerability scanning option in the notes?",
+      "question": "Nessus is categorized as which type of security tool?",
       "options": [
-        "Nessus",
-        "Telnet",
-        "whatweb",
-        "UTL_HTTP"
+        "A network packet sniffer that captures and decodes traffic",
+        "A vulnerability scanner that probes systems for known weaknesses and generates prioritized reports",
+        "A password cracker that runs dictionary attacks against login forms",
+        "A web application firewall (WAF) that blocks malicious HTTP requests"
       ],
-      "correctAnswer": 0,
-      "explanation": "Nessus is listed under ongoing vulnerability scan tools."
+      "correctAnswer": 1,
+      "explanation": "Nessus is one of the most widely used vulnerability scanners. It has a large plugin database of known vulnerability checks — it connects to a target, probes its services, and checks for unpatched software, misconfigured settings, and default credentials. It produces reports sorted by severity (Critical, High, Medium, Low). It is used by both defenders for security assessments and attackers during reconnaissance."
     },
     {
       "id": 34,
       "type": "true-false",
-      "question": "Defense-in-depth refers to relying on multiple layers of security controls rather than a single control.",
-      "correctAnswer": true,
-      "explanation": "Defense-in-depth is a standard term in the notes’ “Terms to Know,” meaning layered protections."
+      "question": "Defense-in-depth assumes that if the perimeter firewall is strong enough, no other security controls are necessary.",
+      "correctAnswer": false,
+      "explanation": "Defense-in-depth explicitly rejects the idea that any single control is sufficient. A perimeter firewall is valuable but can be bypassed — for example, via a phishing email that establishes an outbound connection, or via a vulnerability in an internet-facing web application the firewall must allow through. Defense-in-depth adds host firewalls, network segmentation, IDS/IPS, application security controls, and monitoring so each layer compensates for the others' weaknesses."
     },
     {
       "id": 35,
       "type": "multiple-choice",
-      "question": "Why are cookie manipulation attacks risky according to the notes?",
+      "question": "An attacker modifies the value of a cookie named 'discount=0' to 'discount=100'. What class of vulnerability does this exploit?",
       "options": [
-        "Cookies can only be read by servers, never by applications",
-        "Applications may execute logic based on cookie values",
-        "Cookies automatically patch vulnerabilities",
-        "Cookies prevent DoS attacks"
+        "SQL injection — the attacker is modifying a database query via the cookie",
+        "Cookie manipulation — the application trusts client-supplied cookie values without server-side validation",
+        "XSS — the attacker is injecting a script via the cookie",
+        "CSRF — the attacker is forging a cross-site request using the modified cookie"
       ],
       "correctAnswer": 1,
-      "explanation": "The notes state cookies are read and application processes may execute based on cookie values."
+      "explanation": "This is a cookie manipulation attack. Cookies are stored on the client and can be freely edited. If the server reads 'discount=100' from the cookie and applies a 100% discount without verifying that the user is entitled to it server-side, the attacker gets an unauthorized discount. The mitigation is never to trust client-supplied values for security-sensitive decisions — always validate or recalculate on the server."
     },
     {
       "id": 36,
       "type": "true-false",
-      "question": "Storing sensitive information in cookies unencrypted is considered safe because browsers protect cookies.",
+      "question": "Storing a user's role (e.g., 'admin' or 'user') in an unencrypted, unsigned cookie is a safe practice because the browser prevents users from modifying cookies.",
       "correctAnswer": false,
-      "explanation": "The notes explicitly warn not to store sensitive info in cookies unencrypted."
+      "explanation": "Browsers do not prevent users from editing their own cookies. Browser developer tools make it trivial to view and modify cookies. Storing 'role=user' unencrypted and unsigned means any user can change it to 'role=admin' and potentially gain administrative access. Roles and permissions should be stored server-side (in a session store keyed by a signed session token), not in an editable client-side cookie."
     },
     {
       "id": 37,
       "type": "multiple-choice",
-      "question": "Which mitigation approach is recommended for cookie manipulation attacks?",
+      "question": "Which mitigation most effectively prevents cookie manipulation attacks?",
       "options": [
-        "Directly execute cookie values without checks",
-        "Avoid storing sensitive info unencrypted and validate cookie values before using them",
-        "Disable all logging",
-        "Only use HTTP/2"
+        "Increase the cookie expiry time so the session lasts longer",
+        "Store security-sensitive data server-side in a session store referenced by a cryptographically signed session ID, rather than in client-readable cookie values",
+        "Use the SameSite cookie attribute set to 'None' to allow cross-site sharing",
+        "Hash the cookie name so attackers cannot find it in developer tools"
       ],
       "correctAnswer": 1,
-      "explanation": "Mitigations include not storing sensitive info unencrypted and not directly executing cookie values without checking them."
+      "explanation": "The fundamental fix for cookie manipulation is to not put sensitive data in client-editable cookies. Instead, issue the client a session ID (a long random string stored in a signed cookie). All actual session data (user ID, role, cart contents) is stored in a server-side session store indexed by that ID. The client never sees or can modify the actual data. Even if they forge a session ID, it won't correspond to a valid server-side session."
     },
     {
       "id": 38,
       "type": "multiple-choice",
-      "question": "Web server password cracking (as defined in the notes) is:",
+      "question": "Why does WPScan specifically target WordPress installations?",
       "options": [
-        "Generating random passwords forever until one works",
-        "Checking passwords against commonly used password databases",
-        "Exfiltrating passwords via DNS queries",
-        "Changing the password policy on the server"
+        "WordPress encrypts passwords differently from other platforms",
+        "WordPress's known user enumeration weaknesses and large plugin ecosystem mean there are many WordPress-specific attack vectors and known vulnerabilities that a specialized scanner can target",
+        "WPScan only works on port 443",
+        "WordPress sites always use the same default password"
       ],
       "correctAnswer": 1,
-      "explanation": "The notes describe it as checking a password against commonly used password lists/databases."
+      "explanation": "WPScan is a WordPress-specific security scanner. WordPress has a large market share and a vast ecosystem of third-party plugins, many of which have known CVEs. WordPress also has default behaviors — like exposing usernames via the author archive — that attackers exploit. WPScan enumerates WordPress-specific elements: usernames (via /?author=1), plugins, themes, and known vulnerabilities for each, making it a very targeted recon and assessment tool."
     },
     {
       "id": 39,
       "type": "multiple-choice",
-      "question": "Which utility is mentioned in the notes in the context of web server password cracking?",
+      "question": "Which of the following best describes what the 'chown' command does in the context of web server hardening?",
       "options": [
-        "WPScan",
-        "Nmap",
-        "OpenVAS",
-        "GFI LanGuard"
+        "It changes the permissions of a file (read/write/execute bits)",
+        "It changes the owner and/or group of a file or directory, typically to reassign it from root to a less-privileged service account",
+        "It changes the hostname of the server",
+        "It encrypts a file using the owner's public key"
       ],
-      "correctAnswer": 0,
-      "explanation": "WPScan is explicitly mentioned under web server password cracking."
+      "correctAnswer": 1,
+      "explanation": "chown (change owner) reassigns file or directory ownership. For example, 'chown www-data:www-data /var/www/html' makes the web server's files owned by the 'www-data' service account rather than root. This matters because a process can only modify files it owns (or has permission to modify). Running a web server as a non-root user and ensuring it only owns what it needs follows least privilege — a compromised service cannot modify system files it doesn't own."
     },
     {
       "id": 40,
       "type": "multiple-choice",
-      "question": "Which mitigation is recommended against password cracking in the notes?",
+      "question": "Comments left in publicly accessible HTML or JavaScript source code can represent a security vulnerability because:",
       "options": [
-        "Create a strong password",
-        "Use the most common password to blend in",
-        "Disable patches to avoid downtime",
-        "Expose detailed error messages"
+        "Comments increase page load time and are blocked by web application firewalls",
+        "Comments may contain developer notes with sensitive details like internal paths, API keys, credentials, or logic descriptions that attackers can read by viewing page source",
+        "HTML comments are executed by some browsers as JavaScript",
+        "Comments in JavaScript prevent minification, exposing the raw code to the public"
       ],
-      "correctAnswer": 0,
-      "explanation": "The notes recommend creating strong passwords and using uncommon usernames."
+      "correctAnswer": 1,
+      "explanation": "HTML comments (<!-- -->) and JavaScript comments (// or /* */) are visible to anyone who views page source. Developers sometimes leave notes like '<!-- TODO: remove hardcoded API key: sk-live-xxx -->' or '// admin panel is at /secret-admin'. An attacker doing reconnaissance will always view page source looking for such leaks. The mitigation is simple: never put sensitive information in comments, and strip comments from production code using minifiers."
     }
   ]
 }
