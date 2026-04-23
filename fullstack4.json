@@ -1,0 +1,368 @@
+{
+	"title": "TypeScript & Angular Quizzes 7–10 (From benchmark.txt)",
+	"questions": [
+		{
+			"id": 1,
+			"type": "multiple-choice",
+			"question": "TypeScript is a typed superset of ________. ",
+			"options": ["C#", "Java", "JavaScript", "ReactJS"],
+			"correctAnswer": 2,
+			"explanation": "TypeScript adds types on top of JavaScript and compiles to JavaScript."
+		},
+		{
+			"id": 2,
+			"type": "true-false",
+			"question": "TypeScript can be used to write server side and client side application.",
+			"correctAnswer": true,
+			"explanation": "TypeScript can be used in browsers and on servers (e.g., with Node.js)."
+		},
+		{
+			"id": 3,
+			"type": "multiple-choice",
+			"question": "TypeScript is an ________ framework.",
+			"options": ["Licensed", "Open-sourced", "Commercial", "Both A and B"],
+			"correctAnswer": 1,
+			"explanation": "TypeScript is an open-source language (not actually a framework)."
+		},
+		{
+			"id": 4,
+			"type": "multiple-choice",
+			"question": "Which of the following are primitive types supported in TypeScript?",
+			"options": ["number", "string", "boolean", "All of the above"],
+			"correctAnswer": 3,
+			"explanation": "TypeScript supports number, string, boolean, and other primitive types."
+		},
+		{
+			"id": 5,
+			"type": "multiple-choice",
+			"question": "Which of the following is a valid arrow function?",
+			"options": [
+				"let sum = (x: number, y: number) => x + y;",
+				"let sum(): (x: number, y: number): number => x + y;",
+				"let sum = (x: number, y: number) => return x + y;",
+				"let sum: (x: number, y: number) => x + y;"
+			],
+			"correctAnswer": 0,
+			"explanation": "Arrow functions can return expressions directly without the 'return' keyword when using an expression body."
+		},
+		{
+			"id": 6,
+			"type": "multiple-choice",
+			"question": "TypeScript file compiled into ________. ",
+			"options": ["JavaScript", "Java", "TypeScript", "ReactJS"],
+			"correctAnswer": 0,
+			"explanation": "The TypeScript compiler (tsc) outputs JavaScript."
+		},
+		{
+			"id": 7,
+			"type": "multiple-choice",
+			"question": "________ command is used to generate a JavaScript file from a TypeScript file.",
+			"options": ["tsc fileName.ts", "npm filename.ts", "tsc -js fileName.ts", "All of the above"],
+			"correctAnswer": 0,
+			"explanation": "Running 'tsc fileName.ts' compiles the TypeScript file to JavaScript."
+		},
+		{
+			"id": 8,
+			"type": "multiple-choice",
+			"question": "Which of the following statement is TRUE?",
+			"options": [
+				"An interface can extend another interface in TypeScript",
+				"An interface can extend a class in TypeScript",
+				"TypeScript interface does not generate any JavaScript code",
+				"All of the above"
+			],
+			"correctAnswer": 3,
+			"explanation": "Interfaces are compile-time only and can extend interfaces and classes."
+		},
+		{
+			"id": 9,
+			"type": "multiple-choice",
+			"question": "Which of the following statement declares a variable in TypeScript?",
+			"options": [
+				"var myVar = 123;",
+				"var myVar:number = 123;",
+				"let myVar:number = 123;",
+				"All of the above"
+			],
+			"correctAnswer": 3,
+			"explanation": "All listed statements are valid variable declarations in TypeScript."
+		},
+		{
+			"id": 10,
+			"type": "multiple-choice",
+			"question": "Which configuration file is required to compile the whole TypeScript project?",
+			"options": ["tsconfig.js", "tsconfig.json", "web.config", "app.json"],
+			"correctAnswer": 1,
+			"explanation": "TypeScript projects are configured via tsconfig.json."
+		},
+
+		{
+			"id": 11,
+			"type": "true-false",
+			"question": "Application written in AngularJS is cross browser compliant.",
+			"correctAnswer": true,
+			"explanation": "AngularJS apps are designed to work across major browsers (with appropriate polyfills for older ones)."
+		},
+		{
+			"id": 12,
+			"type": "multiple-choice",
+			"question": "__________ allows us to include expressions as part of any string literal, which we use in our HTML.",
+			"options": ["Interpolation", "Expression", "Injection", "None of above"],
+			"correctAnswer": 0,
+			"explanation": "Interpolation inserts evaluated expressions into templates."
+		},
+		{
+			"id": 13,
+			"type": "multiple-choice",
+			"question": "Which of the following is correct about TypeScript?",
+			"options": [
+				"Angular is based on TypeScript.",
+				"This is a superset of JavaScript.",
+				"TypeScript is maintained by Microsoft.",
+				"All of the above"
+			],
+			"correctAnswer": 3,
+			"explanation": "TypeScript is a Microsoft-maintained superset of JavaScript, and Angular is TypeScript-first."
+		},
+		{
+			"id": 14,
+			"type": "true-false",
+			"question": "Interpolation is two-way binding?",
+			"correctAnswer": false,
+			"explanation": "Interpolation is one-way from component to view."
+		},
+		{
+			"id": 15,
+			"type": "multiple-choice",
+			"question": "What is MVC (Model View Controller)?",
+			"options": [
+				"It is a services for Java built function",
+				"It is marker for DOM elements",
+				"It is a software design pattern for developing web applications",
+				"None of the above"
+			],
+			"correctAnswer": 2,
+			"explanation": "MVC is a design pattern that separates concerns into Model, View, and Controller."
+		},
+		{
+			"id": 16,
+			"type": "multiple-choice",
+			"question": "The Angular Components are plain JavaScript classes and defined using _____ decorator.",
+			"options": ["@component", "@model", "@ngcomponent", "@ngmodel"],
+			"correctAnswer": 0,
+			"explanation": "In Angular the decorator is written as @Component (often lowercased in quizzes)."
+		},
+		{
+			"id": 17,
+			"type": "multiple-choice",
+			"question": "The _______ is a technique, where the data stays in sync between the component and the view.",
+			"options": ["Interpolation", "Property binding", "Event binding", "All of above"],
+			"correctAnswer": 3,
+			"explanation": "Angular uses multiple binding techniques to keep UI and component state in sync."
+		},
+		{
+			"id": 18,
+			"type": "multiple-choice",
+			"question": "What is the decorator used for configuring your module class?",
+			"options": ["@NgModule", "@NgApp", "Both", "None of above"],
+			"correctAnswer": 0,
+			"explanation": "Angular modules are configured with the @NgModule decorator."
+		},
+		{
+			"id": 19,
+			"type": "multiple-choice",
+			"question": "The Angular uses the {{ }} (double curly braces) in the template to denote the interpolation. The content inside the double braces is called __________.",
+			"options": ["Regular Expression", "Template Expression", "Angular Expression", "ng Expression"],
+			"correctAnswer": 1,
+			"explanation": "Inside {{ }} you write a template expression that Angular evaluates."
+		},
+		{
+			"id": 20,
+			"type": "multiple-choice",
+			"question": "Who is sometimes called as father of AngularJS?",
+			"options": ["Brad Green", "Misko Hevery", "Brad Richardson", "Chuck"],
+			"correctAnswer": 1,
+			"explanation": "Misko Hevery is commonly credited as the creator of AngularJS."
+		},
+
+		{
+			"id": 21,
+			"type": "multiple-choice",
+			"question": "Which character is used for chaining multiple pipes?",
+			"options": ["|", ":", "Both", "None of"],
+			"correctAnswer": 0,
+			"explanation": "Angular pipe chaining uses the | character between pipe expressions."
+		},
+		{
+			"id": 22,
+			"type": "multiple-choice",
+			"question": "What is .subscribe?",
+			"options": [
+				"Streams data in asynchronously",
+				"Streams data in synchronously",
+				"Both",
+				"None of"
+			],
+			"correctAnswer": 2,
+			"explanation": ".subscribe() registers handlers for Observable emissions; quizzes sometimes treat it as handling both sync and async delivery."
+		},
+		{
+			"id": 23,
+			"type": "multiple-choice",
+			"question": "Router is part of which of the following module?",
+			"options": ["@angular/core", "@angular/router", "Both", "None of above"],
+			"correctAnswer": 1,
+			"explanation": "Angular routing is provided by the @angular/router package."
+		},
+		{
+			"id": 24,
+			"type": "multiple-choice",
+			"question": "Which of the following is not a hook application life cycle?",
+			"options": ["ngOnChanges", "ngViewStart", "ngOnInit", "None of above"],
+			"correctAnswer": 1,
+			"explanation": "ngViewStart is not a standard Angular lifecycle hook name."
+		},
+		{
+			"id": 25,
+			"type": "multiple-choice",
+			"question": "How Observables are Used?",
+			"options": [
+				"The Reactive Forms Module uses reactive programming and Observables for listening to user input",
+				"The @output() decorator in a component takes an EventEmitter instance. EventEmitter is a subclass of the RxJS Observable",
+				"Both",
+				"None of above"
+			],
+			"correctAnswer": 2,
+			"explanation": "Observables underpin reactive forms and EventEmitter-based outputs."
+		},
+		{
+			"id": 26,
+			"type": "multiple-choice",
+			"question": "RxJS can be used for?",
+			"options": ["Browser", "Server Side", "Both", "None of above"],
+			"correctAnswer": 2,
+			"explanation": "RxJS works in both browser and server (Node.js) environments."
+		},
+		{
+			"id": 27,
+			"type": "multiple-choice",
+			"question": "Which angular decorator allows us to define the pipe name that is globally available for use in any template across application?",
+			"options": ["pipeName", "pipeDeco", "Pipe", "None of the above"],
+			"correctAnswer": 2,
+			"explanation": "In Angular, pipes are declared with the @Pipe decorator."
+		},
+		{
+			"id": 28,
+			"type": "multiple-choice",
+			"question": "_____ is a bundler and it scans our application looking for javascript files and merges them into one (or more) big file.",
+			"options": ["Lintpack", "Apppack", "Jetpack", "Webpack"],
+			"correctAnswer": 3,
+			"explanation": "Webpack is a popular JavaScript bundler."
+		},
+		{
+			"id": 29,
+			"type": "multiple-choice",
+			"question": "Router is part of @angular/core?",
+			"options": ["Yes", "No", "None of above"],
+			"correctAnswer": 0,
+			"explanation": "This answer matches the provided benchmark key (even though the router is normally from @angular/router)."
+		},
+		{
+			"id": 30,
+			"type": "multiple-choice",
+			"question": "What does AOT stand for?",
+			"options": ["ahead-of-time compilation", "Angular Object Templates", "Both", "None of above"],
+			"correctAnswer": 0,
+			"explanation": "AOT stands for Ahead-of-Time compilation."
+		},
+
+		{
+			"id": 31,
+			"type": "true-false",
+			"question": "A root component is the first Angular component that gets bootstrapped when the application runs.",
+			"correctAnswer": true,
+			"explanation": "Angular bootstraps a root component at application startup."
+		},
+		{
+			"id": 32,
+			"type": "multiple-choice",
+			"question": "In AngularJS directives are used in ____________",
+			"options": ["Module", "Controller", "Service", "View"],
+			"correctAnswer": 3,
+			"explanation": "Directives are used in templates (the view) to extend HTML."
+		},
+		{
+			"id": 33,
+			"type": "multiple-choice",
+			"question": "A ______ represents a single input field in an Angular form.",
+			"options": ["FormControl", "FormInput", "FormObject", "FormElement"],
+			"correctAnswer": 0,
+			"explanation": "FormControl models a single form input in Angular forms."
+		},
+		{
+			"id": 34,
+			"type": "multiple-choice",
+			"question": "Angular provides two approaches, ________ forms and _________ forms for working with forms.",
+			"options": [
+				"template driven and rxJS drive",
+				"reactive and model driven",
+				"template driven and model driven",
+				"None of above"
+			],
+			"correctAnswer": 2,
+			"explanation": "The quiz key expects the pairing 'template driven' and 'model driven'."
+		},
+		{
+			"id": 35,
+			"type": "multiple-choice",
+			"question": "The _______ is a directive exported by RouterModule and acts as a placeholder that indicates to the router where it needs to insert the matched component(s).",
+			"options": ["Router-Outlets", "Routers-Outlet", "Router-Outlet", "None of above"],
+			"correctAnswer": 2,
+			"explanation": "<router-outlet> marks where routed components are displayed."
+		},
+		{
+			"id": 36,
+			"type": "multiple-choice",
+			"question": "Which of the following directive allows us to use a form in AngularJs?",
+			"options": ["ng-include", "ng-form", "ng-directive", "ng-bind"],
+			"correctAnswer": 1,
+			"explanation": "AngularJS uses ng-form for form-related behavior."
+		},
+		{
+			"id": 37,
+			"type": "multiple-choice",
+			"question": "In Angular, a routes is an object of _____ that provides information about which component maps to a specific path.",
+			"options": ["Route", "Router", "Navigation", "RedirectRoute"],
+			"correctAnswer": 0,
+			"explanation": "Routes are defined as Route objects that map paths to components."
+		},
+		{
+			"id": 38,
+			"type": "true-false",
+			"question": "Custom directives are defined using \"directive\" function.",
+			"correctAnswer": true,
+			"explanation": "In AngularJS, custom directives are created with the module.directive(...) function."
+		},
+		{
+			"id": 39,
+			"type": "multiple-choice",
+			"question": "____ is used share data between controller and view.",
+			"options": ["Model", "Service", "Observer", "Factory"],
+			"correctAnswer": 1,
+			"explanation": "This matches the benchmark key (some course material expects 'Service' here)."
+		},
+		{
+			"id": 40,
+			"type": "multiple-choice",
+			"question": "______ makes it easy to send and process HTTP requests and responses.",
+			"options": [
+				"HttpRequestClient",
+				"HttpConnectionClient",
+				"HttpConnection",
+				"HttpClient"
+			],
+			"correctAnswer": 3,
+			"explanation": "Angular's HttpClient service is used for HTTP requests."
+		}
+	]
+}
