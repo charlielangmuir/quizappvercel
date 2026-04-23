@@ -1,471 +1,489 @@
 {
-  "title": "Cyber Security Quiz (Weeks 5–13)",
+  "title": "Cyber Security Quiz 2 (Weeks 5–13)",
   "questions": [
     {
       "id": 1,
-      "type": "true-false",
-      "question": "Using uncommon usernames can help reduce the effectiveness of password guessing attacks.",
-      "correctAnswer": true,
-      "explanation": "The notes list “Use uncommon usernames” as a mitigation method."
+      "type": "multiple-choice",
+      "question": "Using an uncommon username as a defense against credential attacks is an example of which security principle?",
+      "options": [
+        "Defense-in-depth — adding a layer that increases attacker effort even if it doesn't prevent all attacks",
+        "Confidentiality — keeping the username secret encrypts the account",
+        "Integrity — unusual usernames prevent tampering with account records",
+        "Non-repudiation — uncommon usernames create a verifiable audit trail"
+      ],
+      "correctAnswer": 0,
+      "explanation": "Using an uncommon username is a layer of defense-in-depth. It doesn't make the account uncrackable, but it forces the attacker to enumerate or guess usernames before even attempting passwords, which increases the search space and time required. Combined with strong passwords, account lockout policies, and MFA, it forms multiple overlapping defenses."
     },
     {
       "id": 2,
       "type": "multiple-choice",
-      "question": "Why can comments in source code be dangerous?",
+      "question": "A developer commits code to a public GitHub repository with the comment '// DB_PASSWORD=Sup3rS3cret'. What category of vulnerability does this represent?",
       "options": [
-        "They are compiled into CPU instructions",
-        "They can be visible publicly and may reveal sensitive information",
-        "They automatically open firewall ports",
-        "They prevent browser caching"
+        "SQL injection — the password could be used to run unauthorized queries",
+        "Sensitive data exposure via source code comments — the credential is visible to anyone who views the repository",
+        "Race condition — the comment creates a timing window for exploitation",
+        "CSRF — the comment can be used to forge cross-site requests"
       ],
       "correctAnswer": 1,
-      "explanation": "The notes warn that public source comments can leak system passwords, API credentials, or processing details."
+      "explanation": "Hardcoded secrets in source code comments (or anywhere in code) that gets pushed to a public or compromised repository is a critical information leak. Attackers routinely scan public GitHub repositories for API keys, passwords, and tokens using tools like TruffleHog and GitLeaks. Once found, the credential can be used to access the database directly. The fix: never embed credentials in code — use environment variables or a secrets manager."
     },
     {
       "id": 3,
       "type": "true-false",
-      "question": "A recommended mitigation is to avoid including sensitive information in source code comments.",
+      "question": "Removing comments from production HTML and JavaScript is a worthwhile security measure because comments can expose internal architecture and credentials.",
       "correctAnswer": true,
-      "explanation": "The notes explicitly say not to include sensitive info in comments."
+      "explanation": "Stripping comments (via minification or a build step) removes one avenue of information leakage. While it's not a substitute for proper secret management, it eliminates the easy win of an attacker reading page source and finding internal notes, path disclosures, commented-out debug code, or credential hints. Defense-in-depth: apply multiple small measures that together make reconnaissance harder."
     },
     {
       "id": 4,
       "type": "multiple-choice",
-      "question": "A race condition vulnerability occurs when:",
+      "question": "A race condition vulnerability exists in a banking app's transfer function: it checks the balance, then deducts it in two separate steps. Why is this dangerous?",
       "options": [
-        "A system has no audit logs",
-        "Operations run simultaneously but should run sequentially",
-        "A proxy caches responses",
-        "A database uses stored procedures"
+        "The two-step process allows the browser to cache an old balance value",
+        "An attacker can trigger multiple simultaneous transfer requests that all pass the balance check before any deduction occurs, spending the same funds multiple times",
+        "The deduction step is executed as a SQL UNION query, allowing injection",
+        "The check and deduction steps use different encryption keys, allowing a man-in-the-middle attack"
       ],
       "correctAnswer": 1,
-      "explanation": "The notes define race conditions as simultaneous operations that should be sequential, creating a small window to exploit."
+      "explanation": "This is the classic TOCTOU (Time of Check to Time of Use) race condition. If two transfer requests arrive simultaneously, both may read the balance as $100, both may pass the '$100 >= $100' check, and both then deduct $100 — draining $200 when only $100 was available. The fix is to use atomic database operations or transactions with locking so the check and deduction are a single indivisible operation."
     },
     {
       "id": 5,
       "type": "multiple-choice",
-      "question": "According to the notes, a race condition is commonly exploited using:",
+      "question": "Why are race conditions described as 'high difficulty' attacks requiring extensive reconnaissance?",
       "options": [
-        "A timing attack",
-        "A UNION query",
-        "A CSP header",
-        "An HTTP proxy cache"
+        "They require physical access to the server's hardware",
+        "The attacker must precisely understand the application's execution timing and send requests within an extremely narrow window — often milliseconds — to hit the vulnerable state",
+        "Race conditions can only be exploited with administrator credentials",
+        "They require specialized hardware that generates simultaneous TCP connections"
       ],
-      "correctAnswer": 0,
-      "explanation": "The notes describe exploiting race conditions via timing attacks to hit a small window when rules/processes aren’t applied."
+      "correctAnswer": 1,
+      "explanation": "Exploiting a race condition requires the attacker to know exactly what operations occur, in what order, and how much time elapses between the check and the action. The vulnerable window may be microseconds. The attacker must send concurrent requests timed to arrive during that window. This requires detailed knowledge of the application's internals (thorough reconnaissance) and often many trial attempts to land in the right timing window."
     },
     {
       "id": 6,
       "type": "true-false",
-      "question": "Race conditions are generally high difficulty for attackers and often require significant reconnaissance.",
+      "question": "Using database transactions with appropriate locking is an effective mitigation against race conditions in web applications.",
       "correctAnswer": true,
-      "explanation": "The notes state race conditions are high difficulty and require high levels of reconnaissance to time correctly."
+      "explanation": "Database transactions with SERIALIZABLE isolation or SELECT FOR UPDATE ensure that the check and modification operations are atomic — no other transaction can read or modify the same row between the check and the update. This closes the timing window that race conditions exploit. For non-database race conditions (like file operations), mutex locks or atomic system calls serve the same purpose."
     },
     {
       "id": 7,
       "type": "multiple-choice",
-      "question": "Hidden elements in web pages are risky because:",
+      "question": "An HTML form contains: <input type='hidden' name='price' value='99.99'>. Why is this a security risk?",
       "options": [
-        "They are always encrypted and cannot be modified",
-        "They pass information to the application and can be altered via DOM manipulation",
-        "They prevent SQL injection by default",
-        "They make HTTP stateful"
+        "Hidden inputs are not sent with the form submission, so the price is ignored",
+        "The 'hidden' type only hides the field visually — it is still in the DOM and can be modified by anyone using browser developer tools before submission",
+        "Hidden inputs are automatically encrypted by the browser, but the server cannot decrypt them",
+        "Hidden inputs trigger CORS preflight requests which expose the value"
       ],
       "correctAnswer": 1,
-      "explanation": "The notes explain hidden elements are visible in source and can be changed via DOM manipulation, allowing malicious values."
+      "explanation": "HTML's type='hidden' only prevents the input from rendering visually — it is still present in the page's source and in the DOM. Any user can open developer tools, find the input, and change 'value=99.99' to 'value=0.01' before submitting the form. If the server uses this submitted price rather than looking up the real price from its own database, the attacker gets an unauthorized discount. Never trust client-submitted values for anything security or business critical."
     },
     {
       "id": 8,
       "type": "multiple-choice",
-      "question": "Cross-site scripting (XSS) is best described as:",
+      "question": "What fundamentally makes Cross-Site Scripting (XSS) possible?",
       "options": [
-        "Overloading a service to deny availability",
-        "Injecting untrusted content that can execute scripts in a victim’s browser",
-        "Tricking a user into clicking a hidden UI element",
-        "Using DNS requests to retrieve database records"
+        "The server uses an outdated TLS version that allows script injection at the network layer",
+        "The application accepts user-supplied input and includes it in a page without proper encoding, causing the browser to interpret the data as executable script",
+        "The browser's same-origin policy allows any site to execute scripts on any other site",
+        "HTTP's stateless nature means scripts from different requests can be merged"
       ],
       "correctAnswer": 1,
-      "explanation": "XSS is an injection flaw where untrusted input is interpreted as executable script/HTML in the browser context."
+      "explanation": "XSS is fundamentally a failure to separate data from code. When user input (which is data) is embedded in an HTML page without encoding, the browser cannot distinguish it from the page's own markup. If the input contains <script>alert(1)</script>, the browser sees valid HTML and executes it. The fix — output encoding — converts < to &lt; so the browser renders it as text, not as a tag, safely keeping data as data."
     },
     {
       "id": 9,
       "type": "multiple-choice",
-      "question": "In DOM-based XSS, what is a “sink”?",
+      "question": "How does Stored XSS differ from Reflected XSS?",
       "options": [
-        "Any HTTP status code",
-        "A DOM object/function that allows JavaScript execution or HTML rendering",
-        "A database error message",
-        "A caching proxy"
+        "Stored XSS is injected via URL parameters; Reflected XSS is injected via form fields",
+        "Stored XSS saves the payload in the server's database and serves it to every user who views the affected page; Reflected XSS is only returned to the specific user who sent the malicious request",
+        "Stored XSS only affects Internet Explorer; Reflected XSS affects all browsers",
+        "Stored XSS requires authentication; Reflected XSS does not"
       ],
       "correctAnswer": 1,
-      "explanation": "The notes define sinks as DOM objects/functions that enable JS execution or HTML rendering."
+      "explanation": "In Reflected XSS, the malicious script is in the request (e.g., a URL) and immediately reflected back in the response — only the user who clicks the crafted URL is affected. In Stored XSS, the payload is saved (e.g., in a database as a forum post or comment) and served to every user who views that content. Stored XSS is generally more dangerous because it affects all visitors without requiring them to click a special link."
     },
     {
       "id": 10,
       "type": "multiple-choice",
-      "question": "Which of the following is listed as a DOM-based XSS sink?",
+      "question": "In DOM-based XSS, what is a 'source', and what is a 'sink'?",
       "options": [
-        "document.write",
-        "console.log",
-        "localStorage.getItem",
-        "JSON.parse"
+        "A source is where the server injects data; a sink is where the client reads it",
+        "A source is a place where attacker-controlled data enters the DOM (e.g., location.hash); a sink is a function or property that can execute or render that data (e.g., innerHTML, eval)",
+        "A source is a legitimate JavaScript library; a sink is a malicious script loaded from a CDN",
+        "A source is the HTTP response body; a sink is the HTTP request body"
       ],
-      "correctAnswer": 0,
-      "explanation": "The notes list sinks such as eval, setTimeout, setInterval, document.write, and element.innerHTML."
+      "correctAnswer": 1,
+      "explanation": "DOM XSS is entirely client-side — the server may not even be involved. Data flows from a source (attacker-controlled input that JavaScript reads — like window.location.hash, document.referrer, or URL parameters) through application JavaScript into a sink (a dangerous function or property that causes execution or HTML rendering — like eval(), innerHTML, document.write(), or setTimeout()). If there's a path from a tainted source to a dangerous sink without sanitization, DOM XSS exists."
     },
     {
       "id": 11,
-      "type": "true-false",
-      "question": "A sink is a DOM object or function that can lead to JavaScript execution or HTML rendering.",
-      "correctAnswer": true,
-      "explanation": "That is the definition given in the DOM-based XSS section."
+      "type": "multiple-choice",
+      "question": "Why is document.write() considered an XSS sink?",
+      "options": [
+        "It writes to the browser's local file system, potentially overwriting security configurations",
+        "It directly writes HTML into the page, and if it writes attacker-controlled data without encoding, that data is rendered as HTML — including any script tags",
+        "It sends data to the server via a hidden POST request",
+        "It rewrites the document's Content Security Policy header"
+      ],
+      "correctAnswer": 1,
+      "explanation": "document.write() injects a string directly into the HTML document as rendered content. If an application does document.write(location.hash) and an attacker navigates to page.html#<img src=x onerror=alert(1)>, the browser renders that HTML — including executing the onerror handler. The browser has no way to distinguish the injected HTML from the page's own markup. This is why document.write() with unencoded user input is a classic DOM XSS vulnerability."
     },
     {
       "id": 12,
-      "type": "multiple-choice",
-      "question": "The goal of DOM-based XSS (per the notes) is to:",
-      "options": [
-        "Change file ownership using chown",
-        "Place data into a source so it reaches a sink and triggers script execution",
-        "Force the database to generate an error message",
-        "Scan ports 80 and 443"
-      ],
-      "correctAnswer": 1,
-      "explanation": "DOM XSS aims to get attacker-controlled data from a source into a sink that executes/renders it."
+      "type": "true-false",
+      "question": "DOM-based XSS payloads can be completely invisible to server-side input validation, because the malicious data may never be sent to the server.",
+      "correctAnswer": true,
+      "explanation": "In DOM XSS, the attack often uses data available only in the browser — like the URL fragment (the part after #), which browsers do not send to the server. If JavaScript reads window.location.hash and passes it to innerHTML, the malicious payload travels from URL to DOM entirely within the browser. Server-side validation never sees it. This is why DOM XSS requires client-side defenses: avoid dangerous sinks, use textContent instead of innerHTML, and sanitize on the client side."
     },
     {
       "id": 13,
       "type": "multiple-choice",
-      "question": "XSS evasion techniques are best described as methods to:",
+      "question": "An XSS filter blocks the string '<script>'. An attacker submits '<scr<script>ipt>alert(1)</scr</script>ipt>'. Why might this evade the filter?",
       "options": [
-        "Speed up vulnerability scans",
-        "Bypass browser or application XSS filters",
-        "Disable OS services safely",
-        "Combine two SQL queries into one"
+        "The browser executes only the outer tags and ignores the nested ones",
+        "The filter removes '<script>' from the input, but the result of that removal is a valid '<script>' tag — this is a tag manipulation/filter evasion technique",
+        "The browser interprets nested script tags as CSS, bypassing the JavaScript sandbox",
+        "Double-nested tags are automatically trusted by the browser's Content Security Policy"
       ],
       "correctAnswer": 1,
-      "explanation": "The notes define XSS evasion techniques as bypassing XSS filters and validation."
+      "explanation": "This is a classic XSS filter evasion via tag manipulation. The naive filter finds and removes '<script>', turning '<scr<script>ipt>' into '<script>' — accidentally reconstructing the very tag it was trying to remove. This happens when filters do single-pass removal rather than recursive sanitization or encoding. Proper defenses don't try to blacklist dangerous patterns; they use output encoding (so < becomes &lt;, making the tag inert) or a well-tested allowlist HTML sanitizer library."
     },
     {
       "id": 14,
       "type": "multiple-choice",
-      "question": "Which XSS evasion technique tries to avoid regex detection by representing characters differently (e.g., entity/hex encoding)?",
+      "question": "An attacker submits: <IMG SRC=&#106;&#97;&#118;&#97;&#115;&#99;&#114;&#105;&#112;&#116;&#58;alert(1)>. What XSS evasion technique is this?",
       "options": [
-        "Encode characters",
-        "Time delay",
-        "Union operator",
-        "Disable root login"
+        "Whitespace embedding — using newlines to break the script tag",
+        "Character encoding evasion — HTML entity encoding the URL so the filter doesn't recognize 'javascript:' as a keyword, but the browser decodes and executes it",
+        "Tag manipulation — nesting tags to confuse single-pass filters",
+        "Time delay — using a slow-loading image to evade time-based detection"
       ],
-      "correctAnswer": 0,
-      "explanation": "Encoding characters can evade simplistic regex-based filters."
+      "correctAnswer": 1,
+      "explanation": "The string &#106;&#97;&#118;... is HTML entity encoding of 'javascript:'. The filter checks for the literal text 'javascript:' and doesn't find it. But when the browser renders the HTML, it decodes the entities to their character values, reconstructing 'javascript:alert(1)' as the image's src. The browser executes the JavaScript. Output encoding prevents this — encode all user input before placing it in HTML so entities become double-encoded and inert."
     },
     {
       "id": 15,
       "type": "multiple-choice",
-      "question": "Whitespace embedding as an XSS evasion technique works because:",
+      "question": "Why is whitespace a useful XSS evasion technique against some filters?",
       "options": [
-        "Databases ignore whitespace in SQL",
-        "Consecutive whitespace can be ignored by HTML, breaking some regex patterns",
-        "HTTP always compresses whitespace to save bandwidth",
-        "Browsers refuse to render pages with whitespace"
+        "Browsers ignore whitespace between HTML tag name and attributes, but many regex-based filters expect no whitespace — so '<script   >' bypasses a filter looking for '<script>'",
+        "Whitespace characters are encrypted by TLS, preventing filters from seeing them",
+        "HTML5 requires browsers to reject tags with whitespace, so the tag never executes",
+        "Whitespace triggers the browser's XSS Auditor to allow the tag as legitimate"
       ],
-      "correctAnswer": 1,
-      "explanation": "The notes explain consecutive whitespace can be ignored by HTML and can break regex-based detections."
+      "correctAnswer": 0,
+      "explanation": "HTML parsers are very permissive — '<IMG   SRC=...' with extra spaces is perfectly valid HTML. But a regex filter looking for a specific pattern like '<script>' may not match '<script >' (with trailing space) or '<SCRIPT>' (different case). This is why blacklist-based filters that use regex are fundamentally fragile. HTML has too many equivalent representations. Context-aware output encoding is the correct defense."
     },
     {
       "id": 16,
-      "type": "multiple-choice",
-      "question": "Tag manipulation as an XSS evasion technique refers to:",
-      "options": [
-        "Adding more firewall rules",
-        "Nesting/manipulating tags to bypass pattern-based filters",
-        "Changing file permissions",
-        "Switching from HTTP to HTTPS"
-      ],
-      "correctAnswer": 1,
-      "explanation": "The notes describe tag manipulation (e.g., nesting tags) as a way to evade filters."
+      "type": "true-false",
+      "question": "Browser-built-in XSS filters (like the legacy Chrome XSS Auditor) are effective at preventing Stored XSS attacks.",
+      "correctAnswer": false,
+      "explanation": "Built-in browser XSS filters (like Chrome's XSS Auditor, which was removed in Chrome 78) were designed to detect Reflected XSS — they compared the request to the response looking for script-like content. Stored XSS payloads are fetched from the server database in a separate request that doesn't contain the original malicious input, so there's nothing to compare. The browser has no way to know the content is malicious. Similarly, DOM XSS happens entirely in the browser without server involvement. Application-level defenses are required."
     },
     {
       "id": 17,
-      "type": "true-false",
-      "question": "Built-in browser XSS filters are ineffective against Stored and DOM-based XSS, according to the notes.",
-      "correctAnswer": true,
-      "explanation": "The notes state browser filters are ineffective against Stored and DOM XSS."
+      "type": "multiple-choice",
+      "question": "A Content Security Policy (CSP) header that specifies script-src 'self' would mitigate which threat?",
+      "options": [
+        "SQL injection — it prevents database queries from being embedded in scripts",
+        "XSS from external script injection — it instructs the browser to only execute scripts from the same origin, blocking attacker-injected scripts that load from external URLs",
+        "CSRF — it prevents cross-origin form submissions",
+        "Clickjacking — it prevents the page from being embedded in an iframe"
+      ],
+      "correctAnswer": 1,
+      "explanation": "Content Security Policy is an HTTP response header that tells the browser which sources are allowed to load scripts, styles, images, etc. With 'script-src: self', the browser will refuse to execute scripts loaded from any other origin. This is a defense-in-depth measure against XSS — even if an attacker injects <script src='https://attacker.com/evil.js'>, the browser won't execute it. Note: inline scripts and eval() are also blocked unless explicitly allowed, which is why CSP requires careful application design."
     },
     {
       "id": 18,
       "type": "multiple-choice",
-      "question": "According to the notes, server-side input validation is effective against which XSS types?",
+      "question": "Why should you use textContent instead of innerHTML when inserting user-controlled data into the DOM?",
       "options": [
-        "Stored and Reflected XSS",
-        "Only DOM-based XSS",
-        "Only Stored XSS",
-        "No XSS types"
+        "textContent renders HTML tags as formatting; innerHTML renders them as text",
+        "textContent treats the value as plain text and automatically escapes any HTML characters, while innerHTML parses the value as HTML markup — making innerHTML dangerous with untrusted input",
+        "innerHTML is deprecated in HTML5 and will cause JavaScript errors in modern browsers",
+        "textContent is faster than innerHTML and reduces page render time"
       ],
-      "correctAnswer": 0,
-      "explanation": "The notes describe server-side application defenses as effective against Stored and Reflected XSS."
+      "correctAnswer": 1,
+      "explanation": "When you set element.innerHTML = userInput, the browser parses the string as HTML — any tags in userInput become real DOM elements and any event handlers execute. When you set element.textContent = userInput, the browser treats the entire string as plain text — < becomes rendered as the literal character <, not as a tag opener. This is the client-side equivalent of output encoding. If you only need to display text, always use textContent."
     },
     {
       "id": 19,
       "type": "multiple-choice",
-      "question": "Which mitigation rule is: “HTML Escape Before Inserting Untrusted Data into HTML Element Content”?",
+      "question": "HTML attribute escaping (encoding values placed in HTML attributes) is necessary because:",
       "options": [
-        "Deny all content unless rules are followed",
-        "HTML escape for element content",
-        "Parameterize all SQL queries",
-        "Disable all JavaScript"
+        "Browsers ignore attribute values longer than 256 characters",
+        "Unencoded user data in attributes can break out of the attribute context — for example, a quote character can close the attribute and introduce new attributes or event handlers",
+        "HTML attributes are always executed as JavaScript regardless of encoding",
+        "HTTP/2 automatically strips attributes from server responses"
       ],
       "correctAnswer": 1,
-      "explanation": "This is one of the OWASP-style rules listed in the notes for preventing XSS."
+      "explanation": "Consider: <input value='USER_INPUT'>. If an attacker inputs: ' onmouseover='alert(1), the resulting HTML is: <input value='' onmouseover='alert(1)'>. The single quote closed the value attribute and opened a new event handler. Attribute escaping converts ' to &#x27; so the browser treats it as a literal character inside the attribute value, not as a delimiter. This applies to all HTML attributes, not just event handlers."
     },
     {
       "id": 20,
-      "type": "multiple-choice",
-      "question": "Which mitigation approach is recommended before inserting untrusted data into HTML attributes (like id, class, value)?",
-      "options": [
-        "Attribute escape before inserting into HTML common attributes",
-        "Run a port scan first",
-        "Use UNION-based queries",
-        "Disable caching proxies"
-      ],
-      "correctAnswer": 0,
-      "explanation": "The notes list attribute escaping as a key rule for preventing XSS in attribute contexts."
+      "type": "true-false",
+      "question": "Even if user input is properly JavaScript-escaped before being placed inside a <script> block, some JavaScript sinks (like eval()) can still execute it as code.",
+      "correctAnswer": true,
+      "explanation": "JavaScript escaping (backslash-escaping characters like quotes) only prevents breaking out of a string literal context. But if the escaped string is then passed to eval(), eval() evaluates it as JavaScript regardless. For example, eval('\\x61lert\\x281\\x29') executes alert(1) — the hex encoding evades naive filters but is decoded at execution time. The rule is: never pass user-controlled data to eval(), setTimeout(string), setInterval(string), or similar execution-context sinks, even if escaped."
     },
     {
       "id": 21,
-      "type": "true-false",
-      "question": "Some JavaScript functions can never safely use untrusted data as input, even if that data is JavaScript-escaped.",
-      "correctAnswer": true,
-      "explanation": "This warning is explicitly included in the XSS mitigations section of the notes."
+      "type": "multiple-choice",
+      "question": "A web application has server-side input validation that strips <script> tags. Why is this alone insufficient to prevent all XSS?",
+      "options": [
+        "Server-side validation runs after the browser renders the page",
+        "XSS can occur through many vectors besides <script> tags — event handlers (onerror, onload), CSS, javascript: URLs, and DOM sinks that receive data never sent to the server all bypass script-tag filtering",
+        "Server-side validation is only effective for reflected XSS, not for HTTPS connections",
+        "Stripping script tags also removes legitimate content, causing the application to crash"
+      ],
+      "correctAnswer": 1,
+      "explanation": "Attempting to block XSS by removing <script> tags is whack-a-mole. Equivalent attacks use: <img src=x onerror=alert(1)>, <svg onload=alert(1)>, <a href='javascript:alert(1)'>, CSS expressions, and DOM XSS sinks fed via URL fragments that never reach the server. The correct approach is output encoding in the correct context (HTML, attribute, JavaScript, URL, CSS) so all user data becomes inert regardless of what characters it contains."
     },
     {
       "id": 22,
       "type": "multiple-choice",
-      "question": "Cross-site Request Forgery (CSRF / XSRF) is:",
+      "question": "CSRF (Cross-Site Request Forgery) works by exploiting which specific trust relationship?",
       "options": [
-        "A method for bypassing XSS filters using encoding",
-        "Unauthorized commands transmitted from a user trusted by the application",
-        "A technique to combine multiple SQL queries",
-        "A permanent denial-of-service method"
+        "The trust a user has in a website's TLS certificate",
+        "The trust an application has in a user's browser — browsers automatically attach authentication cookies to requests, so a cross-site request arrives looking like it came from the authenticated user",
+        "The trust a DNS server has in authoritative records",
+        "The trust an operating system has in signed executables"
       ],
       "correctAnswer": 1,
-      "explanation": "The notes define CSRF as unauthorized commands transmitted from a trusted user (session riding / one-click attacks)."
+      "explanation": "When you're logged into bank.com and visit attacker.com, your browser automatically sends your bank.com session cookie with any request to bank.com — that's how cookies work. CSRF exploits this: attacker.com has a hidden form that submits to bank.com/transfer. When you load the page, your browser sends the request with your legitimate session cookie attached. The bank server sees an authenticated request and executes the transfer, not knowing it was triggered by the attacker's page."
     },
     {
       "id": 23,
       "type": "multiple-choice",
-      "question": "CSRF is also known as:",
+      "question": "Why is CSRF also called 'session riding'?",
       "options": [
-        "Phlashing",
-        "One-click attacks / session riding",
-        "Banner grabbing",
-        "Out-of-band injection"
+        "The attacker hijacks the session cookie by stealing it",
+        "The attacker 'rides' the victim's existing authenticated session — using it to perform actions as the victim without needing to know the credentials or steal the session token",
+        "The attacker creates a new session that runs alongside the victim's session",
+        "The server's session is terminated and restarted under the attacker's control"
       ],
       "correctAnswer": 1,
-      "explanation": "The notes explicitly mention CSRF is also known as one-click attacks and session riding."
+      "explanation": "Session riding captures the idea that the attacker doesn't need to steal or forge a session — they use the victim's real, existing session. Because the browser automatically sends the session cookie, the attack 'rides' the authenticated session to perform unauthorized actions. This is distinct from session hijacking (where the attacker steals the token and uses it themselves) — in CSRF, the victim's own browser makes the request."
     },
     {
       "id": 24,
-      "type": "true-false",
-      "question": "CSRF exploits the trust that an application has in a user’s browser.",
-      "correctAnswer": true,
-      "explanation": "That phrasing appears directly in the CSRF section of the notes."
+      "type": "multiple-choice",
+      "question": "A CSRF token mitigates CSRF attacks because:",
+      "options": [
+        "It encrypts the session cookie so cross-site scripts cannot read it",
+        "It is a secret value embedded in the page that the browser does not automatically attach to cross-origin requests — the attacker's site cannot read it due to the same-origin policy, so forged requests lack the valid token",
+        "It prevents the browser from sending cookies to third-party sites",
+        "It blocks JavaScript execution on cross-origin pages"
+      ],
+      "correctAnswer": 1,
+      "explanation": "A CSRF token is a random value generated per-session (or per-form) and embedded in forms as a hidden field. When the form is submitted, the server checks that the submitted token matches the expected value. An attacker's cross-site page cannot read the token because the same-origin policy prevents cross-origin JavaScript from reading page content from another origin. Without the token, the forged request fails validation. The SameSite cookie attribute is a complementary modern defense."
     },
     {
       "id": 25,
       "type": "multiple-choice",
-      "question": "Which statement best distinguishes XSS from CSRF?",
+      "question": "How does XSS differ from CSRF in terms of what trust relationship is abused?",
       "options": [
-        "XSS exploits trust a user has in a site; CSRF exploits trust a site has in a user’s browser",
-        "XSS only affects databases; CSRF only affects cookies",
-        "XSS requires an authenticated user; CSRF never does",
-        "They are the same attack with different names"
+        "XSS abuses the trust a browser has in the OS; CSRF abuses the trust the OS has in the browser",
+        "XSS abuses the trust a user places in a website — making the site deliver malicious scripts; CSRF abuses the trust a website places in a user's browser — making the browser send unauthorized requests",
+        "XSS abuses network-level trust; CSRF abuses application-level trust",
+        "They abuse the same trust relationship but target different layers of the stack"
       ],
-      "correctAnswer": 0,
-      "explanation": "The notes frame the difference as “trust user has in a site” (XSS) vs “trust application has in user’s browser” (CSRF)."
+      "correctAnswer": 1,
+      "explanation": "The trust model distinction is foundational: XSS: The user trusts the website to deliver legitimate content. The attacker compromises that trust by injecting malicious scripts that the user's browser executes, believing they come from the trusted site. CSRF: The website trusts the user's browser (because it sends valid session cookies). The attacker exploits that trust by tricking the browser into sending requests the user didn't intend. Understanding which direction trust flows determines the correct mitigation for each attack."
     },
     {
       "id": 26,
       "type": "multiple-choice",
-      "question": "CSRF is commonly accomplished by:",
+      "question": "Why does the SameSite=Strict cookie attribute help mitigate CSRF attacks?",
       "options": [
-        "Tricking a logged-in user’s browser into sending an unwanted request",
-        "Flooding the server with ICMP packets",
-        "Using tag manipulation in HTML",
-        "Changing file ownership using chown"
+        "It encrypts the cookie value so it cannot be read by JavaScript",
+        "It instructs the browser not to send the cookie in any cross-site request — so when attacker.com triggers a request to victim.com, the victim's session cookie is not attached",
+        "It prevents the cookie from being set by server-side code",
+        "It forces the server to re-authenticate the user on every request"
       ],
-      "correctAnswer": 0,
-      "explanation": "The notes describe CSRF as tricking a browser into executing an unwanted action while the user is authenticated."
+      "correctAnswer": 1,
+      "explanation": "SameSite=Strict tells the browser: only send this cookie when the request originates from the same site. Cross-site requests (like a form submitted from attacker.com to victim.com) will not include the cookie. Without the session cookie, the forged request arrives unauthenticated and the server rejects it. SameSite=Lax is a middle ground — it allows cookies on top-level navigation (following a link) but blocks them in cross-site sub-requests like hidden forms or AJAX."
     },
     {
       "id": 27,
       "type": "multiple-choice",
-      "question": "Why does CSRF make it difficult for a server to distinguish a legitimate request from a forged one?",
+      "question": "Clickjacking uses an invisible iframe overlay. How does this attack actually work?",
       "options": [
-        "Because CSRF disables server-side logging",
-        "Because the user is usually authenticated, so the forged request looks valid",
-        "Because it changes the TCP 3-way handshake",
-        "Because it always causes a database error"
+        "The iframe executes JavaScript on the victim's behalf without any user interaction",
+        "The attacker loads the target site in a transparent iframe positioned over a decoy page — when the user thinks they are clicking a harmless button, they are actually clicking a button on the target site inside the invisible frame",
+        "The iframe intercepts network requests to the target site and replaces responses with malicious content",
+        "The iframe enables the attacker's site to read the session cookies of the framed site"
       ],
       "correctAnswer": 1,
-      "explanation": "If the victim is logged in, the browser sends normal authentication context, so the request can look legitimate."
+      "explanation": "In a clickjacking attack, the attacker creates a page with two layers: a visible decoy layer ('Click here to win a prize!') and an invisible overlay — a transparent iframe loading the target site (e.g., a bank's 'confirm transfer' page). The iframe is positioned so the confirm button sits exactly under the decoy button. When the victim clicks the decoy, they actually click the confirm button in the invisible frame, executing the action on the target site with their own credentials."
     },
     {
       "id": 28,
       "type": "multiple-choice",
-      "question": "Clickjacking is best described as:",
+      "question": "The X-Frame-Options: DENY response header mitigates clickjacking by:",
       "options": [
-        "Forcing a database to respond slowly",
-        "Tricking a user into clicking an element that is invisible or disguised",
-        "Cracking a password using a common password list",
-        "Scanning web servers for open ports"
+        "Blocking JavaScript execution inside iframes",
+        "Instructing browsers not to render the page inside any iframe, preventing attackers from embedding it as an invisible overlay",
+        "Preventing the page's cookies from being read by the framing page",
+        "Encrypting the visual content of the page so it appears blank inside iframes"
       ],
       "correctAnswer": 1,
-      "explanation": "The notes define clickjacking as tricking a user into clicking a disguised or invisible element."
+      "explanation": "X-Frame-Options (and the modern Content-Security-Policy: frame-ancestors directive) tells browsers whether or not a page can be embedded in an iframe. With DENY, the browser refuses to render the page in any frame. Even if an attacker builds a clickjacking page and tries to load victim.com in an iframe, the browser will show a blank or error instead. This directly removes the attacker's ability to overlay the target page."
     },
     {
       "id": 29,
       "type": "true-false",
-      "question": "Clickjacking can cause users to unwittingly engage in an attacker’s malicious plan.",
-      "correctAnswer": true,
-      "explanation": "That risk is explicitly listed in the clickjacking section."
+      "question": "A clickjacking attack requires the victim to be authenticated to the target site for the attack to be effective.",
+      "correctAnswer": false,
+      "explanation": "While clickjacking is often most damaging against authenticated users (e.g., tricking them into confirming a bank transfer), it doesn't always require authentication. An attacker could use clickjacking to trick unauthenticated users into clicking a 'Like' button, initiating a download, granting camera permissions, or completing a CAPTCHA on the attacker's behalf. The attack uses whatever access the user currently has — authenticated or not."
     },
     {
       "id": 30,
       "type": "multiple-choice",
-      "question": "In SQL injection, the UNION technique is based on:",
+      "question": "In a SQL injection UNION attack, what must be true for the UNION to work?",
       "options": [
-        "Combining multiple queries using the UNION operator",
-        "Delaying responses to infer conditions",
-        "Forcing error messages to appear",
-        "Modifying hidden HTML fields"
+        "The database must be MySQL; UNION attacks don't work on PostgreSQL or MSSQL",
+        "The injected SELECT statement must return the same number of columns as the original query, and the data types must be compatible",
+        "The attacker must know the database administrator's password",
+        "The web application must display raw SQL error messages"
       ],
-      "correctAnswer": 0,
-      "explanation": "UNION-based SQL injection leverages the UNION operator to combine results of multiple SELECT statements."
+      "correctAnswer": 1,
+      "explanation": "SQL's UNION operator combines two SELECT results. For this to work, both queries must have the same number of columns and compatible data types in each column position. An attacker exploiting UNION SQLi first determines the number of columns in the original query (by injecting ORDER BY 1, ORDER BY 2... until an error occurs, or by adding NULL columns to the UNION). Then they replace NULL values with actual data they want to retrieve from other tables."
     },
     {
       "id": 31,
       "type": "multiple-choice",
-      "question": "Error-based SQL injection relies on:",
+      "question": "In error-based SQL injection, why is suppressing detailed database error messages an important mitigation?",
       "options": [
-        "DNS lookups from the database",
-        "Database error messages to reveal information",
-        "Caching proxies to store responses",
-        "Strong passwords to bypass authentication"
+        "Error messages consume server resources and slow down the application",
+        "Verbose error messages reveal database type, version, table names, and query structure — information the attacker uses to craft more precise subsequent injections",
+        "Error messages trigger automatic intrusion detection system alerts",
+        "Database errors violate GDPR and expose the company to fines"
       ],
       "correctAnswer": 1,
-      "explanation": "Error-based techniques force errors to refine/learn information about the database structure."
+      "explanation": "Error-based SQLi deliberately triggers database errors that include metadata about the database in the error text. For example, MySQL might return: 'You have an error in your SQL syntax near ... in table users at row 1'. This reveals the table name 'users'. Oracle errors might include column names and data types. Attackers use this to map the database schema and craft extraction queries. The mitigation: show generic error messages to users; log detailed errors server-side only."
     },
     {
       "id": 32,
       "type": "multiple-choice",
-      "question": "Which database model abbreviation (from the notes) corresponds to a relational database model?",
+      "question": "What is the difference between in-band and out-of-band SQL injection?",
       "options": [
-        "HDMS",
-        "NDMS",
-        "RDMS",
-        "OODMS"
+        "In-band SQLi works on the internal network; out-of-band SQLi works over the internet",
+        "In-band SQLi retrieves data through the same HTTP response channel used for the injection; out-of-band SQLi exfiltrates data through a completely separate channel like DNS queries or HTTP requests to an attacker-controlled server",
+        "In-band SQLi requires valid database credentials; out-of-band does not",
+        "In-band SQLi targets relational databases; out-of-band targets NoSQL databases"
       ],
-      "correctAnswer": 2,
-      "explanation": "RDMS refers to a relational database management system/model (relational databases)."
+      "correctAnswer": 1,
+      "explanation": "In-band SQLi is the most common form — results come back in the HTTP response the attacker can see (either directly in page content or via error messages). Out-of-band SQLi is used when results cannot be seen in the response. Instead, the attacker uses database functions that make outbound requests: SQL Server's xp_dirtree, Oracle's UTL_HTTP, or MySQL's LOAD DATA to trigger DNS lookups or HTTP requests to a server the attacker controls. The attacker reads data from those incoming requests instead."
     },
     {
       "id": 33,
       "type": "multiple-choice",
-      "question": "Time delay SQL injection techniques work by:",
+      "question": "In Boolean-based blind SQL injection, how does the attacker extract data character by character?",
       "options": [
-        "Making the database wait before responding so timing reveals TRUE/FALSE outcomes",
-        "Combining multiple SELECT statements into one response",
-        "Disabling unneeded OS services",
-        "Changing file ownership to root"
+        "By triggering database errors that include the character in the error message",
+        "By asking true/false questions — e.g., 'Is the first character of the admin password greater than M?' — and inferring data from whether the application returns normal results or different behavior",
+        "By using UNION to append the data to an existing column",
+        "By sending DNS queries containing the data to an attacker-controlled resolver"
       ],
-      "correctAnswer": 0,
-      "explanation": "Time-based techniques deliberately delay the response; the attacker infers results from response timing."
+      "correctAnswer": 1,
+      "explanation": "Boolean-based blind SQLi works when the page behaves differently for true vs. false conditions. For example: inject 'AND SUBSTRING(password,1,1)='a'' — if true, the page loads normally; if false, it returns an empty result. The attacker iterates through characters and values until the page returns 'true'. Extracting a password character by character this way requires many requests but reveals data that never appears in any response. Tools like SQLMap automate this process."
     },
     {
       "id": 34,
       "type": "multiple-choice",
-      "question": "In-band SQL injection means:",
+      "question": "Time-based blind SQL injection uses functions like SLEEP() or WAITFOR DELAY. What does the attacker learn from the delay?",
       "options": [
-        "The attacker uses the same channel to launch the attack and retrieve results",
-        "The attacker must use DNS to retrieve results",
-        "The attacker can only learn results by response timing",
-        "The attacker cannot interact with the database"
+        "The delay reveals the database server's geographic location",
+        "The delay confirms a condition is TRUE — if the page takes an extra 5 seconds to respond when the injected condition is true, the attacker can infer the condition's outcome from response timing alone",
+        "The delay is used to bypass rate limiting by slowing down requests",
+        "The delay triggers the server to log detailed error messages"
       ],
-      "correctAnswer": 0,
-      "explanation": "In-band SQLi uses the same communication channel for injection and for receiving the data."
+      "correctAnswer": 1,
+      "explanation": "When even true/false behavioral differences aren't visible (the page looks identical regardless of query outcome), time-based blind SQLi injects conditional delays: 'IF (condition) WAITFOR DELAY '0:0:5''. If the condition is true, the response takes 5 seconds longer than normal; if false, it responds immediately. By measuring response time, the attacker can evaluate conditions without seeing any data in the response. MySQL uses SLEEP(5), SQL Server uses WAITFOR DELAY, PostgreSQL uses pg_sleep(5)."
     },
     {
       "id": 35,
       "type": "multiple-choice",
-      "question": "Out-of-band SQL injection is characterized by:",
+      "question": "Why is fingerprinting the database management system (DBMS) an important step in SQL injection exploitation?",
       "options": [
-        "Using the same channel for both attack and results",
-        "Using a different channel (e.g., DNS or HTTP requests) to retrieve data",
-        "Only using UNION statements",
-        "Only producing database errors"
+        "Different databases use identical SQL syntax, so fingerprinting confirms the query format",
+        "Different DBMSes (MySQL, PostgreSQL, Oracle, MSSQL) have different syntax, functions, and metadata tables — knowing the exact type allows the attacker to use the correct syntax for extracting data efficiently",
+        "Fingerprinting the DBMS is required before launching DoS attacks against the server",
+        "The DBMS type determines which port the attacker should scan"
       ],
       "correctAnswer": 1,
-      "explanation": "Out-of-band SQLi retrieves data through another channel like DNS/HTTP requests, rather than the main app response channel."
+      "explanation": "SQL is standardized but each DBMS has significant proprietary extensions. For example: information_schema.tables exists in MySQL and PostgreSQL but not Oracle (which uses all_tables). String concatenation in MySQL is CONCAT(a,b), in Oracle it's a||b, in MSSQL it's a+b. Comment syntax differs (-- vs #). Time delay functions differ (SLEEP vs WAITFOR vs pg_sleep). An attacker who doesn't know the DBMS type will waste time trying syntax that doesn't work on the target."
     },
     {
       "id": 36,
       "type": "multiple-choice",
-      "question": "Blind (inferential) SQL injection focuses on reconstructing:",
+      "question": "Why do parameterized queries (prepared statements) prevent SQL injection?",
       "options": [
-        "The database structure by observing application responses",
-        "Only the HTML page layout",
-        "Only the network firewall rules",
-        "Only the user’s browser history"
+        "They encrypt the SQL query before sending it to the database",
+        "They separate the SQL code from the user-supplied data — the query structure is sent to the database first, then the data is added as parameters that the database handles as pure data values, never as executable SQL code",
+        "They limit user input to a maximum of 255 characters, preventing long payloads",
+        "They check user input against a blacklist of SQL keywords before execution"
       ],
-      "correctAnswer": 0,
-      "explanation": "Blind SQLi infers database structure via responses (content or timing) instead of directly seeing the data."
+      "correctAnswer": 1,
+      "explanation": "In a parameterized query, you first send the SQL structure with placeholders: SELECT * FROM users WHERE id = ?. The database compiles this as a query template. You then supply the user's input as a separate parameter. The database engine treats the parameter as a pure data value — it cannot be parsed as SQL. Even if the user enters '1 OR 1=1', the database looks for a user with the literal ID '1 OR 1=1', finds none, and returns no results. There is no injection because data and code are never mixed."
     },
     {
       "id": 37,
       "type": "multiple-choice",
-      "question": "Which comparison best matches Boolean-based vs Time-based blind SQL injection?",
+      "question": "Stored procedures are listed as a SQL injection mitigation. Under what condition do they actually prevent SQLi?",
       "options": [
-        "Boolean-based relies on content differences; time-based relies on response timing",
-        "Boolean-based uses DNS; time-based uses UNION",
-        "Boolean-based always returns the full dataset; time-based never runs queries",
-        "They are identical techniques"
+        "Stored procedures always prevent SQLi regardless of how they are written",
+        "Stored procedures prevent SQLi only when they are implemented using parameterized inputs — a stored procedure that concatenates user input into a dynamic SQL string and executes it is still vulnerable",
+        "Stored procedures encrypt user input before it reaches the database engine",
+        "Stored procedures prevent SQLi by running in a separate process with no database access"
       ],
-      "correctAnswer": 0,
-      "explanation": "Boolean-based observes changes in response content; time-based observes delays in response time."
+      "correctAnswer": 1,
+      "explanation": "Stored procedures are pre-compiled SQL routines stored in the database. If a stored procedure uses parameters correctly (EXEC sp_GetUser @userId), it benefits from the same protection as parameterized queries — the database treats inputs as data. However, stored procedures that build and execute dynamic SQL internally (EXEC('SELECT * FROM users WHERE id = ' + @userId)) are just as vulnerable as inline SQL injection. The protection comes from parameterization, not from the stored procedure wrapper itself."
     },
     {
       "id": 38,
       "type": "multiple-choice",
-      "question": "Fingerprinting the database means trying to learn:",
+      "question": "What is the purpose of database fingerprinting in the early stages of SQL injection exploitation?",
       "options": [
-        "Only the end user’s password",
-        "As much as possible about the DBMS (type, version, metadata)",
-        "Only the web server’s open ports",
-        "Only the browser’s XSS filter rules"
+        "To identify the IP address and hostname of the database server for a separate network attack",
+        "To determine the DBMS type, version, and metadata so the attacker can use the correct database-specific syntax and target the right system tables to enumerate schemas, tables, and credentials",
+        "To measure the database's response time and determine if time-based SQLi will be reliable",
+        "To check whether the database has logging enabled before beginning extraction"
       ],
       "correctAnswer": 1,
-      "explanation": "Fingerprinting gathers information like DBMS type/version/metadata to enable more efficient exploitation."
+      "explanation": "Database fingerprinting determines 'what am I talking to?' — MySQL? PostgreSQL? Oracle? MSSQL? SQLite? Each system's metadata is in different tables (information_schema vs all_tables vs sys.tables), uses different functions, and supports different features. An attacker queries for version strings using database-specific functions: @@version in MySQL/MSSQL, v$version in Oracle, version() in PostgreSQL. This information shapes the entire rest of the exploitation strategy."
     },
     {
       "id": 39,
       "type": "multiple-choice",
-      "question": "Which mitigation is most directly recommended to prevent SQL injection?",
+      "question": "A developer validates that a user ID input contains only digits before using it in a SQL query. Is this sufficient to prevent SQL injection for that field?",
       "options": [
-        "Use parameterized queries",
-        "Disable all logging",
-        "Rely only on browser XSS filters",
-        "Expose detailed database errors in responses"
+        "No — digit-only validation can still be bypassed using hexadecimal encoding",
+        "Yes — if the input is confirmed to be a pure integer, it cannot contain SQL metacharacters and cannot break out of the query structure",
+        "No — SQL injection requires only a single digit followed by special characters",
+        "Yes — but only for MySQL; other databases require additional validation"
       ],
-      "correctAnswer": 0,
-      "explanation": "The notes list mitigations such as immutable/static queries, parameterized queries, and stored procedures."
+      "correctAnswer": 1,
+      "explanation": "For fields that should be integers, strict type validation (rejecting anything that isn't a valid integer) is effective — an integer cannot contain quotes, comment sequences, or other SQL metacharacters needed for injection. However, this is only correct for strictly typed fields. String fields still require parameterization because legitimate string input can contain characters used in SQL syntax. Best practice is to use parameterized queries everywhere, making the input type irrelevant to security."
     },
     {
       "id": 40,
-      "type": "true-false",
-      "question": "Stored procedures are listed as one mitigation technique against SQL injection.",
-      "correctAnswer": true,
-      "explanation": "Stored procedures are included in the SQL injection mitigations list in the notes."
+      "type": "multiple-choice",
+      "question": "An application returns the same HTTP 200 response with identical content for both valid and invalid login attempts (to prevent username enumeration). A time-based blind SQL injection payload causes a 5-second delay only on the valid username. What does this reveal?",
+      "options": [
+        "Nothing — the identical response means the application is immune to all blind injection",
+        "That the query is being executed with the supplied username — the server processes the injection payload, confirming SQL injection exists and that the username triggered a different code path",
+        "That the password for that username is exactly 5 characters long",
+        "That the server is running MySQL because only MySQL supports 5-second delays"
+      ],
+      "correctAnswer": 1,
+      "explanation": "Even when the visual response is identical, timing differences reveal query execution. If injecting SLEEP(5) into the username field causes a 5-second delay only when the username exists (because the database actually runs the query against matching rows), the attacker has confirmed: (1) SQL injection is present, (2) the username is valid, and (3) conditional execution works — enabling full extraction via time-based blind techniques. Response time is a side channel that bypasses identical-response anti-enumeration measures."
     }
   ]
 }
