@@ -618,12 +618,46 @@
     </div>
 
     <script>
+        let rawQuizData = null;
         let quizData = null;
         let currentQuestion = 0;
         let score = 0;
         let selectedAnswer = null;
         let answers = [];
         let isLearningMode = false;
+
+        function shuffleArray(arr) {
+            for (let i = arr.length - 1; i > 0; i--) {
+                const j = Math.floor(Math.random() * (i + 1));
+                [arr[i], arr[j]] = [arr[j], arr[i]];
+            }
+            return arr;
+        }
+
+        function prepareQuizData(input) {
+            const data = JSON.parse(JSON.stringify(input));
+
+            // Shuffle question order each time a quiz starts.
+            shuffleArray(data.questions);
+
+            // Shuffle answers per question, while preserving correct mapping.
+            data.questions = data.questions.map((q) => {
+                if (q.type === 'multiple-choice' && Array.isArray(q.options)) {
+                    const decorated = q.options.map((text, idx) => ({ text, idx }));
+                    shuffleArray(decorated);
+
+                    q.options = decorated.map(o => o.text);
+                    q.correctAnswer = decorated.findIndex(o => o.idx === q.correctAnswer);
+                } else if (q.type === 'true-false') {
+                    // Randomize display order for True/False without changing stored correctAnswer.
+                    q._tfOrder = shuffleArray([true, false]);
+                }
+
+                return q;
+            });
+
+            return data;
+        }
 
         const quizSelect = document.getElementById('quizSelect');
         const loadQuizBtn = document.getElementById('loadQuizBtn');
@@ -653,7 +687,7 @@
                 const response = await fetch(selectedQuiz);
                 if (!response.ok) throw new Error('Failed to load quiz');
                 
-                quizData = await response.json();
+                rawQuizData = await response.json();
                 loadingMessage.classList.add('hidden');
                 modeSelection.classList.remove('hidden');
             } catch (error) {
@@ -674,6 +708,13 @@
         });
 
         function startQuiz() {
+            // Reset state and reshuffle each time the quiz is started.
+            quizData = prepareQuizData(rawQuizData);
+            currentQuestion = 0;
+            score = 0;
+            selectedAnswer = null;
+            answers = [];
+
             startScreen.classList.add('hidden');
             quizScreen.classList.remove('hidden');
             document.getElementById('quizTitle').textContent = quizData.title;
@@ -716,10 +757,12 @@
                     optionsContainer.appendChild(optionDiv);
                 });
             } else if (q.type === 'true-false') {
-                const trueOption = createOption('True', true, q.correctAnswer === true);
-                const falseOption = createOption('False', false, q.correctAnswer === false);
-                optionsContainer.appendChild(trueOption);
-                optionsContainer.appendChild(falseOption);
+                const order = Array.isArray(q._tfOrder) ? q._tfOrder : [true, false];
+                order.forEach((val) => {
+                    const text = val ? 'True' : 'False';
+                    const optionDiv = createOption(text, val, q.correctAnswer === val);
+                    optionsContainer.appendChild(optionDiv);
+                });
             }
 
             const feedback = document.getElementById('feedback');
