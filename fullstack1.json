@@ -1,0 +1,253 @@
+{
+  "title": "Angular & TypeScript Advanced (Auth, Forms, DI, Routing)",
+  "questions": [
+    {
+      "id": 1,
+      "type": "multiple-choice",
+      "question": "Which file is required to compile a full TypeScript project?",
+      "options": [
+        "tsconfig.js",
+        "tsconfig.json",
+        "app.config",
+        "angular.json"
+      ],
+      "correctAnswer": 1,
+      "explanation": "tsconfig.json defines compiler options and files included in the TypeScript project."
+    },
+    {
+      "id": 2,
+      "type": "multiple-choice",
+      "question": "What does the following TypeScript code output?\n\nlet x: number = 5;\nlet y = x + '5';",
+      "options": [
+        "10",
+        "55",
+        "Error",
+        "undefined"
+      ],
+      "correctAnswer": 1,
+      "explanation": "JavaScript coerces number to string, resulting in string concatenation: '55'."
+    },
+    {
+      "id": 3,
+      "type": "multiple-choice",
+      "question": "Which is the correct arrow function in TypeScript?",
+      "options": [
+        "let sum = (x: number, y: number) => x + y;",
+        "let sum(): (x: number, y: number) => x + y;",
+        "let sum = (x, y): number => return x + y;",
+        "let sum:(x: number, y: number) => x + y;"
+      ],
+      "correctAnswer": 0,
+      "explanation": "Correct syntax uses typed parameters and implicit return."
+    },
+    {
+      "id": 4,
+      "type": "multiple-choice",
+      "question": "What does this Angular guard do?\n\ncanActivate(): boolean {\n  return this.authService.isLoggedIn();\n}",
+      "options": [
+        "Always blocks route",
+        "Allows route only if user is logged in",
+        "Redirects automatically",
+        "Loads module lazily"
+      ],
+      "correctAnswer": 1,
+      "explanation": "CanActivate returns true/false to allow or block navigation based on authentication."
+    },
+    {
+      "id": 5,
+      "type": "multiple-choice",
+      "question": "Which guard is used to prevent navigation away from a component?",
+      "options": [
+        "CanActivate",
+        "CanDeactivate",
+        "Resolve",
+        "CanLoad"
+      ],
+      "correctAnswer": 1,
+      "explanation": "CanDeactivate is used to confirm leaving a route (e.g., unsaved changes)."
+    },
+    {
+      "id": 6,
+      "type": "multiple-choice",
+      "question": "What is the correct way to inject a service into an Angular component?",
+      "options": [
+        "const service = new MyService();",
+        "constructor(private service: MyService) {}",
+        "inject(MyService);",
+        "useService(MyService);"
+      ],
+      "correctAnswer": 1,
+      "explanation": "Angular uses constructor-based dependency injection."
+    },
+    {
+      "id": 7,
+      "type": "multiple-choice",
+      "question": "What is wrong with this code?\n\nconstructor(service: AuthService) {\n  this.service = service;\n}",
+      "options": [
+        "Nothing is wrong",
+        "Missing access modifier (private/public)",
+        "AuthService must be static",
+        "Cannot inject services in constructor"
+      ],
+      "correctAnswer": 1,
+      "explanation": "Without an access modifier, Angular won’t automatically assign it as a class property."
+    },
+    {
+      "id": 8,
+      "type": "multiple-choice",
+      "question": "Which Angular module is required for template-driven forms?",
+      "options": [
+        "ReactiveFormsModule",
+        "FormsModule",
+        "HttpClientModule",
+        "CommonModule"
+      ],
+      "correctAnswer": 1,
+      "explanation": "FormsModule enables template-driven forms."
+    },
+    {
+      "id": 9,
+      "type": "multiple-choice",
+      "question": "What does ngModel provide?",
+      "options": [
+        "Routing",
+        "Two-way data binding and control state tracking",
+        "HTTP requests",
+        "Authentication"
+      ],
+      "correctAnswer": 1,
+      "explanation": "ngModel enables two-way binding and tracks form state like touched/dirty."
+    },
+    {
+      "id": 10,
+      "type": "multiple-choice",
+      "question": "Which is an example of two-way data binding?",
+      "options": [
+        "{{ value }}",
+        "[value]='data'",
+        "(click)='doSomething()'",
+        "[(ngModel)]='value'"
+      ],
+      "correctAnswer": 3,
+      "explanation": "[(ngModel)] combines property and event binding."
+    },
+    {
+      "id": 11,
+      "type": "multiple-choice",
+      "question": "What does this code do?\n\n<input [(ngModel)]='username'>",
+      "options": [
+        "Displays username only",
+        "Updates username only on submit",
+        "Syncs input and variable both ways",
+        "Sends HTTP request"
+      ],
+      "correctAnswer": 2,
+      "explanation": "Two-way binding keeps UI and variable in sync."
+    },
+    {
+      "id": 12,
+      "type": "multiple-choice",
+      "question": "Which is TRUE about authentication?",
+      "options": [
+        "Defines permissions",
+        "Verifies identity",
+        "Handles routing",
+        "Stores data"
+      ],
+      "correctAnswer": 1,
+      "explanation": "Authentication verifies who the user is."
+    },
+    {
+      "id": 13,
+      "type": "multiple-choice",
+      "question": "Which is TRUE about authorization?",
+      "options": [
+        "Identifies user",
+        "Encrypts data",
+        "Determines access permissions",
+        "Validates forms"
+      ],
+      "correctAnswer": 2,
+      "explanation": "Authorization determines what resources a user can access."
+    },
+    {
+      "id": 14,
+      "type": "multiple-choice",
+      "question": "What is the purpose of Resolve guard?",
+      "options": [
+        "Block route",
+        "Confirm exit",
+        "Pre-fetch data before navigation",
+        "Load module"
+      ],
+      "correctAnswer": 2,
+      "explanation": "Resolve ensures data is loaded before route activates."
+    },
+    {
+      "id": 15,
+      "type": "multiple-choice",
+      "question": "Which form type is better for complex validation?",
+      "options": [
+        "Template-driven",
+        "Reactive",
+        "HTML-only",
+        "None"
+      ],
+      "correctAnswer": 1,
+      "explanation": "Reactive forms provide more control and are easier to test."
+    },
+    {
+      "id": 16,
+      "type": "multiple-choice",
+      "question": "What does this Angular syntax represent?\n\n{{ user.name }}",
+      "options": [
+        "Two-way binding",
+        "Event binding",
+        "Interpolation",
+        "Directive"
+      ],
+      "correctAnswer": 2,
+      "explanation": "Interpolation displays component data in the template."
+    },
+    {
+      "id": 17,
+      "type": "multiple-choice",
+      "question": "What is the correct way to protect a route using a guard?",
+      "options": [
+        "{ path: 'admin', component: AdminComponent }",
+        "{ path: 'admin', component: AdminComponent, canActivate: [AuthGuard] }",
+        "{ path: 'admin', guard: AuthGuard }",
+        "{ path: 'admin', protect: true }"
+      ],
+      "correctAnswer": 1,
+      "explanation": "canActivate attaches a guard to a route."
+    },
+    {
+      "id": 18,
+      "type": "multiple-choice",
+      "question": "Which statement about interfaces in TypeScript is TRUE?",
+      "options": [
+        "They generate JS code",
+        "They cannot extend others",
+        "They are only runtime constructs",
+        "They do not generate JavaScript"
+      ],
+      "correctAnswer": 3,
+      "explanation": "Interfaces are compile-time only and disappear after compilation."
+    },
+    {
+      "id": 19,
+      "type": "true-false",
+      "question": "TypeScript can be used for both frontend and backend development.",
+      "correctAnswer": true,
+      "explanation": "TypeScript compiles to JavaScript and works in both environments."
+    },
+    {
+      "id": 20,
+      "type": "true-false",
+      "question": "Angular guards can completely prevent access to routes.",
+      "correctAnswer": true,
+      "explanation": "Guards can block navigation by returning false."
+    }
+  ]
+}

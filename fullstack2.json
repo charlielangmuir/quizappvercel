@@ -1,0 +1,247 @@
+{
+  "title": "Advanced Angular & Dependency Injection (Part 2)",
+  "questions": [
+    {
+      "id": 1,
+      "type": "multiple-choice",
+      "question": "Which Angular token allows injection of a value that is not a class?",
+      "options": [
+        "ProviderToken",
+        "OpaqueToken",
+        "InjectionToken",
+        "ValueToken"
+      ],
+      "correctAnswer": 2,
+      "explanation": "InjectionToken is the official way to define DI tokens for non-class values (strings, configs)."
+    },
+    {
+      "id": 2,
+      "type": "multiple-choice",
+      "question": "What is wrong with this provider?\n\nproviders: [{ provide: MyService, useValue: new MyService() }]",
+      "options": [
+        "useValue cannot be used with classes",
+        "Angular will not call the constructor",
+        "useValue creates a singleton instance outside DI lifecycle",
+        "MyService must be abstract"
+      ],
+      "correctAnswer": 2,
+      "explanation": "useValue bypasses Angular's DI and gives a preconstructed instance. This means no injection inside MyService works."
+    },
+    {
+      "id": 3,
+      "type": "multiple-choice",
+      "question": "Which provider strategy is appropriate for customizing service behavior based on runtime logic?",
+      "options": [
+        "useClass",
+        "useValue",
+        "useExisting",
+        "useFactory"
+      ],
+      "correctAnswer": 3,
+      "explanation": "useFactory allows custom logic, arguments, or async operations when creating the service."
+    },
+    {
+      "id": 4,
+      "type": "multiple-choice",
+      "question": "What does multi: true mean in a provider?",
+      "options": [
+        "Multiple constructors allowed",
+        "Angular will throw an error if duplicates appear",
+        "Multiple providers can be associated with the same token",
+        "Service becomes available globally"
+      ],
+      "correctAnswer": 2,
+      "explanation": "multi: true turns the provider into a collection for a single DI token."
+    },
+    {
+      "id": 5,
+      "type": "multiple-choice",
+      "question": "Identify the issue:\n\nconstructor(http: HttpClient) {}\n\nNo access modifier is used.",
+      "options": [
+        "HttpClient cannot be injected",
+        "Needs private/public to create a class property",
+        "Constructor cannot have parameters",
+        "HttpClientModule must be imported first"
+      ],
+      "correctAnswer": 1,
+      "explanation": "Without a visibility modifier, Angular injects the service, but you cannot use it as a class property."
+    },
+    {
+      "id": 6,
+      "type": "multiple-choice",
+      "question": "Which Angular lifecycle hook fires *after* the first ngOnChanges?",
+      "options": [
+        "ngOnInit",
+        "ngAfterViewInit",
+        "ngAfterContentInit",
+        "ngOnDestroy"
+      ],
+      "correctAnswer": 0,
+      "explanation": "ngOnInit runs exactly once after initial input binding."
+    },
+    {
+      "id": 7,
+      "type": "multiple-choice",
+      "question": "Which RxJS operator is best for cancelling previous HTTP requests?",
+      "options": [
+        "mergeMap",
+        "switchMap",
+        "concatMap",
+        "tap"
+      ],
+      "correctAnswer": 1,
+      "explanation": "switchMap cancels previous subscriptions automatically when emitting new values."
+    },
+    {
+      "id": 8,
+      "type": "multiple-choice",
+      "question": "What is the key difference between Subject and BehaviorSubject?",
+      "options": [
+        "BehaviorSubject requires async pipe",
+        "Subject stores the last emitted value",
+        "BehaviorSubject emits only once",
+        "Subject cannot receive next()"
+      ],
+      "correctAnswer": 1,
+      "explanation": "BehaviorSubject always emits the latest value immediately to new subscribers."
+    },
+    {
+      "id": 9,
+      "type": "multiple-choice",
+      "question": "Given Angular lazy loading, which syntax is correct?",
+      "options": [
+        "{ path: 'admin', loadChildren: AdminModule }",
+        "{ path: 'admin', loadChildren: './admin.module.ts' }",
+        "{ path: 'admin', loadChildren: () => import('./admin/admin.module').then(m => m.AdminModule) }",
+        "{ path: 'admin', import: AdminModule }"
+      ],
+      "correctAnswer": 2,
+      "explanation": "Correct lazy loading uses a dynamic import returning the module."
+    },
+    {
+      "id": 10,
+      "type": "multiple-choice",
+      "question": "What is wrong with this routing definition?\n\n{ path: '', redirectTo: 'home' }",
+      "options": [
+        "redirectTo cannot be empty",
+        "Missing pathMatch: 'full'",
+        "home must be a component",
+        "redirect cannot target children"
+      ],
+      "correctAnswer": 1,
+      "explanation": "Empty redirect routes MUST have pathMatch: 'full' to prevent infinite redirects."
+    },
+    {
+      "id": 11,
+      "type": "multiple-choice",
+      "question": "Which statement is TRUE about Observables?",
+      "options": [
+        "They execute immediately",
+        "They support multiple subscribers by default",
+        "They are lazy and only execute when subscribed",
+        "They cannot be cancelled"
+      ],
+      "correctAnswer": 2,
+      "explanation": "Observables are lazy and execute only after subscription."
+    },
+    {
+      "id": 12,
+      "type": "multiple-choice",
+      "question": "Which Angular decorator defines a service?",
+      "options": [
+        "@Injectable()",
+        "@Service()",
+        "@Provider()",
+        "@Inject()"
+      ],
+      "correctAnswer": 0,
+      "explanation": "@Injectable marks a class as available to DI."
+    },
+    {
+      "id": 13,
+      "type": "multiple-choice",
+      "question": "What is wrong with this DI code?\n\n@Injectable({ providedIn: 'module' })",
+      "options": [
+        "providedIn must be 'root' or a specific module",
+        "providedIn cannot use strings",
+        "Injectable cannot accept arguments",
+        "Service must use useFactory"
+      ],
+      "correctAnswer": 0,
+      "explanation": "‘module’ is not a valid scope. Should be 'root', 'platform', or a module class."
+    },
+    {
+      "id": 14,
+      "type": "multiple-choice",
+      "question": "Which DI technique allows one service to act as an alias for another?",
+      "options": [
+        "useFactory",
+        "useValue",
+        "useExisting",
+        "multi providers"
+      ],
+      "correctAnswer": 2,
+      "explanation": "useExisting maps one token to an existing provider."
+    },
+    {
+      "id": 15,
+      "type": "true-false",
+      "question": "A factory provider can return different service instances depending on runtime conditions.",
+      "correctAnswer": true,
+      "explanation": "Factories run at runtime and can return dynamically chosen values."
+    },
+    {
+      "id": 16,
+      "type": "true-false",
+      "question": "Subjects are hot Observables.",
+      "correctAnswer": true,
+      "explanation": "Subjects emit values regardless of subscribers and share emissions to all listeners."
+    },
+    {
+      "id": 17,
+      "type": "multiple-choice",
+      "question": "What is wrong with this code?\n\nngOnInit() {\n  this.obs$.subscribe(v => console.log(v));\n}",
+      "options": [
+        "subscribe cannot be used inside ngOnInit",
+        "Subscriptions must be manually unsubscribed to avoid memory leaks",
+        "Observables cannot be subscribed in components",
+        "console.log is not allowed"
+      ],
+      "correctAnswer": 1,
+      "explanation": "Subscriptions should be cleaned (e.g., with takeUntil or async pipe)."
+    },
+    {
+      "id": 18,
+      "type": "multiple-choice",
+      "question": "What does async pipe do?",
+      "options": [
+        "Triggers change detection manually",
+        "Automatically unsubscribes on destroy",
+        "Returns a promise",
+        "Makes functions async"
+      ],
+      "correctAnswer": 1,
+      "explanation": "Async pipe handles subscription + cleanup automatically."
+    },
+    {
+      "id": 19,
+      "type": "multiple-choice",
+      "question": "Which operator is best for running actions without modifying stream values?",
+      "options": [
+        "map",
+        "tap",
+        "filter",
+        "reduce"
+      ],
+      "correctAnswer": 1,
+      "explanation": "tap performs side effects without altering the data."
+    },
+    {
+      "id": 20,
+      "type": "true-false",
+      "question": "Lazy-loaded modules get their own dependency injection scope.",
+      "correctAnswer": true,
+      "explanation": "Lazy-loaded modules create child injectors with isolated providers."
+    }
+  ]
+}

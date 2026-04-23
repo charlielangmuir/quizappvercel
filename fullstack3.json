@@ -1,0 +1,223 @@
+{
+  "title": "Angular Fundamentals (From Lecture Slides)",
+  "questions": [
+    {
+      "id": 1,
+      "type": "multiple-choice",
+      "question": "Angular is primarily written in:",
+      "options": ["Java", "TypeScript", "C#", "Dart"],
+      "correctAnswer": 1,
+      "explanation": "Angular applications are fundamentally TypeScript-based."
+    },
+    {
+      "id": 2,
+      "type": "multiple-choice",
+      "question": "Which Angular CLI command generates a component?",
+      "options": [
+        "ng new component",
+        "ng generate component",
+        "ng build component",
+        "ng add component"
+      ],
+      "correctAnswer": 1,
+      "explanation": "ng g c is shorthand for 'ng generate component'."
+    },
+    {
+      "id": 3,
+      "type": "multiple-choice",
+      "question": "Which file defines the root Angular module?",
+      "options": [
+        "main.ts",
+        "app.component.ts",
+        "app.module.ts",
+        "angular.json"
+      ],
+      "correctAnswer": 2,
+      "explanation": "app.module.ts declares the root module via @NgModule."
+    },
+    {
+      "id": 4,
+      "type": "multiple-choice",
+      "question": "Which data binding syntax displays component data?",
+      "options": ["( )", "[ ]", "{{ }}", "[( )]"],
+      "correctAnswer": 2,
+      "explanation": "{{ }} is interpolation."
+    },
+    {
+      "id": 5,
+      "type": "multiple-choice",
+      "question": "Which binding syntax is two-way?",
+      "options": ["[ ]", "( )", "[( )]", "{{ }}"],
+      "correctAnswer": 2,
+      "explanation": "[(ngModel)] combines event and property binding."
+    },
+    {
+      "id": 6,
+      "type": "multiple-choice",
+      "question": "Which directive renders elements based on a condition?",
+      "options": ["*ngFor", "*ngModel", "*ngIf", "*ngStyle"],
+      "correctAnswer": 2,
+      "explanation": "*ngIf conditionally inserts elements."
+    },
+    {
+      "id": 7,
+      "type": "multiple-choice",
+      "question": "Which module enables template-driven forms?",
+      "options": [
+        "ReactiveFormsModule",
+        "FormsModule",
+        "CommonModule",
+        "BrowserModule"
+      ],
+      "correctAnswer": 1,
+      "explanation": "FormsModule enables ngModel and template-driven forms."
+    },
+    {
+      "id": 8,
+      "type": "multiple-choice",
+      "question": "The NgForm directive is automatically applied to:",
+      "options": [
+        "<div>",
+        "<input>",
+        "<form>",
+        "<ng-container>"
+      ],
+      "correctAnswer": 2,
+      "explanation": "Angular attaches NgForm to all <form> tags automatically."
+    },
+    {
+      "id": 9,
+      "type": "multiple-choice",
+      "question": "Which statement is TRUE about template reference variables?",
+      "options": [
+        "They only work in scripts",
+        "They are declared using #varname",
+        "They replace ngModel",
+        "Must be defined in TypeScript"
+      ],
+      "correctAnswer": 1,
+      "explanation": "Template reference variables use the # syntax."
+    },
+    {
+      "id": 10,
+      "type": "multiple-choice",
+      "question": "Which routing guard is used to protect routes from unauthorized access?",
+      "options": [
+        "CanDeactivate",
+        "CanActivate",
+        "Resolve",
+        "CanLoad"
+      ],
+      "correctAnswer": 1,
+      "explanation": "CanActivate decides access to a route."
+    },
+    {
+      "id": 11,
+      "type": "multiple-choice",
+      "question": "Authorization refers to:",
+      "options": [
+        "Verifying identity",
+        "Assigning permissions",
+        "Recovering passwords",
+        "Redirecting routes"
+      ],
+      "correctAnswer": 1,
+      "explanation": "Authorization defines access rules."
+    },
+    {
+      "id": 12,
+      "type": "multiple-choice",
+      "question": "Authentication refers to:",
+      "options": [
+        "Checking who the user is",
+        "Assigning permissions",
+        "Encrypting data",
+        "Running guards"
+      ],
+      "correctAnswer": 0,
+      "explanation": "Authentication verifies identity."
+    },
+    {
+      "id": 13,
+      "type": "multiple-choice",
+      "question": "Which directive iterates over a collection?",
+      "options": ["*ngIf", "*ngModel", "*ngFor", "*ngSwitch"],
+      "correctAnswer": 2,
+      "explanation": "*ngFor is used for loops."
+    },
+    {
+      "id": 14,
+      "type": "multiple-choice",
+      "question": "Which of the following is a built-in Angular pipe?",
+      "options": ["title", "uppercase", "clean", "convert"],
+      "correctAnswer": 1,
+      "explanation": "uppercase is a built-in Angular transformation pipe."
+    },
+    {
+      "id": 15,
+      "type": "multiple-choice",
+      "question": "Which CLI command generates a guard?",
+      "options": [
+        "ng g guard auth",
+        "ng g protector auth",
+        "ng g security auth",
+        "ng g routeguard auth"
+      ],
+      "correctAnswer": 0,
+      "explanation": "The official command is ng generate guard."
+    },
+    {
+      "id": 16,
+      "type": "multiple-choice",
+      "question": "Angular forms update validation:",
+      "options": [
+        "Only on submit",
+        "Only when user finishes typing",
+        "Whenever a form control value changes",
+        "Only when clicking a button"
+      ],
+      "correctAnswer": 2,
+      "explanation": "Angular updates validation automatically when values change."
+    },
+    {
+      "id": 17,
+      "type": "multiple-choice",
+      "question": "Which component decorator property defines the template file?",
+      "options": [
+        "templatePath",
+        "templateUrl",
+        "viewUrl",
+        "html"
+      ],
+      "correctAnswer": 1,
+      "explanation": "templateUrl links an external HTML file."
+    },
+    {
+      "id": 18,
+      "type": "multiple-choice",
+      "question": "Angular components must belong to:",
+      "options": [
+        "A route",
+        "A module",
+        "A service",
+        "An interface"
+      ],
+      "correctAnswer": 1,
+      "explanation": "Components must be declared inside an NgModule."
+    },
+    {
+      "id": 19,
+      "type": "true-false",
+      "question": "Interpolation can only display strings.",
+      "correctAnswer": false,
+      "explanation": "Angular converts non-strings safely (numbers, booleans, function results)."
+    },
+    {
+      "id": 20,
+      "type": "true-false",
+      "question": "Angular routing enables mapping URLs to components.",
+      "correctAnswer": true,
+      "explanation": "RouterModule allows component-based routing."
+    }
+  ]
+}
