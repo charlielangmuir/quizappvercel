@@ -1,0 +1,483 @@
+{
+  "title": "Cyber Security Quiz (Weeks 5–13)",
+  "questions": [
+    {
+      "id": 1,
+      "type": "multiple-choice",
+      "question": "In the CIA triad, which property is primarily targeted by a Denial of Service (DoS) attack?",
+      "options": [
+        "Confidentiality",
+        "Integrity",
+        "Availability",
+        "Authenticity"
+      ],
+      "correctAnswer": 2,
+      "explanation": "DoS attacks aim to make a service unavailable, targeting availability."
+    },
+    {
+      "id": 2,
+      "type": "true-false",
+      "question": "A DoS attack is primarily about disrupting access to a service rather than stealing data.",
+      "correctAnswer": true,
+      "explanation": "The notes emphasize that the goal is often to disrupt (deny service), not necessarily to infiltrate."
+    },
+    {
+      "id": 3,
+      "type": "multiple-choice",
+      "question": "Which statement best captures the main impact of a DoS attack?",
+      "options": [
+        "It permanently encrypts all files on the target",
+        "It disrupts service so legitimate users cannot access it",
+        "It changes domain ownership records",
+        "It modifies database schemas without detection"
+      ],
+      "correctAnswer": 1,
+      "explanation": "A DoS denies service to users by overloading or otherwise disrupting the target."
+    },
+    {
+      "id": 4,
+      "type": "multiple-choice",
+      "question": "In the context of DoS, what does searching for the term “booter” typically refer to?",
+      "options": [
+        "A tool for patching operating systems",
+        "A DoS-for-hire service",
+        "A network firewall configuration standard",
+        "A browser feature that blocks popups"
+      ],
+      "correctAnswer": 1,
+      "explanation": "The notes mention “booter” as a term associated with DoS services that can be monetized."
+    },
+    {
+      "id": 5,
+      "type": "multiple-choice",
+      "question": "What is the defining characteristic of a volumetric DoS attack?",
+      "options": [
+        "Steals cookies to impersonate a user",
+        "Consumes bandwidth to block communication",
+        "Forces the database to throw errors",
+        "Injects code into a DOM sink"
+      ],
+      "correctAnswer": 1,
+      "explanation": "Volumetric attacks saturate bandwidth so communication is blocked."
+    },
+    {
+      "id": 6,
+      "type": "multiple-choice",
+      "question": "In a SYN flood attack, which step of the TCP 3-way handshake is typically not completed by the attacker?",
+      "options": [
+        "The initial SYN",
+        "The SYN-ACK from the server",
+        "The final ACK from the client",
+        "The server closing the connection"
+      ],
+      "correctAnswer": 2,
+      "explanation": "The attacker sends SYNs but does not complete the handshake (does not send the final ACK), leaving the server waiting."
+    },
+    {
+      "id": 7,
+      "type": "multiple-choice",
+      "question": "Which DoS technique involves overwhelming a system by sending a large number of ICMP packets?",
+      "options": [
+        "Volumetric attack",
+        "SYN flood attack",
+        "ICMP attack",
+        "Permanent DoS"
+      ],
+      "correctAnswer": 2,
+      "explanation": "ICMP attacks overload a system with ICMP packets so it cannot respond normally."
+    },
+    {
+      "id": 8,
+      "type": "multiple-choice",
+      "question": "Which description best fits an application-level DoS attack?",
+      "options": [
+        "Sending crafted traffic to saturate the internet link",
+        "Exploiting a vulnerability by sending unexpected or malformed data",
+        "Making DNS requests from SQL queries",
+        "Hiding a malicious button under a visible UI element"
+      ],
+      "correctAnswer": 1,
+      "explanation": "Application-level attacks exploit program weaknesses by sending unexpected/malformed inputs or excessive data."
+    },
+    {
+      "id": 9,
+      "type": "multiple-choice",
+      "question": "A “permanent DoS” is also known as:",
+      "options": [
+        "Session riding",
+        "Phlashing",
+        "Clickjacking",
+        "Out-of-band extraction"
+      ],
+      "correctAnswer": 1,
+      "explanation": "The notes describe permanent DoS as “phlashing,” making irreversible changes that can render hardware unusable."
+    },
+    {
+      "id": 10,
+      "type": "multiple-choice",
+      "question": "Which statement best distinguishes DDoS from DoS?",
+      "options": [
+        "DoS uses encryption; DDoS does not",
+        "DoS comes from one source; DDoS comes from many distributed sources",
+        "DoS targets only databases; DDoS targets only web servers",
+        "DoS is always permanent; DDoS is always temporary"
+      ],
+      "correctAnswer": 1,
+      "explanation": "DDoS uses multiple machines/connections (often botnets/zombies) to flood a target, unlike a single-source DoS."
+    },
+    {
+      "id": 11,
+      "type": "multiple-choice",
+      "question": "An HTTP proxy primarily:",
+      "options": [
+        "Encrypts all web traffic end-to-end by default",
+        "Makes requests to web servers on behalf of other clients",
+        "Replaces DNS with direct IP routing",
+        "Prevents all XSS by filtering <script> tags"
+      ],
+      "correctAnswer": 1,
+      "explanation": "A proxy can act as client or server, forwarding requests on behalf of clients and sometimes caching responses."
+    },
+    {
+      "id": 12,
+      "type": "true-false",
+      "question": "HTTP proxies can provide support for caching.",
+      "correctAnswer": true,
+      "explanation": "The notes explicitly list caching as a proxy capability."
+    },
+    {
+      "id": 13,
+      "type": "multiple-choice",
+      "question": "In web server hacking reconnaissance, what is the attacker trying to determine first?",
+      "options": [
+        "Which developer wrote the code",
+        "What is open and potentially vulnerable",
+        "Which encryption algorithm is used in the database",
+        "Which user has the strongest password"
+      ],
+      "correctAnswer": 1,
+      "explanation": "The notes emphasize listening/monitoring/observation to find what’s open and vulnerable."
+    },
+    {
+      "id": 14,
+      "type": "multiple-choice",
+      "question": "Which tool is specifically mentioned for scanning web servers and finding open ports?",
+      "options": [
+        "Nmap",
+        "WPScan",
+        "GFI LanGuard",
+        "UTL_HTTP"
+      ],
+      "correctAnswer": 0,
+      "explanation": "Nmap is listed as the tool used to scan for ports/services."
+    },
+    {
+      "id": 15,
+      "type": "multiple-choice",
+      "question": "Banner grabbing and enumeration is primarily used to:",
+      "options": [
+        "Identify server distribution and version",
+        "Encrypt cookies so they can’t be modified",
+        "Force a database to delay responses",
+        "Prevent clickjacking by adding headers"
+      ],
+      "correctAnswer": 0,
+      "explanation": "Banner grabbing helps fingerprint a server by identifying its distribution/version."
+    },
+    {
+      "id": 16,
+      "type": "multiple-choice",
+      "question": "Which tool is mentioned for banner grabbing and enumeration?",
+      "options": [
+        "whatweb",
+        "Nessus",
+        "Acunetix",
+        "Retina CS"
+      ],
+      "correctAnswer": 0,
+      "explanation": "The notes list Telnet, Netcat, and whatweb for banner grabbing and enumeration."
+    },
+    {
+      "id": 17,
+      "type": "true-false",
+      "question": "Fingerprinting is information collected about a remote computing device for the purpose of identification.",
+      "correctAnswer": true,
+      "explanation": "That’s the definition provided under banner grabbing/enumeration and fingerprinting."
+    },
+    {
+      "id": 18,
+      "type": "multiple-choice",
+      "question": "Which port is most commonly associated with HTTP?",
+      "options": [
+        "21",
+        "22",
+        "80",
+        "443"
+      ],
+      "correctAnswer": 2,
+      "explanation": "The notes mention HTTP usually runs on port 80 (and HTTPS on 443)."
+    },
+    {
+      "id": 19,
+      "type": "multiple-choice",
+      "question": "Which port is most commonly associated with HTTPS?",
+      "options": [
+        "53",
+        "80",
+        "110",
+        "443"
+      ],
+      "correctAnswer": 3,
+      "explanation": "The notes mention HTTPS typically runs on port 443."
+    },
+    {
+      "id": 20,
+      "type": "multiple-choice",
+      "question": "After fingerprinting a web server, a typical next step is to:",
+      "options": [
+        "Search for known vulnerabilities affecting that server",
+        "Disable root login on the attacker’s machine",
+        "Switch all requests to UDP",
+        "Delete all server logs"
+      ],
+      "correctAnswer": 0,
+      "explanation": "The notes say after fingerprinting, you search for vulnerabilities (e.g., by looking up known issues)."
+    },
+    {
+      "id": 21,
+      "type": "multiple-choice",
+      "question": "Which tool is mentioned for web server vulnerability identification?",
+      "options": [
+        "OpenVAS",
+        "Telnet",
+        "Netcat",
+        "CIS Benchmarks"
+      ],
+      "correctAnswer": 0,
+      "explanation": "OpenVAS is explicitly listed under web server vulnerability identification tools."
+    },
+    {
+      "id": 22,
+      "type": "true-false",
+      "question": "HTTP is generally considered a stateless protocol.",
+      "correctAnswer": true,
+      "explanation": "“Stateless, stateful” is listed under terms to know for HTTP; HTTP itself is typically stateless."
+    },
+    {
+      "id": 23,
+      "type": "multiple-choice",
+      "question": "Which of the following is a “harden before deploying” technique from the notes?",
+      "options": [
+        "Disable firewalls",
+        "Enable and use firewalls",
+        "Publish system passwords in comments",
+        "Store sensitive data unencrypted in cookies"
+      ],
+      "correctAnswer": 1,
+      "explanation": "Hardening techniques include enabling firewalls, patching OS, strong passwords, and disabling root login."
+    },
+    {
+      "id": 24,
+      "type": "multiple-choice",
+      "question": "Which of the following is NOT listed as a hardening technique?",
+      "options": [
+        "Apply OS/distribution patches",
+        "Disable root login",
+        "Use strong passwords",
+        "Enable root login"
+      ],
+      "correctAnswer": 3,
+      "explanation": "The notes explicitly recommend disabling root login, not enabling it."
+    },
+    {
+      "id": 25,
+      "type": "true-false",
+      "question": "Following CIS benchmarking guidelines is recommended as part of OS/distribution hardening.",
+      "correctAnswer": true,
+      "explanation": "CIS benchmarking is named as a guideline for hardening before deploying."
+    },
+    {
+      "id": 26,
+      "type": "multiple-choice",
+      "question": "The phrase “If you’re not using it, lose it” is used in the notes to describe:",
+      "options": [
+        "Disabling unneeded services",
+        "Using a password manager",
+        "Encrypting all database backups",
+        "Clickjacking prevention"
+      ],
+      "correctAnswer": 0,
+      "explanation": "It refers to disabling services you don’t need because they can contain vulnerabilities."
+    },
+    {
+      "id": 27,
+      "type": "multiple-choice",
+      "question": "Which action is directly listed as part of disabling unneeded services?",
+      "options": [
+        "Stop service",
+        "Increase cookie lifetime",
+        "Turn off database constraints",
+        "Remove input validation"
+      ],
+      "correctAnswer": 0,
+      "explanation": "The notes list actions like stopping a service, disabling it, removing service files, and reloading service managers."
+    },
+    {
+      "id": 28,
+      "type": "multiple-choice",
+      "question": "“Lock down the file system” primarily means:",
+      "options": [
+        "Allow all users read/write access",
+        "Limit and/or remove access via permissions",
+        "Disable vulnerability scanning",
+        "Store logs only in memory"
+      ],
+      "correctAnswer": 1,
+      "explanation": "Locking down the file system is about limiting access through permissions and ownership."
+    },
+    {
+      "id": 29,
+      "type": "multiple-choice",
+      "question": "Which command is mentioned in the notes for changing file/process ownership from root to another user?",
+      "options": [
+        "chmod",
+        "chown",
+        "chgrp",
+        "ls"
+      ],
+      "correctAnswer": 1,
+      "explanation": "The notes mention changing process ownership from root to another user using chown."
+    },
+    {
+      "id": 30,
+      "type": "multiple-choice",
+      "question": "In the notes, a “log” is best described as:",
+      "options": [
+        "A formal record of access and executed commands",
+        "A guarantee that no attacks will happen",
+        "A method for rewriting SQL queries",
+        "A browser feature for blocking scripts"
+      ],
+      "correctAnswer": 0,
+      "explanation": "Logging is keeping a formal record of access and commands executed."
+    },
+    {
+      "id": 31,
+      "type": "multiple-choice",
+      "question": "In the notes, an “audit” is best described as:",
+      "options": [
+        "A cache of HTTP responses",
+        "A documented procedure to validate compliance and conformance",
+        "A way to hide elements in HTML",
+        "A set of SQL statements that combine queries"
+      ],
+      "correctAnswer": 1,
+      "explanation": "Audits measure conformance with compliance regulations and define procedures for validation."
+    },
+    {
+      "id": 32,
+      "type": "multiple-choice",
+      "question": "Providing ongoing vulnerability scans means:",
+      "options": [
+        "Scanning once and never scanning again",
+        "Performing periodic scans using automated assessment tools",
+        "Only scanning after a breach",
+        "Disabling all third-party software"
+      ],
+      "correctAnswer": 1,
+      "explanation": "The notes emphasize periodic vulnerability scanning using automated tools."
+    },
+    {
+      "id": 33,
+      "type": "multiple-choice",
+      "question": "Which tool is explicitly listed as a vulnerability scanning option in the notes?",
+      "options": [
+        "Nessus",
+        "Telnet",
+        "whatweb",
+        "UTL_HTTP"
+      ],
+      "correctAnswer": 0,
+      "explanation": "Nessus is listed under ongoing vulnerability scan tools."
+    },
+    {
+      "id": 34,
+      "type": "true-false",
+      "question": "Defense-in-depth refers to relying on multiple layers of security controls rather than a single control.",
+      "correctAnswer": true,
+      "explanation": "Defense-in-depth is a standard term in the notes’ “Terms to Know,” meaning layered protections."
+    },
+    {
+      "id": 35,
+      "type": "multiple-choice",
+      "question": "Why are cookie manipulation attacks risky according to the notes?",
+      "options": [
+        "Cookies can only be read by servers, never by applications",
+        "Applications may execute logic based on cookie values",
+        "Cookies automatically patch vulnerabilities",
+        "Cookies prevent DoS attacks"
+      ],
+      "correctAnswer": 1,
+      "explanation": "The notes state cookies are read and application processes may execute based on cookie values."
+    },
+    {
+      "id": 36,
+      "type": "true-false",
+      "question": "Storing sensitive information in cookies unencrypted is considered safe because browsers protect cookies.",
+      "correctAnswer": false,
+      "explanation": "The notes explicitly warn not to store sensitive info in cookies unencrypted."
+    },
+    {
+      "id": 37,
+      "type": "multiple-choice",
+      "question": "Which mitigation approach is recommended for cookie manipulation attacks?",
+      "options": [
+        "Directly execute cookie values without checks",
+        "Avoid storing sensitive info unencrypted and validate cookie values before using them",
+        "Disable all logging",
+        "Only use HTTP/2"
+      ],
+      "correctAnswer": 1,
+      "explanation": "Mitigations include not storing sensitive info unencrypted and not directly executing cookie values without checking them."
+    },
+    {
+      "id": 38,
+      "type": "multiple-choice",
+      "question": "Web server password cracking (as defined in the notes) is:",
+      "options": [
+        "Generating random passwords forever until one works",
+        "Checking passwords against commonly used password databases",
+        "Exfiltrating passwords via DNS queries",
+        "Changing the password policy on the server"
+      ],
+      "correctAnswer": 1,
+      "explanation": "The notes describe it as checking a password against commonly used password lists/databases."
+    },
+    {
+      "id": 39,
+      "type": "multiple-choice",
+      "question": "Which utility is mentioned in the notes in the context of web server password cracking?",
+      "options": [
+        "WPScan",
+        "Nmap",
+        "OpenVAS",
+        "GFI LanGuard"
+      ],
+      "correctAnswer": 0,
+      "explanation": "WPScan is explicitly mentioned under web server password cracking."
+    },
+    {
+      "id": 40,
+      "type": "multiple-choice",
+      "question": "Which mitigation is recommended against password cracking in the notes?",
+      "options": [
+        "Create a strong password",
+        "Use the most common password to blend in",
+        "Disable patches to avoid downtime",
+        "Expose detailed error messages"
+      ],
+      "correctAnswer": 0,
+      "explanation": "The notes recommend creating strong passwords and using uncommon usernames."
+    }
+  ]
+}
